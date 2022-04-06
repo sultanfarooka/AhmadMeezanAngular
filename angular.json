@@ -9,6 +9,7 @@
         "@schematics/angular:application": {
           "strict": true
         }
+        
       },
       "root": "",
       "sourceRoot": "src",
@@ -100,6 +101,11 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "skipTests": true
     }
   },
   "defaultProject": "angularTailwindcss"
