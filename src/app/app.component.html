@@ -1,16 +1,30 @@
 <div class="navbar bg-base-100">
-  <div class="navbar-start">
-    
-  </div>
+  <div class="navbar-start"></div>
   <div class="navbar-center">
-    <a class="btn btn-ghost normal-case text-xl">Ahmad Meezan</a>
+    <a class="btn btn-ghost normal-case text-xl">Quick Look Acoustic</a>
   </div>
   <div class="navbar-end">
     <div class="dropdown dropdown-left">
       <label tabindex="0" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h7"
+          />
+        </svg>
       </label>
-      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+      <ul
+        tabindex="0"
+        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+      >
         <li><a>Homepage</a></li>
         <li><a>Portfolio</a></li>
         <li><a>About</a></li>
@@ -19,6 +33,70 @@
   </div>
 </div>
 
-<router-outlet>
+<div class="flex p-4 justify-between">
+  <div class="space-x-3">
+    <button class="btn">Save Configurations</button>
+    <button class="btn">Load Configurations</button>
+    <button class="btn">Job Status</button>
+  </div>
+  <div class="space-x-3">
+    <button class="btn">Reset Current Selections</button>
+    <button class="btn">Job Status</button>
+  </div>
+</div>
 
-</router-outlet>
+<div class="p-4 grid grid-cols-12 gap-4">
+  <div class="col-span-1">
+    <ul class="menu bg-base-200 rounded p-2">
+      <li><a>Item 1</a></li>
+      <!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
+      <li tabindex="0">
+        <span>Parent</span>
+        <ul class="rounded-box p-2 bg-base-100">
+          <li><a>Submenu 1</a></li>
+          <li><a>Submenu 2</a></li>
+          <li><a>Submenu 3</a></li>
+        </ul>
+      </li>
+      <li><a>Item 3</a></li>
+    </ul>
+  </div>
+  <div class="col-span-11">
+    <div class="flex flex-col">
+      <h1 class="w-full font-semibold text-center bg-base-300 rounded p-3">
+        Single Measurments/ Compare Positions
+      </h1>
+      <p class="font-semibold p-2 border-b">Testcandidate Prep</p>
+      <div class="grid grid-cols-12 border gap-2 p-2">
+        <div class="col-span-3 border align-middle">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+        <div class="col-span-3 border">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+        <div class="col-span-3 border">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+        <div class="col-span-3 border">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+        <div class="col-span-3 border">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+        <div class="col-span-3 border">
+          <input type="checkbox" checked="checked" class="checkbox mr-4" />
+          <span class="label-text">Remember me</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div></div>
+
+<router-outlet> </router-outlet>
