@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ahmad Meezan';
+  sideMenu = true;
+
+
+  xmarkIcon = faXmark;
+
+
+  toggleSideMenu(){
+    this.sideMenu = !this.sideMenu;
+  }
+  
+
+
 }

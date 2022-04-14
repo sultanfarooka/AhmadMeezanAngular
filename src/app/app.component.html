@@ -1,102 +1,41 @@
-<div class="navbar bg-base-100">
-  <div class="navbar-start"></div>
-  <div class="navbar-center">
-    <a class="btn btn-ghost normal-case text-xl">Quick Look Acoustic</a>
-  </div>
-  <div class="navbar-end">
-    <div class="dropdown dropdown-left">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h7"
-          />
-        </svg>
-      </label>
-      <ul
-        tabindex="0"
-        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-      >
-        <li><a>Homepage</a></li>
-        <li><a>Portfolio</a></li>
-        <li><a>About</a></li>
-      </ul>
-    </div>
-  </div>
+<div class="flex">
+<div [ngClass]="sideMenu ? 'w-72':'w-0' " 
+class="h-screen bg-base-300 transition-all duration-1000 absolute overflow-hidden left-0 top-0 z-10 lg:static">
+<div class="w-full flex justify-between lg:justify-center">
+<div class="btn btn-ghost">
+  <h1 class="text-2xl">LOGO</h1>
 </div>
-
-<div class="flex p-4 justify-between">
-  <div class="space-x-3">
-    <button class="btn">Save Configurations</button>
-    <button class="btn">Load Configurations</button>
-    <button class="btn">Job Status</button>
-  </div>
-  <div class="space-x-3">
-    <button class="btn">Reset Current Selections</button>
-    <button class="btn">Job Status</button>
-  </div>
+<div (click)="toggleSideMenu()" class="btn btn-ghost lg:hidden">
+  <fa-icon [icon]="xmarkIcon"></fa-icon>
 </div>
-
-<div class="p-4 grid grid-cols-12 gap-4">
-  <div class="col-span-1">
-    <ul class="menu bg-base-200 rounded p-2">
-      <li><a>Item 1</a></li>
-      <!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
-      <li tabindex="0">
-        <span>Parent</span>
-        <ul class="rounded-box p-2 bg-base-100">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-          <li><a>Submenu 3</a></li>
-        </ul>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  <div class="col-span-11">
-    <div class="flex flex-col">
-      <h1 class="w-full font-semibold text-center bg-base-300 rounded p-3">
-        Single Measurments/ Compare Positions
-      </h1>
-      <p class="font-semibold p-2 border-b">Testcandidate Prep</p>
-      <div class="grid grid-cols-12 border gap-2 p-2">
-        <div class="col-span-3 border align-middle">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
-        <div class="col-span-3 border">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
-        <div class="col-span-3 border">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
-        <div class="col-span-3 border">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
-        <div class="col-span-3 border">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
-        <div class="col-span-3 border">
-          <input type="checkbox" checked="checked" class="checkbox mr-4" />
-          <span class="label-text">Remember me</span>
-        </div>
+</div>
+</div>
+<div class="w-full h-screen">
+  
+  <div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label (click)="toggleSideMenu()"  class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+        </label>
+        
       </div>
     </div>
+    <div class="navbar-center">
+      <a class="normal-case font-semibold text-xl">Quick Look Acustics</a>
+    </div>
+    <div class="navbar-end">
+      <button class="btn btn-ghost">
+        <div class="indicator">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+          <span class="badge badge-xs badge-primary indicator-item"></span>
+        </div>
+      </button>
+    </div>
   </div>
+  <router-outlet> </router-outlet>
 </div>
 
-<div></div>
+</div>
 
-<router-outlet> </router-outlet>
+

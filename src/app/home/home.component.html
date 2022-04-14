@@ -1,0 +1,436 @@
+<div class="text-sm p-4 breadcrumbs">
+    <ul>
+      <li><a>Home</a></li> 
+      <li><a>Documents</a></li> 
+      <li>Add Document</li>
+    </ul>
+  </div>
+<div class="flex p-4 justify-between">
+  <div class="space-x-3">
+    <button class="btn btn-sm"><fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save Configurations</button>
+     <button class="btn btn-sm"><fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load Configurations</button>
+     
+  </div>
+  <div class="space-x-3">
+    <button class="btn btn-sm"><fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status</button>
+     <button class="btn btn-sm"><fa-icon [icon]="resetSelection" class="mr-2" ></fa-icon>Reset Current Selections</button>
+  </div>
+</div>
+
+<div class="p-4 grid grid-cols-12 gap-4">
+  <div class="col-span-1">
+    <ul  class="menu bg-base-200 h-full rounded">
+        
+      <li 
+      *ngFor="let ch of chanels" 
+      [ngClass]="ch == selectedCh ? 'border-r-8 border-base-300':''" 
+      (click)="selectCh()"
+      class="text-center">
+        <span  class="justify-center font-semibold">{{ch}}</span>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="col-span-11">
+    <div class="flex flex-col">
+      <h1
+        class="w-full font-semibold text-center bg-base-200 rounded shadow p-3"
+      >
+        Single Measurments/ Compare Positions
+      </h1>
+      <div class="pb-4 border-b">
+        <p class="text-xl font-semibold p-2">Testcandidate Prep</p>
+        <div class="grid grid-cols-12">
+          <div class="col-span-10 border-r">
+            <div class="grid grid-cols-12 gap-y-2">
+              <div class="col-span-4 align-middle">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+              </div>
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold">Group Name:</p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <button class="btn w-full btn-sm m-1">Button</button>
+            <button class="btn w-full btn-sm m-1">Button</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-4 border-b">
+        <p class="text-xl font-semibold p-2">Testcandidate Prep</p>
+        <div class="grid grid-cols-12">
+          <div class="col-span-10 border-r">
+            <div class="grid grid-cols-12 gap-y-2">
+              <div class="col-span-4 align-middle">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+              </div>
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold"></p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+
+              <div class="col-span-4 flex flex-col">
+                <p class="text-sm font-semibold">Group Name:</p>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                </div>
+                <div class="flex items-center p-1">
+                  <input
+                    type="checkbox"
+                    checked="checked"
+                    class="checkbox checkbox-sm mr-2"
+                  />
+                  <span class="label-text">Remember me</span>
+                  <input
+                    type="text"
+                    placeholder="Type here"
+                    class="ml-2 input input-bordered input-xs"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <button class="btn w-full btn-sm m-1">Button</button>
+            <button class="btn w-full btn-sm m-1">Button</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
