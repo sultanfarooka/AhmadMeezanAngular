@@ -36,7 +36,8 @@ export class TreeComponentComponent implements OnInit {
 
   
   options :ITreeOptions = {
-    useCheckbox: true
+    useCheckbox: true,
+    useTriState: true
   }
 
 
