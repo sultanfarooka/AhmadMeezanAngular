@@ -426,7 +426,7 @@ export class HomeComponent implements OnInit {
   jobStatusIcon = faListCheck;
   resetSelection = faArrowsRotate;
 
-  
+  TreePanel = true;
 
 
 
@@ -439,7 +439,13 @@ export class HomeComponent implements OnInit {
     this.selectedCh = ch;
   }
 
+  openTreePanel(){
+    this.TreePanel = true;
+  }
 
+  closeTreePanel(){
+    this.TreePanel = false;
+  }
   
 
 
