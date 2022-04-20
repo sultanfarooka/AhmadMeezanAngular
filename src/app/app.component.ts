@@ -8,7 +8,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'Ahmad Meezan';
-  sideMenu = true;
+  sideMenu = false;
 
 
   xmarkIcon = faXmark;

@@ -1,11 +1,25 @@
-<div class="w-72 flex flex-col items-center">
-    <h1 class="w-full btn btn-active btn-ghost">Select Measurements</h1>
-
-    <div class="w-full h-full bg-base-200 static">
-        <tree-root [nodes]="rootNodes" [options]="options"></tree-root>
+<div
+  [ngClass]="MeasurementPanel ? 'w-full' : 'w-0'"
+  class="h-full bg-transparent absolute top-4 right-0 flex justify-end duration-500"
+>
+  <div class="h-full w-full bg-transparent" (click)="close()"></div>
+  <div
+    [ngClass]="MeasurementPanel ? 'w-72' : 'w-0'"
+    class="flex flex-col h-full overflow-hidden rounded shadow bg-base-300 z-20 duration-500"
+  >
+    <div class="">
+      <h1 class="w-full btn btn-active btn-ghost rounded-t rounded-b-none">
+        Select Measurements
+      </h1>
     </div>
-    <div class="flex justify-evenly m-2">
-    <button class="w-full btn btn-sm m-2 " >Save</button>
-    <button class="w-full btn btn-sm m-2 " >Cancel</button>
-</div>
+    <div class="h-full overflow-y-auto bg-base-200 p-2 rounded-b">
+      <div class="tree">
+        <tree-root [nodes]="rootNodes" [options]="options"></tree-root>
+      </div>
+    </div>
+    <div class="flex justify-evenly h-0 overflow-hidden">
+      <button class="w-1/2 btn btn-sm border-r-base-200">Select</button>
+      <button class="w-1/2 btn btn-sm" (click)="close()">Cancel</button>
+    </div>
+  </div>
 </div>
