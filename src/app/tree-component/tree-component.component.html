@@ -4,7 +4,7 @@
 >
   <div class="h-full w-full bg-transparent" (click)="close()"></div>
   <div
-    [ngClass]="MeasurementPanel ? 'w-72' : 'w-0'"
+    [ngClass]="MeasurementPanel ? 'w-80' : 'w-0'"
     class="flex flex-col h-full overflow-hidden rounded shadow bg-base-300 z-20 duration-500"
   >
     <div class="">
@@ -12,10 +12,19 @@
         Select Measurements
       </h1>
     </div>
-    <div class="h-full overflow-y-auto bg-base-200 p-2 rounded-b">
+    <div
+      *ngIf="!loading"
+      class="h-full overflow-y-auto bg-base-200 p-2 rounded-b"
+    >
       <div class="tree">
-        <tree-root [nodes]="rootNodes" [options]="options"></tree-root>
+        <tree-root [nodes]="treeNodes" [options]="options"></tree-root>
       </div>
+    </div>
+    <div
+      *ngIf="loading"
+      class="h-full flex justify-center overflow-y-auto bg-base-200 pt-4 rounded-b"
+    >
+      <span class="animate-pulse">loading...</span>
     </div>
     <div class="flex justify-evenly h-0 overflow-hidden">
       <button class="w-1/2 btn btn-sm border-r-base-200">Select</button>

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
   
+  //Mock object for channel data, later it will be taken from backend
   channelsData = [
   {
     "tabName": "M254",
