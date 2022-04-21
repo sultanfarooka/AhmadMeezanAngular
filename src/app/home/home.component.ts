@@ -666,5 +666,10 @@ export class HomeComponent implements OnInit {
   }
 
 
+}
+
+  // LoadConfig(){
+  //   this.channelsData = 
+  // }
 
 }
