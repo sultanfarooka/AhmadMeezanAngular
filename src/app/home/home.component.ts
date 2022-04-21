@@ -668,15 +668,24 @@ export class HomeComponent implements OnInit {
   SaveConfig(){
     
     let Data = this.channelsData;
-    let ChannelName = this.selectedCh;
-    var sJson = JSON.stringify(Data);
-    var element = document.createElement('a');
-    element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
-    element.setAttribute('download', ChannelName +".txt");
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click(); // simulate click
-    document.body.removeChild(element);
+
+    for(var i = 0; i<Data.length; i++){
+      if(Data[i].tabName == this.selectedCh){
+        var data = Data[i];
+        let ChannelName = this.selectedCh;
+        var sJson = JSON.stringify(data);
+        var element = document.createElement('a');
+        element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
+        element.setAttribute('download', ChannelName +".txt");
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click(); // simulate click
+        document.body.removeChild(element);
+      }
+    }
+
+    
+   
   }
 
   LoadConfig(){
