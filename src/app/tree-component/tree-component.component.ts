@@ -1,48 +1,84 @@
-import { Component, OnInit } from '@angular/core';
-import { ITreeOptions } from '@circlon/angular-tree-component';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
+import { ViewEncapsulation } from '@angular/core';
+import { rootNodes, childNodes } from '../mockData';
 
 @Component({
   selector: 'app-tree-component',
   templateUrl: './tree-component.component.html',
-  styleUrls: ['./tree-component.component.css']
+  styleUrls: ['./tree-component.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TreeComponentComponent implements OnInit {
 
   constructor() { }
 
-  rootNodes = [
-    {
-      name: 'root1',
-      children: [
-        { name: 'child1' },
-        { name: 'child2' }
-      ],
-      isExpanded: true
-    },
-    {
-      name: 'root2',
-      children: [
-        { name: 'child2.1', children: [] },
-        { name: 'child2.2', children: [
-            {name: 'grandchild2.2.1'}
-          ] }
-      ]
-    },
-    { name: 'root3' },
-    { name: 'root4', children: [] },
-    { name: 'root5', children: null }
-  ];
 
-  
-  options :ITreeOptions = {
-    useCheckbox: true
+  @Input() MeasurementPanel = true;
+  @Output() closeMeasurementPanelEvent = new EventEmitter<string>();
+
+  loading = true
+
+  treeNodes: any = [];
+
+  //Angular Tree Options object provided by the package.
+  options: ITreeOptions = {
+    useCheckbox: true,
+    getChildren: (node: TreeNode) => {
+
+      console.log(node)
+
+      let childNodes: any = []
+      rootNodes.data.forEach(data => {
+
+        let node = {
+          name: data.depotContentName,
+          hasChildren: true,
+          data: data
+        }
+
+        childNodes.push(node);
+
+
+      });
+
+      return childNodes;
+    }
+  }
+
+  delay(ms: 3000) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+  async getRootNodes() {
+    //Call service where api is called for tree root nodes
+
+    await this.delay(3000);
+
+    this.loading = false
+
+    rootNodes.data.forEach(data => {
+      let node = {
+        name: data.depotContentName,
+        hasChildren: true,
+        data: data
+      }
+
+      this.treeNodes.push(node);
+
+    });
+
   }
 
 
 
-ngOnInit(): void {
-    
+  close() {
+    this.closeMeasurementPanelEvent.emit();
+  }
+
+  ngOnInit(): void {
+    this.getRootNodes()
   }
 
 }

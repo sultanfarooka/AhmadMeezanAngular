@@ -7,8 +7,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ahmad Meezan';
-  sideMenu = true;
+  title = 'Quick Look Acuistics';
+  sideMenu = false;
 
 
   xmarkIcon = faXmark;

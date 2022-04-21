@@ -1,0 +1,5 @@
+.tree-node-checkbox {
+  @apply checkbox checkbox-xs;
+  @apply mr-1 mt-1;
+}
+
