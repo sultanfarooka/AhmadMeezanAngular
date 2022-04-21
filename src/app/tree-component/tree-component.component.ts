@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
@@ -9,19 +9,23 @@ import { rootNodes, childNodes } from '../mockData';
   styleUrls: ['./tree-component.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TreeComponentComponent implements OnInit {
+export class TreeComponentComponent implements OnInit, OnChanges {
 
   constructor() { }
 
+  //OPEN OR CLOSED STATE OF TREE PANEL PASSED FROM THE PARENT COMPONENT
+  @Input() MeasurementPanel = false;
 
-  @Input() MeasurementPanel = true;
+  //EMITTING EVENT HANDELED BY THE PARENT COMPONENT FOR CLOSING THE TREE PANEL
   @Output() closeMeasurementPanelEvent = new EventEmitter<string>();
 
+  //LOADING TREE FROM BACKEND
   loading = true
 
+  //TREE NODES
   treeNodes: any = [];
 
-  //Angular Tree Options object provided by the package.
+  //ANGULAR TREE COMPONENT OPTIONS
   options: ITreeOptions = {
     useCheckbox: true,
     getChildren: (node: TreeNode) => {
@@ -46,15 +50,15 @@ export class TreeComponentComponent implements OnInit {
     }
   }
 
-  delay(ms: 3000) {
+  delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-
+  //GET ROOT NODES FOR THE TREE
   async getRootNodes() {
     //Call service where api is called for tree root nodes
-
-    await this.delay(3000);
+    this.loading = true
+    await this.delay(2000);
 
     this.loading = false
 
@@ -71,8 +75,17 @@ export class TreeComponentComponent implements OnInit {
 
   }
 
+  //TO GET NEW TREE OBJECT EVERY TIME TREE OPENS
+  ngOnChanges() {
+    console.log('changed')
+    if (this.MeasurementPanel == true)
 
+      this.getRootNodes();
+    else
+      this.treeNodes = [];
+  }
 
+  //TO EMIT TREE CLOSING EVENT
   close() {
     this.closeMeasurementPanelEvent.emit();
   }
@@ -80,5 +93,9 @@ export class TreeComponentComponent implements OnInit {
   ngOnInit(): void {
     this.getRootNodes()
   }
+
+
+
+
 
 }
