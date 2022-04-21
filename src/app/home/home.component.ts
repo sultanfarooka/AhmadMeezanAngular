@@ -447,6 +447,13 @@ export class HomeComponent implements OnInit {
     this.TreePanel = false;
   }
   
+  SaveConfig(){
+    
 
+  }
+
+  // LoadConfig(){
+  //   this.channelsData = 
+  // }
 
 }
