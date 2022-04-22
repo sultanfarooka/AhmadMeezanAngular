@@ -18,7 +18,8 @@
             <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
             Configurations
         </button>
-        <button class="btn btn-sm" (click)=LoadConfig()>
+        <input #file type = "file" accept="txt/*" (change)="ImportFile($event)" hidden >
+        <button class="btn btn-sm" (click)=file.click()>
             <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
             Configurations
         </button>
