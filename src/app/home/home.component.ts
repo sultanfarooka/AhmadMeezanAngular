@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { faArrowsRotate, faFileArrowDown, faFileArrowUp, faListCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -665,6 +666,7 @@ export class HomeComponent implements OnInit {
 
   }
 
+  // Downloading the selected channel into a text file
   SaveConfig() {
 
     let Data = this.channelsData;
@@ -688,8 +690,41 @@ export class HomeComponent implements OnInit {
 
   }
 
-  LoadConfig() {
+  // Uploading the channel file
+  ImportFile(event: any) {
+
+    if (event.target.files.length == 0) {
+      console.log("No file selected!");
+      return
+    }
+    let File = event.target.files[0];
+    console.log(File);
+
+    var reader = new FileReader();
+    reader.onload = () => {
+      // this 'text' is the content of the file
+      let text = reader.result as string;
+      let channel = JSON.parse(text);
+     
+      this.UpdateChannelDataObj(channel);
+      console.log(channel);
+    }
+    reader.readAsText(File);
+  }
+
+  // Adding the channel from the file  
+  UpdateChannelDataObj(channel: any){
+
+    for(let i = 0; i< this.channelsData.length; i++){
+
+      if(this.channelsData[i].tabName == channel.tabName){
+        this.channelsData[i] = channel;
+      }
+      
+    }
 
   }
 
 }
+
+
