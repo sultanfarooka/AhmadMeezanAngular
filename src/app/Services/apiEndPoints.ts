@@ -1,4 +1,9 @@
 export const apiEndPoints = {
-    measurementTreeNodesApi: '',
+
+    baseURL: 'http://localhost:3000/',
+
+    measurementTreeNodesApi: 'http://localhost:3000/rootNodes',
+
     channelsDataApi: '',
+
 }

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-tree-component',
@@ -11,7 +12,7 @@ import { rootNodes, childNodes } from '../mockData';
 })
 export class TreeComponentComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  constructor(public apiService: ApiService) { }
 
   //OPEN OR CLOSED STATE OF TREE PANEL PASSED FROM THE PARENT COMPONENT
   @Input() MeasurementPanel = false;
@@ -21,10 +22,8 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   //LOADING TREE FROM BACKEND
   loading = true
-
   //TREE NODES
   treeNodes: any = [];
-
   //ANGULAR TREE COMPONENT OPTIONS
   options: ITreeOptions = {
     useCheckbox: true,
@@ -50,28 +49,25 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     }
   }
 
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
 
   //GET ROOT NODES FOR THE TREE
-  async getRootNodes() {
+  loadRootNodes() {
     //Call service where api is called for tree root nodes
-    this.loading = true
-    await this.delay(2000);
+    this.apiService.getRootNodes().subscribe(res => {
+      console.log(res);
+      res.data.forEach(data => {
+        let node = {
+          name: data.depotContentName,
+          hasChildren: !data.isMeasurements,
+          data: data
+        }
 
-    this.loading = false
+        this.treeNodes.push(node);
 
-    rootNodes.data.forEach(data => {
-      let node = {
-        name: data.depotContentName,
-        hasChildren: true,
-        data: data
-      }
-
-      this.treeNodes.push(node);
+      });
 
     });
+    this.loading = false
 
   }
 
@@ -80,7 +76,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     console.log('changed')
     if (this.MeasurementPanel == true)
 
-      this.getRootNodes();
+      this.loadRootNodes();
     else
       this.treeNodes = [];
   }
@@ -91,7 +87,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.getRootNodes()
+    this.loadRootNodes()
   }
 
 

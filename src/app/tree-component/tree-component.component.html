@@ -13,7 +13,7 @@
       </h1>
     </div>
     <div
-      *ngIf="!loading"
+      *ngIf="treeNodes.length > 0"
       class="h-full overflow-y-auto bg-base-200 p-2 rounded-b"
     >
       <div class="tree">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div
-      *ngIf="loading"
+      *ngIf="treeNodes.length == 0"
       class="h-full flex justify-center overflow-y-auto bg-base-200 pt-4 rounded-b"
     >
       <span class="animate-pulse">loading...</span>
