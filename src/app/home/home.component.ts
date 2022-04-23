@@ -685,9 +685,6 @@ export class HomeComponent implements OnInit {
         document.body.removeChild(element);
       }
     }
-
-
-
   }
 
   // Uploading the channel file
@@ -705,14 +702,14 @@ export class HomeComponent implements OnInit {
       // this 'text' is the content of the file
       let text = reader.result as string;
       let channel = JSON.parse(text);
-     
+
       this.UpdateChannelDataObj(channel);
       console.log(channel);
     }
     reader.readAsText(File);
   }
 
-  // Adding the channel from the file  
+  // Adding the channel from the file
   UpdateChannelDataObj(channel: any){
 
     for(let i = 0; i< this.channelsData.length; i++){
@@ -720,7 +717,7 @@ export class HomeComponent implements OnInit {
       if(this.channelsData[i].tabName == channel.tabName){
         this.channelsData[i] = channel;
       }
-      
+
     }
 
   }
