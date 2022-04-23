@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 
 import { apiEndPoints } from './apiEndPoints';
 import { depot, depotApiRes } from '../models/depotModels';
+import { ChannelData } from '../Models/channelModel';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,16 @@ export class ApiService {
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
       .get<depotApiRes>(apiEndPoints.measurementTreeNodesApi + depotContentBrowseURL)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
+
+  getChannelsData(): Observable<ChannelData[]> {
+    return this.http
+      .get<ChannelData[]>(apiEndPoints.channelsDataApi)
+      .pipe(catchError(this.handleError))
+  }
+
+
 
   handleError(error: any) {
     let errorMessage = '';
