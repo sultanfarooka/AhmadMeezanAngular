@@ -1,38 +1,46 @@
 <!-- NAVIGATION BREADCRUMBS -->
 
 <div class="text-sm p-4 breadcrumbs">
-    <ul>
-        <li><a>Home</a></li>
-        <li><a>Documents</a></li>
-        <li>Add Document</li>
-    </ul>
+  <ul>
+    <li><a>Home</a></li>
+    <li><a>Documents</a></li>
+    <li>Add Document</li>
+  </ul>
 </div>
 
 <!-- NAVIGATION BREADCRUMBS -->
 
 <!-- BUTTON ON TOP -->
 
-<div class="flex p-4 justify-between">
-    <div class="space-x-3">
-        <button class="btn btn-sm" (click)=SaveConfig()>
-            <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-            Configurations
-        </button>
-        <input #file type = "file" accept="txt/*" (change)="ImportFile($event)" hidden >
-        <button class="btn btn-sm" (click)=file.click()>
-            <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
-            Configurations
-        </button>
-    </div>
-    <div class="space-x-3">
-        <button class="btn btn-sm">
-            <fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status
-        </button>
-        <button class="btn btn-sm">
-            <fa-icon [icon]="resetSelection" class="mr-2"></fa-icon>Reset Current
-            Selections
-        </button>
-    </div>
+<div
+  class="flex p-4 flex-wrap flex-col space-y-2 lg:flex-row lg:space-y-0 justify-between"
+>
+  <div class="space-x-3">
+    <button class="btn btn-primary btn-sm" (click)="SaveConfig()">
+      <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
+      Configurations
+    </button>
+    <input
+      #file
+      type="file"
+      accept="txt/*"
+      (change)="ImportFile($event)"
+      hidden
+    />
+    <button class="btn btn-primary btn-sm" (click)="file.click()">
+      <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
+      Configurations
+    </button>
+  </div>
+  <div class="space-x-3">
+    <a class="btn btn-primary btn-sm" routerLink="/jobStatus">
+      <fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status
+    </a>
+    <button class="btn btn-primary btn-sm">
+      <fa-icon [icon]="resetSelection" class="mr-2"></fa-icon>Reset Current
+      Selections
+    </button>
+  </div>
 </div>
 
 <!-- BUTTON ON TOP -->
@@ -40,128 +48,218 @@
 <!--CHANNELS LIST-->
 
 <div class="p-4 grid grid-cols-12 gap-4 relative h-full">
-    <div class="col-span-1 shadow-lg">
-        <ul class="menu bg-base-300 h-full">
-            <li *ngFor="let chData of channelsData" [ngClass]="
+  <div class="col-span-2 lg:col-span-1 shadow-lg">
+    <ul class="menu bg-base-300 h-full">
+      <li
+        *ngFor="let chData of channelsData"
+        [ngClass]="
           chData.tabName == selectedCh
             ? 'border-r-8 rounded-r  bg-base-200  border-primary-focus'
             : ''
-        " (click)="this.selectedCh = chData.tabName" class="text-center">
-                <span class="justify-center font-semibold">{{ chData.tabName }}</span>
-            </li>
-        </ul>
+        "
+        (click)="this.selectedCh = chData.tabName"
+        class="text-center"
+      >
+        <span class="justify-center font-semibold">{{ chData.tabName }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!--CHANNELS LIST-->
+
+  <div
+    *ngFor="let chData of channelsData"
+    [ngClass]="chData.tabName == selectedCh ? 'block' : 'hidden'"
+    class="col-span-10 lg:col-span-11"
+  >
+    <!-- MAIN SECTION VIEW -->
+    <div *ngFor="let mSection of chData.mainSections" class="flex flex-col">
+      <h1
+        class="w-full font-semibold text-center bg-base-300 rounded shadow-lg p-3"
+      >
+        {{ mSection.name }}
+      </h1>
+      <div class="">
+        <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
+        <div *ngIf="mSection.__metaInfo" class="grid grid-cols-12">
+          <div class="col-span-10 border-r">
+            <div
+              *ngFor="let dataTypes of mSection.dataTypes"
+              class="grid grid-cols-12"
+            >
+              <!-- Data Type -->
+
+              <div class="col-span-3 lg:col-span-2 p-2 border-b">
+                <p class="font-semibold p-2">{{ dataTypes.name }}:</p>
+              </div>
+
+              <div class="col-span-9 lg:col-span-10 border-b">
+                <div class="grid grid-cols-12">
+                  <!-- Data Section -->
+                  <div
+                    *ngFor="let dataSection of dataTypes.dataSections"
+                    class="col-span-12 lg:col-span-6 p-2"
+                  >
+                    <p
+                      *ngIf="dataSection.name"
+                      class="text-sm p-1 font-semibold"
+                    >
+                      {{ dataSection.name }}:
+                    </p>
+                    <!-- Pages  -->
+                    <div
+                      *ngFor="let page of dataSection.pages; let idx = index"
+                      class="flex flex-wrap items-center p-1 space-x-2"
+                    >
+                      <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        class="checkbox checkbox-sm"
+                        [(ngModel)]="dataSection.pages[idx].selected"
+                      />
+                      <span class="label-text flex-grow">{{ page.name }}</span>
+                      <!-- </div>
+                      <div class="w-full flex items-center pl-5 py-1 space-x-2"> -->
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="From"
+                        class="input input-bordered input-xs w-16"
+                        [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                      />
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="to"
+                        class="input input-bordered input-xs w-16"
+                        [(ngModel)]="dataSection.pages[idx].scaledTo"
+                      />
+                      <button
+                        *ngIf="page.channelSelection"
+                        class="btn btn-primary btn-xs"
+                      >
+                        CH
+                      </button>
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2 h-full p-2">
+            <div class="flex flex-col">
+              <div class="indicator my-2">
+                <span class="indicator-item font-xs badge badge-secondary"
+                  >95</span
+                >
+                <button
+                  *ngFor="let mInfo of mSection.__metaInfo"
+                  (click)="this.TreePanel = true"
+                  class="btn btn-primary h-auto w-full mx-1 btn-xs lg:m-2 lg:btn-sm lg:h-auto"
+                >
+                  {{ mInfo.browseButtonName }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- END -->
+        <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
+
+        <!-- START -->
+        <!-- MULTIPLE MEASUREMENTS / COMPARE MEASUREMENTS (META_INFO AT DATATYPES LEVEL )-->
+        <div *ngIf="!mSection.__metaInfo" class="grid grid-cols-12">
+          <div class="col-span-12 border-r">
+            <div
+              *ngFor="let dataTypes of mSection.dataTypes"
+              class="grid grid-cols-12"
+            >
+              <!-- Data Type -->
+
+              <div class="col-span-3 lg:col-span-2 p-2 border-b">
+                <p class="text-lg font-semibold p-2">{{ dataTypes.name }}:</p>
+              </div>
+
+              <div class="col-span-7 lg:col-span-8 border-b">
+                <div class="grid grid-cols-12">
+                  <!-- Data Section -->
+                  <div
+                    *ngFor="let dataSection of dataTypes.dataSections"
+                    class="col-span-12 lg:col-span-6 p-2"
+                  >
+                    <p
+                      *ngIf="dataSection.name"
+                      class="text-sm p-1 font-semibold"
+                    >
+                      {{ dataSection.name }}:
+                    </p>
+                    <!-- Pages  -->
+                    <div
+                      *ngFor="let page of dataSection.pages; let idx = index"
+                      class="flex items-center p-1 space-x-2"
+                    >
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        class="checkbox checkbox-sm"
+                        [(ngModel)]="dataSection.pages[idx].selected"
+                      />
+                      <span class="label-text">{{ page.name }}</span>
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="From"
+                        class="input input-bordered input-xs w-16"
+                        [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                      />
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="to"
+                        class="input input-bordered input-xs w-16"
+                        [(ngModel)]="dataSection.pages[idx].scaledTo"
+                      />
+                      <button
+                        *ngIf="page.channelSelection"
+                        class="btn btn-primary btn-xs"
+                      >
+                        CH
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-2 h-full p-2 border-b border-l">
+                <div
+                  *ngFor="let metaInfo of dataTypes.__metaInfo"
+                  class="flex flex-col"
+                >
+                  <div class="indicator my-2">
+                    <span class="indicator-item font-xs badge badge-secondary"
+                      >95</span
+                    >
+                    <button
+                      class="btn btn-primary h-auto w-full mx-1 p-1 btn-xs lg:m-2 lg:btn-sm lg:h-auto"
+                    >
+                      {{ metaInfo.browseButtonName }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Measurement Tree -->
+          <app-tree-component
+            [MeasurementPanel]="TreePanel"
+            (closeMeasurementPanelEvent)="this.TreePanel = false"
+          ></app-tree-component>
+          <!-- Measurement Tree -->
+        </div>
+      </div>
     </div>
-
-    <!--CHANNELS LIST-->
-
-    <div *ngFor="let chData of channelsData" [ngClass]="chData.tabName == selectedCh ? 'block' : 'hidden'"
-        class="col-span-10 lg:col-span-11">
-        <!-- MAIN SECTION VIEW -->
-        <div *ngFor="let mSection of chData.mainSections" class="flex flex-col">
-            <h1 class="w-full font-semibold text-center bg-base-300 rounded shadow-lg p-3">
-                {{ mSection.name }}
-            </h1>
-            <div class="">
-                <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
-                <div *ngIf="mSection.__metaInfo" class="grid grid-cols-12">
-                    <div class="col-span-10 border-r">
-                        <div *ngFor="let dataTypes of mSection.dataTypes" class="grid grid-cols-12">
-                            <!-- Data Type -->
-
-                            <div class="col-span-2 p-2 border-b">
-                                <p class="text-lg font-semibold p-2">{{ dataTypes.name }}:</p>
-                            </div>
-
-                            <div class="col-span-10 border-b">
-                                <div class="grid grid-cols-12">
-                                    <!-- Data Section -->
-                                    <div *ngFor="let dataSection of dataTypes.dataSections" class="col-span-6 p-2">
-                                        <p *ngIf="dataSection.name" class="text-sm p-1 font-semibold">
-                                            {{ dataSection.name }}:
-                                        </p>
-                                        <!-- Pages  -->
-                                        <div *ngFor="let page of dataSection.pages; let idx = index"
-                                            class="flex items-center p-1 space-x-2">
-                                            <input type="checkbox" checked="checked" class="checkbox checkbox-sm"
-                                                [(ngModel)]="dataSection.pages[idx].selected" />
-                                            <span class="label-text">{{ page.name }}</span>
-                                            <input *ngIf="page.isScaled" type="number" placeholder="From"
-                                                class="input input-bordered input-xs w-16"
-                                                [(ngModel)]="dataSection.pages[idx].scaledFrom" />
-                                            <input *ngIf="page.isScaled" type="number" placeholder="to"
-                                                class="input input-bordered input-xs w-16"
-                                                [(ngModel)]="dataSection.pages[idx].scaledTo" />
-                                            <button *ngIf="page.channelSelection" class="btn btn-xs">
-                                                CH
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-2 h-full p-2">
-                        <div class="flex flex-col">
-                            <button *ngFor="let mInfo of mSection.__metaInfo" (click)="this.TreePanel = true"
-                                class="btn w-full m-2 btn-sm">
-                                {{ mInfo.browseButtonName }}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- END -->
-                <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
-
-                <!-- START -->
-                <!-- MULTIPLE MEASUREMENTS / COMPARE MEASUREMENTS (META_INFO AT DATATYPES LEVEL )-->
-                <div *ngIf="!mSection.__metaInfo" class="grid grid-cols-12">
-                    <div class="col-span-12 border-r">
-                        <div *ngFor="let dataTypes of mSection.dataTypes" class="grid grid-cols-12">
-                            <!-- Data Type -->
-
-                            <div class="col-span-2 p-2 border-b">
-                                <p class="text-lg font-semibold p-2">{{ dataTypes.name }}:</p>
-                            </div>
-
-                            <div class="col-span-8 border-b">
-                                <div class="grid grid-cols-12">
-                                    <!-- Data Section -->
-                                    <div *ngFor="let dataSection of dataTypes.dataSections" class="col-span-6 p-2">
-                                        <p *ngIf="dataSection.name" class="text-sm p-1 font-semibold">
-                                            {{ dataSection.name }}:
-                                        </p>
-                                        <!-- Pages  -->
-                                        <div *ngFor="let page of dataSection.pages; let idx = index"
-                                            class="flex items-center p-1 space-x-2">
-                                            <input type="checkbox" checked="checked" class="checkbox checkbox-sm"
-                                                [(ngModel)]="dataSection.pages[idx].selected" />
-                                            <span class="label-text">{{ page.name }}</span>
-                                            <input *ngIf="page.isScaled" type="number" placeholder="From"
-                                                class="input input-bordered input-xs w-16"
-                                                [(ngModel)]="dataSection.pages[idx].scaledFrom" />
-                                            <input *ngIf="page.isScaled" type="number" placeholder="to"
-                                                class="input input-bordered input-xs w-16"
-                                                [(ngModel)]="dataSection.pages[idx].scaledTo" />
-                                            <button *ngIf="page.channelSelection" class="btn btn-xs">
-                                                CH
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-span-2 h-full p-2 border-b border-l">
-                                <div *ngFor="let metaInfo of dataTypes.__metaInfo" class="flex flex-col">
-                                    <button class="btn w-full m-2 btn-sm">
-                                        {{ metaInfo.browseButtonName }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Measurement Tree -->
-                    <app-tree-component [MeasurementPanel]="TreePanel"
-                        (closeMeasurementPanelEvent)="this.TreePanel = false"></app-tree-component>
-                    <!-- Measurement Tree -->
-                </div>
+  </div>
+</div>
