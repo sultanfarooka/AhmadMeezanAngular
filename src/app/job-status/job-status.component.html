@@ -1,0 +1,100 @@
+<div class="flex w-full h-auto p-4">
+  <div class="w-full overflow-x-auto">
+    <table class="table table-compact w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>User-ID</th>
+          <th>Tab Name</th>
+          <th>Job Started</th>
+          <th>Job Status</th>
+          <th>Job Progress</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr class="hover">
+          <th>1</th>
+          <td>Myid</td>
+          <td>m254</td>
+          <td>25/2/2022</td>
+          <td class="">Running</td>
+          <td>
+            <div class="w-full bg-gray-200 rounded-full">
+              <div
+                class="bg-success text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                style="width: 45%"
+              >
+                45%
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="m-0.5 btn btn-success btn-xs">
+              <fa-icon [icon]="playIcon"></fa-icon>
+            </button>
+            <button class="m-0.5 btn btn-primary btn-xs">
+              <fa-icon [icon]="pauseIcon"></fa-icon>
+            </button>
+            <button class="m-0.5 btn btn-error btn-xs">
+              <fa-icon [icon]="stopIcon"></fa-icon>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-ghost">
+              <fa-icon class="mr-2" [icon]="detailIcon"></fa-icon>Details
+            </button>
+          </td>
+        </tr>
+        <tr class="hover">
+          <th>1</th>
+          <td>Myid</td>
+          <td>m254</td>
+          <td>25/2/2022</td>
+          <td class="">Running</td>
+          <td>
+            <div
+              class="radial-progress text-success"
+              style="--value: 70; --size: 3.5rem; --thickness: 2px"
+            >
+              70%
+            </div>
+          </td>
+          <td>
+            <button class="m-0.5 btn btn-success btn-xs">
+              <fa-icon [icon]="playIcon"></fa-icon>
+            </button>
+            <button class="m-0.5 btn btn-primary btn-xs">
+              <fa-icon [icon]="pauseIcon"></fa-icon>
+            </button>
+            <button class="m-0.5 btn btn-error btn-xs">
+              <fa-icon [icon]="stopIcon"></fa-icon>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-ghost">
+              <fa-icon class="mr-2" [icon]="detailIcon"></fa-icon>Details
+            </button>
+          </td>
+        </tr>
+        <!-- row 2 -->
+        <tr class="hover">
+          <th>2</th>
+          <td>Hart Hagerty</td>
+          <td>Desktop Support Technician</td>
+          <td>Purple</td>
+        </tr>
+        <!-- row 3 -->
+        <tr>
+          <th>3</th>
+          <td>Brice Swyre</td>
+          <td>Tax Accountant</td>
+          <td>Red</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

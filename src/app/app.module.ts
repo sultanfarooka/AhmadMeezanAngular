@@ -12,6 +12,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TreeComponentComponent } from './tree-component/tree-component.component';
+import { JobStatusComponent } from './job-status/job-status.component';
 
 
 
@@ -21,7 +22,8 @@ import { TreeComponentComponent } from './tree-component/tree-component.componen
     HomeComponent,
     SettingsComponent,
     NotfoundComponent,
-    TreeComponentComponent
+    TreeComponentComponent,
+    JobStatusComponent
   ],
   imports: [
     BrowserModule,
