@@ -36,7 +36,7 @@
     <a class="btn btn-primary btn-sm" routerLink="/jobStatus">
       <fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status
     </a>
-    <button class="btn btn-primary btn-sm">
+    <button class="btn btn-primary btn-sm" (click)="resetConfig()">
       <fa-icon [icon]="resetSelection" class="mr-2"></fa-icon>Reset Current
       Selections
     </button>
@@ -127,6 +127,7 @@
                         placeholder="From"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                        [disabled]="!page.selected"
                       />
                       <input
                         *ngIf="page.isScaled"
@@ -134,10 +135,12 @@
                         placeholder="to"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledTo"
+                        [disabled]="!page.selected"
                       />
                       <button
                         *ngIf="page.channelSelection"
                         class="btn btn-primary btn-xs"
+                        [disabled]="!page.selected"
                       >
                         CH
                       </button>
@@ -214,6 +217,7 @@
                         placeholder="From"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                        [disabled]="!page.selected"
                       />
                       <input
                         *ngIf="page.isScaled"
@@ -221,10 +225,12 @@
                         placeholder="to"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledTo"
+                        [disabled]="!page.selected"
                       />
                       <button
                         *ngIf="page.channelSelection"
                         class="btn btn-primary btn-xs"
+                        [disabled]="!page.selected"
                       >
                         CH
                       </button>

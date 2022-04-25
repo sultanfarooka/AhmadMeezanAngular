@@ -3,6 +3,7 @@ import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
 import { ApiService } from '../services/api.service';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-tree-component',
@@ -27,25 +28,29 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   //ANGULAR TREE COMPONENT OPTIONS
   options: ITreeOptions = {
     useCheckbox: true,
-    getChildren: (node: TreeNode) => {
+    getChildren: async (childNodes: TreeNode) => {
 
-      console.log(node)
+      let cNode: { name: string, hasChildren: boolean, data: any }[] = [];
 
-      let childNodes: any = []
-      rootNodes.data.forEach(data => {
 
-        let node = {
-          name: data.depotContentName,
-          hasChildren: true,
-          data: data
-        }
+      return await this.apiService.getChilNodes("dsf").subscribe(res => {
+        res.data.forEach(data => {
+          let node = {
+            name: data.depotContentName,
+            hasChildren: !data.isMeasurements,
+            data: data
+          };
 
-        childNodes.push(node);
+          cNode.push(node);
 
+        });
+
+        return [{ name: "sjhdfj", hasChildren: false }]
 
       });
 
-      return childNodes;
+
+
     }
   }
 
@@ -90,7 +95,13 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     this.loadRootNodes()
   }
 
+  onEvent(event: any) {
 
+    console.log(event);
+    //event.node.expand();
+
+
+  }
 
 
 

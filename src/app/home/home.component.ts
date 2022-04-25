@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   constructor(public apiService: ApiService) { }
 
   //Mock object for channel data, later it will be taken from backend
-  channelsData: ChannelData[];
-  selectedCh = 'M259';
+  channelsData: ChannelData[] = [];
+  selectedCh = '';
   saveConfigIcon = faFileArrowDown;
   loadConfigIcon = faFileArrowUp;
   jobStatusIcon = faListCheck;
@@ -27,15 +27,26 @@ export class HomeComponent implements OnInit {
   TreePanel = false;
 
 
+  ngDoCheck(): void {
 
+    localStorage.setItem('chData', JSON.stringify(this.channelsData));
+  }
 
   ngOnInit(): void {
 
-    this.apiService.getChannelsData().
-      subscribe(data => {
-        this.channelsData = data
-        this.selectedCh = this.channelsData[0].tabName;
-      });
+    var chData = localStorage.getItem('chData');
+
+    if (chData != null) {
+      this.channelsData = JSON.parse(chData);
+      this.selectedCh = this.channelsData[0].tabName;
+    }
+    else {
+      this.apiService.getChannelsData().
+        subscribe(data => {
+          this.channelsData = data
+          this.selectedCh = this.channelsData[0].tabName;
+        });
+    }
   }
 
   // Downloading the selected channel into a text file
@@ -45,13 +56,13 @@ export class HomeComponent implements OnInit {
 
     // Downloading all Channels configurations
     var sJson = JSON.stringify(Data);
-        var element = document.createElement('a');
-        element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
-        element.setAttribute('download', "Channel_Config.json");
-        element.style.display = 'none';
-        document.body.appendChild(element);
-        element.click(); // simulate click
-        document.body.removeChild(element);
+    var element = document.createElement('a');
+    element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
+    element.setAttribute('download', "Channel_Config.json");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click(); // simulate click
+    document.body.removeChild(element);
   }
 
   // Uploading the channel file
@@ -128,11 +139,18 @@ export class HomeComponent implements OnInit {
               }
             }
           }
-        }      
+        }
       }
 
     }
 
+  }
+
+
+  resetConfig() {
+    localStorage.removeItem('chData');
+
+    this.ngOnInit();
   }
 
 }
