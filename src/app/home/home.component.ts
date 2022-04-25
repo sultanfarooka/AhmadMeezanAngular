@@ -54,28 +54,22 @@ export class HomeComponent implements OnInit {
 
     let Data = this.channelsData;
 
-    for (var i = 0; i < Data.length; i++) {
-      if (Data[i].tabName == this.selectedCh) {
-        var data = Data[i];
-        let ChannelName = this.selectedCh;
-        var sJson = JSON.stringify(data);
-        var element = document.createElement('a');
-        element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
-        element.setAttribute('download', ChannelName + ".txt");
-        element.style.display = 'none';
-        document.body.appendChild(element);
-        element.click(); // simulate click
-        document.body.removeChild(element);
-      }
-    }
+    // Downloading all Channels configurations
+    var sJson = JSON.stringify(Data);
+    var element = document.createElement('a');
+    element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
+    element.setAttribute('download', "Channel_Config.json");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click(); // simulate click
+    document.body.removeChild(element);
   }
 
   // Uploading the channel file
   ImportFile(event: any) {
 
     if (event.target.files.length == 0) {
-      console.log("No file selected!");
-      return
+      window.alert("No files Chosen");
     }
     let File = event.target.files[0];
     console.log(File);
@@ -84,7 +78,7 @@ export class HomeComponent implements OnInit {
     reader.onload = () => {
       // this 'text' is the content of the file
       let text = reader.result as string;
-      let channel = JSON.parse(text);
+      let channel: ChannelData[] = JSON.parse(text);
 
       this.UpdateChannelDataObj(channel);
       console.log(channel);
@@ -94,11 +88,23 @@ export class HomeComponent implements OnInit {
 
   // Adding the channel from the file  
   UpdateChannelDataObj(channel: any) {
-
+    //looping on the channels
     for (let i = 0; i < this.channelsData.length; i++) {
+      //Check for the specific channel
+      if (this.channelsData[i].tabName == channel[i].tabName) {
+        //looping on the specific channel main sections
+        for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
+          //Check for the specific main section 
+          if (this.channelsData[i].mainSections[j].name == channel[i].mainSections[j].name) {
+            //looping on the datatypes 
+            for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
+              //Check for the specific dataType
+              if (this.channelsData[i].mainSections[j].dataTypes[k].name == channel[i].mainSections[j].dataTypes[k].name) {
 
-      if (this.channelsData[i].tabName == channel.tabName) {
-        this.channelsData[i] = channel;
+              }
+            }
+          }
+        }
       }
 
     }
