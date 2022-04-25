@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   constructor(public apiService: ApiService) { }
 
   //Mock object for channel data, later it will be taken from backend
-  channelsData: ChannelData[];
-  selectedCh = 'M259';
+  channelsData: ChannelData[] = [];
+  selectedCh = '';
   saveConfigIcon = faFileArrowDown;
   loadConfigIcon = faFileArrowUp;
   jobStatusIcon = faListCheck;
@@ -27,15 +27,26 @@ export class HomeComponent implements OnInit {
   TreePanel = false;
 
 
+  ngDoCheck(): void {
 
+    localStorage.setItem('chData', JSON.stringify(this.channelsData));
+  }
 
   ngOnInit(): void {
 
-    this.apiService.getChannelsData().
-      subscribe(data => {
-        this.channelsData = data
-        this.selectedCh = this.channelsData[0].tabName;
-      });
+    var chData = localStorage.getItem('chData');
+
+    if (chData != null) {
+      this.channelsData = JSON.parse(chData);
+      this.selectedCh = this.channelsData[0].tabName;
+    }
+    else {
+      this.apiService.getChannelsData().
+        subscribe(data => {
+          this.channelsData = data
+          this.selectedCh = this.channelsData[0].tabName;
+        });
+    }
   }
 
   // Downloading the selected channel into a text file
@@ -81,13 +92,8 @@ export class HomeComponent implements OnInit {
     reader.readAsText(File);
   }
 
-<<<<<<< HEAD
-  // Adding the channel from the file
-  UpdateChannelDataObj(channel: any){
-=======
   // Adding the channel from the file  
   UpdateChannelDataObj(channel: any) {
->>>>>>> d4bca10fd555ba351cbb9ff5af3543d5a007cc53
 
     for (let i = 0; i < this.channelsData.length; i++) {
 
@@ -97,6 +103,13 @@ export class HomeComponent implements OnInit {
 
     }
 
+  }
+
+
+  resetConfig() {
+    localStorage.removeItem('chData');
+
+    this.ngOnInit();
   }
 
 }

@@ -32,7 +32,7 @@ export class ApiService {
 
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
-      .get<depotApiRes>(apiEndPoints.measurementTreeNodesApi + depotContentBrowseURL)
+      .get<depotApiRes>(apiEndPoints.measurementTreeChildNodesApi2)
       .pipe(catchError(this.handleError));
   }
 
