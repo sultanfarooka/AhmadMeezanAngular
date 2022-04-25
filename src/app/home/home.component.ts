@@ -77,20 +77,55 @@ export class HomeComponent implements OnInit {
 
   // Adding the channel from the file  
   UpdateChannelDataObj(channel: any) {
+
     //looping on the channels
     for (let i = 0; i < this.channelsData.length; i++) {
+
       //Check for the specific channel
-      if (this.channelsData[i].tabName == channel[i].tabName) {
+      if (this.channelsData[i].id == channel[i].id) {
+
         //looping on the specific channel main sections
         for(let j =0; j< this.channelsData[i].mainSections.length; j++){
+
           //Check for the specific main section 
-          if(this.channelsData[i].mainSections[j].name == channel[i].mainSections[j].name){
+          if(this.channelsData[i].mainSections[j].id == channel[i].mainSections[j].id){
+
             //looping on the datatypes 
             for(let k = 0; k< this.channelsData[i].mainSections[j].dataTypes.length; k++){
-              //Check for the specific dataType
-              if(this.channelsData[i].mainSections[j].dataTypes[k].name == channel[i].mainSections[j].dataTypes[k].name){
 
+              //Check for the specific dataType
+              if(this.channelsData[i].mainSections[j].dataTypes[k].id == channel[i].mainSections[j].dataTypes[k].id){
+
+                //looping on the Datasections
+                for(let l = 0; l<this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++){
+
+                  //Check for the specific DataSection
+                  if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].id == channel[i].mainSections[j].dataTypes[k].dataSections[l].id){
+
+                    //looping on the pages
+                    for(let m = 0; m<this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++){
+
+                      //Checking for specific page
+                      if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].id == channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].id){
+
+                        //Adding the specific page from Saved Configuration to the current on screen Configuration
+                        this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m] =  channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m];
+                      }
+                    }
+                  }
+                }
               } 
+            }
+
+            //looping on the MetaInfo
+            for(let n = 0; n<this.channelsData[i].mainSections[j].__metaInfo.length; n++){
+
+              //Checking the specific MetaInfo
+              if(this.channelsData[i].mainSections[j].__metaInfo[n].id == channel[i].mainSections[j].__metaInfo[n].id){
+                
+                //Adding the specific MetaInfo from the Saved Conmfiguration file in the current data
+                this.channelsData[i].mainSections[j].__metaInfo[n] = channel[i].mainSections[j].__metaInfo[n];
+              }
             }
           }
         }      

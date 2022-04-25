@@ -69,18 +69,23 @@
     },
     "channelsData": [
         {
+            "id": "ForChannel01",
             "tabName": "M254",
             "mainSections": [
                 {
+                    "id": "ForChannel01.1",
                     "name": "Single Measuremens / Compare Positions",
                     "dataTypes": [
                         {
+                            "id": "ForChannel01.1.1",
                             "name": "Testcandidate Prep",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel01.1.1.1",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.1.1",
                                             "name": "checkbox only",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -91,6 +96,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.1.2",
                                             "name": "checkbox plus scale",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -103,9 +109,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel01.1.1.8",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.8.1",
                                             "name": "checkbox plus channel",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -116,6 +124,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.8.2",
                                             "name": "fgfgf",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -128,9 +137,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel01.1.1.2",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.2.1",
                                             "name": "Fokus page",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -145,12 +156,15 @@
                             ]
                         },
                         {
+                            "id": "ForChannel01.1.1.3",
                             "name": "Overall Anly",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel01.1.1.3.1",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.3.1.1",
                                             "name": "All",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -163,9 +177,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel01.1.1.3.2",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.3.2.1",
                                             "name": "airborne noise",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -178,9 +194,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel01.1.1.5",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.5.1",
                                             "name": "KS for Lager",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -195,12 +213,15 @@
                             ]
                         },
                         {
+                            "id": "ForChannel01.1.1.6",
                             "name": "APS",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel01.1.1.6.1",
                                     "name": "LS Group",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.6.1.2",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -211,6 +232,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.6.1.3",
                                             "name": "1kHz bis 6kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -221,6 +243,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.6.1.4",
                                             "name": "6khz bis 19khz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -233,9 +256,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel01.1.1.7",
                                     "name": "KS-Group",
                                     "pages": [
                                         {
+                                            "id": "ForChannel01.1.1.7.1",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -246,6 +271,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.7.2",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -256,6 +282,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel01.1.1.7.3",
                                             "name": "1kHz bis 9,4kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -272,6 +299,7 @@
                     ],
                     "__metaInfo": [
                         {
+                            "id": "ForMeta01",
                             "browseButtonName": "Select Measurement",
                             "contentCollectionName": "MyFirstCC",
                             "aliasTable": "Einzelmessung",
@@ -280,9 +308,11 @@
                     ]
                 },
                 {
+                    "id": "ForChannel01.1.0",
                     "name": "Multiple Measuremens / Compare Measuremens",
                     "dataTypes": [
                         {
+                            "id": "ForChannel01.2",
                             "name": "Octave pgl",
                             "dataSections": [
                                 {
@@ -333,12 +363,14 @@
                             ],
                             "__metaInfo": [
                                 {
+                                    "id": "ForMeta02",
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
                                     "processAllAtOnce": true
                                 },
                                 {
+                                    "id": "ForMeta03",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
@@ -411,12 +443,14 @@
                             ],
                             "__metaInfo": [
                                 {
+                                    "id": "ForMeta04",
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
                                     "processAllAtOnce": true
                                 },
                                 {
+                                    "id": "ForMeta05",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
@@ -429,18 +463,23 @@
             ]
         },
         {
+            "id": "ForChannel02",
             "tabName": "M255",
             "mainSections": [
                 {
+                    "id": "ForChannel02.1",
                     "name": "Single Measuremens / Compare Positions",
                     "dataTypes": [
                         {
+                            "id": "ForChannel02.1.1",
                             "name": "Testcandidate Prep",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel02.1.1.1",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.1.1.1",
                                             "name": "All22222",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -453,9 +492,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel02.1.1.2",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.1.2.1",
                                             "name": "Fokus page",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -470,12 +511,15 @@
                             ]
                         },
                         {
+                            "id": "ForChannel02.1.2",
                             "name": "Overall Anly",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel02.1.2.1",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.2.1.1",
                                             "name": "All",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -488,9 +532,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel02.1.2.2",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.2.2.1",
                                             "name": "airborne noise",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -503,9 +549,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel02.1.2.3",
                                     "name": "",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.2.3",
                                             "name": "KS for Lager",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -520,12 +568,15 @@
                             ]
                         },
                         {
+                            "id": "ForChannel02.1.3",
                             "name": "APS",
                             "dataSections": [
                                 {
+                                    "id": "ForChannel02.1.3.1",
                                     "name": "LS Group",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.3.1.1",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -536,6 +587,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel02.1.3.1.2",
                                             "name": "1kHz bis 6kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -546,6 +598,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel02.1.3.1.3",
                                             "name": "6khz bis 19khz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -558,9 +611,11 @@
                                     ]
                                 },
                                 {
+                                    "id": "ForChannel02.1.3.2",
                                     "name": "KS-Group",
                                     "pages": [
                                         {
+                                            "id": "ForChannel02.1.3.2.1",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -571,6 +626,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel02.1.3.2.2",
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -581,6 +637,7 @@
                                             "channelSelectionText": "Select Channels"
                                         },
                                         {
+                                            "id": "ForChannel02.1.3.2.3",
                                             "name": "1kHz bis 9,4kHz",
                                             "connectedPageName": "",
                                             "selected": false,
@@ -597,6 +654,7 @@
                     ],
                     "__metaInfo": [
                         {
+                            "id": "ForMeta06",
                             "browseButtonName": "Select Measurement",
                             "contentCollectionName": "MyFirstCC",
                             "aliasTable": "Einzelmessung",
@@ -638,12 +696,14 @@
                             ],
                             "__metaInfo": [
                                 {
+                                    "id": "ForMeta07",
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
                                     "processAllAtOnce": true
                                 },
                                 {
+                                    "id": "ForMeta08",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
@@ -682,12 +742,14 @@
                             ],
                             "__metaInfo": [
                                 {
+                                    "id": "ForMeta09",
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
                                     "processAllAtOnce": true
                                 },
                                 {
+                                    "id": "ForMeta010",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
