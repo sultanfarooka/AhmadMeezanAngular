@@ -18,7 +18,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   //OPEN OR CLOSED STATE OF TREE PANEL PASSED FROM THE PARENT COMPONENT
   @Input() MeasurementPanel = false;
-  @Input() previousSelections = [];
+  @Input() previousSelections: string[] = [];
 
   //EMITTING EVENT HANDELED BY THE PARENT COMPONENT FOR CLOSING THE TREE PANEL
   @Output() closeMeasurementPanelEvent = new EventEmitter();
@@ -71,14 +71,14 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
 
   onloadNodeChildren(event: any): void {
-    console.log("state changed")
-    console.log(event)
+    // console.log("state changed")
+    // console.log(event)
 
-    event.node.data.children.forEach((ele: any) => {
-      console.log(ele)
-    });
+    // event.node.data.children.forEach((node: any) => {
+    //   console.log(node.)
+    // });
 
-
+    console.log(this.previousSelections)
 
 
   }

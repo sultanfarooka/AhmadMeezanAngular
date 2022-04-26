@@ -268,6 +268,7 @@
           <!-- Measurement Tree -->
           <app-tree-component
             [MeasurementPanel]="TreePanel"
+            [previousSelections]="previousMeasurementsSelection"
             (closeMeasurementPanelEvent)="
               this.TreePanel = false; this.selectedContentCollection = ''
             "

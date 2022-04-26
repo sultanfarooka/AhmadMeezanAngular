@@ -58,8 +58,7 @@ export class HomeComponent implements OnInit {
     this.selectedContentCollection = contentCollection;
 
 
-
-
+    this.GetPreviousdMeasurementsSelection(contentCollection);
 
   }
 
