@@ -310,7 +310,11 @@
                             "browseButtonName": "Select Measurement",
                             "contentCollectionName": "MyFirstCC",
                             "aliasTable": "Einzelmessung",
-                            "processAllAtOnce": false
+                            "processAllAtOnce": false,
+                            "selectedMeasurements": [
+                                "sultan",
+                                "farooka"
+                            ]
                         }
                     ]
                 },
