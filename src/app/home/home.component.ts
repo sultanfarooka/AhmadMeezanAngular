@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
 import { faArrowsRotate, faFileArrowDown, faFileArrowUp, faListCheck } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -29,7 +28,6 @@ export class HomeComponent implements OnInit {
   selectedContentCollection: string
 
   TreePanel = false;
-  @ViewChild('ConfigFile') Configuration: ElementRef;
 
   ngDoCheck(): void {
 
@@ -76,7 +74,6 @@ export class HomeComponent implements OnInit {
       window.alert("No files Chosen");
     }
     let File = event.target.files[0];
-    console.log(File);
 
     var reader = new FileReader();
     reader.onload = () => {
@@ -85,17 +82,9 @@ export class HomeComponent implements OnInit {
       let channel: ChannelData[] = JSON.parse(text);
 
       this.UpdateChannelDataObj(channel);
-      console.log(channel);
-      this.reset();
-
+      event.target.value = null;
     }
     reader.readAsText(File);
-  }
-
-  reset() {
-    console.log(this.Configuration.nativeElement.files);
-    this.Configuration.nativeElement.value = "";
-    console.log(this.Configuration.nativeElement.files);
   }
 
   // Adding the channel from the file  
@@ -111,7 +100,7 @@ export class HomeComponent implements OnInit {
         for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
 
           //Check for the specific main section 
-          if (this.channelsData[i].mainSections[j].name == channel[i].mainSections[j].name) {
+          if (this.channelsData[i].mainSections[j].name == "Single Measuremens / Compare Positions") {
 
             //looping on the datatypes 
             for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
@@ -151,11 +140,47 @@ export class HomeComponent implements OnInit {
               }
             }
           }
+          else if (this.channelsData[i].mainSections[j].name == "Multiple Measuremens / Compare Measuremens") {
+            //looping on the datatypes 
+            for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
+
+              //Check for the specific dataType
+              if (this.channelsData[i].mainSections[j].dataTypes[k].name == channel[i].mainSections[j].dataTypes[k].name) {
+
+                //looping on the Datasections
+                for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++) {
+
+                  //Check for the specific DataSection
+                  if (this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].name == channel[i].mainSections[j].dataTypes[k].dataSections[l].name) {
+
+                    //looping on the pages
+                    for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
+
+                      //Checking for specific page
+                      if (this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name == channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name) {
+
+                        //Adding the specific page from Saved Configuration to the current on screen Configuration
+                        this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m] = channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m];
+                      }
+                    }
+                  }
+                }
+
+                //looping over metaInfo for multiple Measurements
+                for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo.length; l++) {
+
+                  //Checking for the specific metaInfo
+                  if (this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo[l].contentCollectionName == channel[i].mainSections[j].dataTypes[k].__metaInfo[l].contentCollectionName) {
+                    this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo[l] = channel[i].mainSections[j].dataTypes[k].__metaInfo[l];
+                  }
+
+                }
+              }
+            }
+          }
         }
       }
-
     }
-
   }
 
   //Adding Content data to the metaInfo object 
