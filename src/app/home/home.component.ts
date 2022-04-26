@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   jobStatusIcon = faListCheck;
   resetSelection = faArrowsRotate;
 
+
+  selectedContentCollection: string
+
   TreePanel = false;
   @ViewChild('ConfigFile') Configuration: ElementRef;
 
@@ -186,6 +189,15 @@ export class HomeComponent implements OnInit {
 
     this.ngOnInit();
   }
+
+
+  addSelectedMeasurements(selectedNode: any) {
+    console.log(selectedNode);
+    console.log(this.selectedContentCollection);
+  }
+
+
+
 
 }
 

@@ -374,14 +374,16 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "id": "ForMeta03",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         },
@@ -454,14 +456,16 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "id": "ForMeta05",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         }
@@ -707,14 +711,16 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "id": "ForMeta08",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         },
@@ -753,14 +759,16 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "id": "ForMeta010",
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         }
