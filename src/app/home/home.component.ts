@@ -200,10 +200,13 @@ export class HomeComponent implements OnInit {
             //checking for the Content collection name 
             if (this.channelsData[i].mainSections[j].__metaInfo[k].contentCollectionName == Collection_Name) {
 
-              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements != undefined)
+              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements != undefined){
+
+                if(this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements.indexOf(Measurement) == -1)
 
                 //adding the measurement to the collection
                 this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements.push(Measurement);
+              }
             }
           }
         }
@@ -220,10 +223,13 @@ export class HomeComponent implements OnInit {
               //checking for the same _meta Object
               if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].contentCollectionName == Collection_Name) {
 
-                if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements != undefined)
+                if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements != undefined){
 
-                  // adding the measurment to the array
-                  this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements.push(Measurement);
+                  if(this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements.indexOf(Measurement) == -1)
+
+                   // adding the measurment to the array
+                   this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements.push(Measurement);
+                }
               }
             }
           }
@@ -248,9 +254,13 @@ export class HomeComponent implements OnInit {
             //checking for the Content collection name 
             if (this.channelsData[i].mainSections[j].__metaInfo[k].contentCollectionName == Collection_Name) {
 
-              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements != undefined)
+              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements != undefined){
+
+                if(this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements.indexOf(Measurement) != -1)
                 //adding the measurement to the collection
                 this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements = this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements.filter(item => item != Measurement);
+              }
+                
             }
           }
         }
@@ -267,9 +277,12 @@ export class HomeComponent implements OnInit {
               //checking for the same _meta Object
               if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].contentCollectionName == Collection_Name) {
 
-                if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements != undefined)
+                if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements != undefined){
+
+                  if(this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements.indexOf(Measurement) != -1)
                   // adding the measurment to the array
                   this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements = this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements.filter(item => item != Measurement);
+                }              
               }
             }
           }
