@@ -343,13 +343,15 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         },
@@ -421,13 +423,15 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         }
@@ -648,13 +652,15 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         },
@@ -692,13 +698,15 @@
                                     "browseButtonName": "Select Measurement",
                                     "contentCollectionName": "My2ndCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 },
                                 {
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true
+                                    "processAllAtOnce": true,
+                                    "selectedMeasurements": []
                                 }
                             ]
                         }
