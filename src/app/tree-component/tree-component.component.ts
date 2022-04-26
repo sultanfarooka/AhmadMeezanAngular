@@ -21,6 +21,8 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   //EMITTING EVENT HANDELED BY THE PARENT COMPONENT FOR CLOSING THE TREE PANEL
   @Output() closeMeasurementPanelEvent = new EventEmitter();
   @Output() addMeasuremets = new EventEmitter<any>();
+  @Output() removeMeasuremets = new EventEmitter<any>();
+
 
   //LOADING TREE FROM BACKEND
   loading = true
@@ -72,12 +74,13 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   }
 
   onSelect(event: any): void {
-    this.selectionCount = event.treeModel.selectedLeafNodes.length
+    this.selectionCount = event.treeModel.selectedLeafNodes.length;
     this.addMeasuremets.emit(event.node.data.data.depotContentId);
   }
 
   onDeselect(event: any): void {
-    this.selectionCount = event.treeModel.selectedLeafNodes.length
+    this.selectionCount = event.treeModel.selectedLeafNodes.length;
+    this.removeMeasuremets.emit(event.node.data.data.depotContentId);
   }
 
 

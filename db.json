@@ -283,10 +283,7 @@
                             "contentCollectionName": "MyFirstCC",
                             "aliasTable": "Einzelmessung",
                             "processAllAtOnce": false,
-                            "selectedMeasurements": [
-                                "sultan",
-                                "farooka"
-                            ]
+                            "selectedMeasurements": []
                         }
                     ]
                 },
