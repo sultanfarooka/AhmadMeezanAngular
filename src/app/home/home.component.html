@@ -159,7 +159,10 @@
                 >
                 <button
                   *ngFor="let mInfo of mSection.__metaInfo"
-                  (click)="this.TreePanel = true"
+                  (click)="
+                    this.TreePanel = true;
+                    this.selectedContentCollection = mInfo.contentCollectionName
+                  "
                   class="btn btn-primary h-auto w-full mx-1 btn-xs lg:m-2 lg:btn-sm lg:h-auto"
                 >
                   {{ mInfo.browseButtonName }}
@@ -261,7 +264,10 @@
           <!-- Measurement Tree -->
           <app-tree-component
             [MeasurementPanel]="TreePanel"
-            (closeMeasurementPanelEvent)="this.TreePanel = false"
+            (closeMeasurementPanelEvent)="
+              this.TreePanel = false; this.selectedContentCollection = ''
+            "
+            (addMeasuremets)="addSelectedMeasurements($event)"
           ></app-tree-component>
           <!-- Measurement Tree -->
         </div>

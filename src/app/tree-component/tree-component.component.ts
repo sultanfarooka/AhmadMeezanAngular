@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { ITreeOptions, TreeNode } from '@circlon/angular-tree-component';
+import { ITreeOptions, TreeModel, TreeNode, TREE_ACTIONS } from '@circlon/angular-tree-component';
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
 import { ApiService } from '../services/api.service';
-import { async } from 'rxjs';
+
 
 @Component({
   selector: 'app-tree-component',
@@ -19,7 +19,8 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   @Input() MeasurementPanel = false;
 
   //EMITTING EVENT HANDELED BY THE PARENT COMPONENT FOR CLOSING THE TREE PANEL
-  @Output() closeMeasurementPanelEvent = new EventEmitter<string>();
+  @Output() closeMeasurementPanelEvent = new EventEmitter();
+  @Output() addMeasuremets = new EventEmitter<any>();
 
   //LOADING TREE FROM BACKEND
   loading = true
@@ -28,31 +29,55 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   //ANGULAR TREE COMPONENT OPTIONS
   options: ITreeOptions = {
     useCheckbox: true,
-    getChildren: async (childNodes: TreeNode) => {
+    actionMapping: {
+      mouse: {
+        click: (tree: TreeModel, node: TreeNode, $event: any) => {
+          if (node.hasChildren) TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+        }
+      }
+    },
+    getChildren: (selectedNode: TreeNode) => {
 
       let cNode: { name: string, hasChildren: boolean, data: any }[] = [];
 
+      const promise = new Promise<any[]>((resolve, reject) => {
+        this.apiService.getChilNodes("dsf").subscribe(res => {
+          res.data.forEach(data => {
+            let node = {
+              name: data.depotContentName,
+              hasChildren: !data.isMeasurements,
+              data: data
+            };
+            cNode.push(node);
+          });
 
-      return await this.apiService.getChilNodes("dsf").subscribe(res => {
-        res.data.forEach(data => {
-          let node = {
-            name: data.depotContentName,
-            hasChildren: !data.isMeasurements,
-            data: data
-          };
-
-          cNode.push(node);
-
+          resolve(cNode);
         });
-
-        return [{ name: "sjhdfj", hasChildren: false }]
 
       });
 
-
+      return promise;
 
     }
   }
+
+
+  selectionCount = 0;
+
+
+
+  onSelect(event: any): void {
+    this.selectionCount = event.node.TreeModel.selectedLeafNodeIds.length
+    this.addMeasuremets.emit(event.node);
+  }
+
+  onDeselect(event: any): void {
+    this.selectionCount = event.node.TreeModel.selectedLeafNodeIds.length
+  }
+
+
+
+
 
 
   //GET ROOT NODES FOR THE TREE
@@ -76,6 +101,10 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   }
 
+  loadChildNodes() {
+
+  }
+
   //TO GET NEW TREE OBJECT EVERY TIME TREE OPENS
   ngOnChanges() {
     console.log('changed')
@@ -94,15 +123,6 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.loadRootNodes()
   }
-
-  onEvent(event: any) {
-
-    console.log(event);
-    //event.node.expand();
-
-
-  }
-
 
 
 }
