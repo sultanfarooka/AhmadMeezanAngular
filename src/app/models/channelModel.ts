@@ -1,5 +1,4 @@
 export interface Page {
-    id: string //GUID;
     name: string;
     connectedPageName: string;
     selected: boolean;
@@ -12,28 +11,24 @@ export interface Page {
 }
 
 export interface DataSections {
-    id: string //GUID;
     name: string; //GROUP NAME
     pages: Page[];
 
 }
 
 export interface DataTypes {
-    id: string //GUID;
     name: string; //e.g Overall Anly:
     dataSections: DataSections[];
     __metaInfo: MetaInfo[];
 }
 
 export interface MainSection {
-    id: string //GUID;
     name: string; // e.g Single measurement / multiple....
     dataTypes: DataTypes[];
     __metaInfo: MetaInfo[];
 }
 
 export interface MetaInfo {
-    id: string //GUID;
     browseButtonName: string;
     contentCollectionName: string;
     aliasTable: string;
@@ -43,7 +38,6 @@ export interface MetaInfo {
 }
 
 export interface ChannelData {
-    id: string //GUID;
     tabName: string;
     mainSections: MainSection[];
 }

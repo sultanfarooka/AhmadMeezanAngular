@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { faArrowsRotate, faFileArrowDown, faFileArrowUp, faListCheck } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
 
   TreePanel = false;
-
+  @ViewChild('ConfigFile') Configuration: ElementRef;
 
   ngDoCheck(): void {
 
@@ -82,9 +83,17 @@ export class HomeComponent implements OnInit {
 
       this.UpdateChannelDataObj(channel);
       console.log(channel);
+      this.reset();
+
     }
     reader.readAsText(File);
   }
+
+  reset() {
+    console.log(this.Configuration.nativeElement.files);
+    this.Configuration.nativeElement.value = "";
+    console.log(this.Configuration.nativeElement.files);
+}
 
   // Adding the channel from the file  
   UpdateChannelDataObj(channel: any) {
@@ -93,31 +102,31 @@ export class HomeComponent implements OnInit {
     for (let i = 0; i < this.channelsData.length; i++) {
 
       //Check for the specific channel
-      if (this.channelsData[i].id == channel[i].id) {
+      if (this.channelsData[i].tabName == channel[i].tabName) {
 
         //looping on the specific channel main sections
         for(let j =0; j< this.channelsData[i].mainSections.length; j++){
 
           //Check for the specific main section 
-          if(this.channelsData[i].mainSections[j].id == channel[i].mainSections[j].id){
+          if(this.channelsData[i].mainSections[j].name == channel[i].mainSections[j].name){
 
             //looping on the datatypes 
             for(let k = 0; k< this.channelsData[i].mainSections[j].dataTypes.length; k++){
 
               //Check for the specific dataType
-              if(this.channelsData[i].mainSections[j].dataTypes[k].id == channel[i].mainSections[j].dataTypes[k].id){
+              if(this.channelsData[i].mainSections[j].dataTypes[k].name == channel[i].mainSections[j].dataTypes[k].name){
 
                 //looping on the Datasections
                 for(let l = 0; l<this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++){
 
                   //Check for the specific DataSection
-                  if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].id == channel[i].mainSections[j].dataTypes[k].dataSections[l].id){
+                  if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].name == channel[i].mainSections[j].dataTypes[k].dataSections[l].name){
 
                     //looping on the pages
                     for(let m = 0; m<this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++){
 
                       //Checking for specific page
-                      if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].id == channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].id){
+                      if(this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name == channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name){
 
                         //Adding the specific page from Saved Configuration to the current on screen Configuration
                         this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m] =  channel[i].mainSections[j].dataTypes[k].dataSections[l].pages[m];
@@ -132,7 +141,7 @@ export class HomeComponent implements OnInit {
             for(let n = 0; n<this.channelsData[i].mainSections[j].__metaInfo.length; n++){
 
               //Checking the specific MetaInfo
-              if(this.channelsData[i].mainSections[j].__metaInfo[n].id == channel[i].mainSections[j].__metaInfo[n].id){
+              if(this.channelsData[i].mainSections[j].__metaInfo[n].contentCollectionName == channel[i].mainSections[j].__metaInfo[n].contentCollectionName){
                 
                 //Adding the specific MetaInfo from the Saved Conmfiguration file in the current data
                 this.channelsData[i].mainSections[j].__metaInfo[n] = channel[i].mainSections[j].__metaInfo[n];
@@ -146,6 +155,31 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //Adding Content data to the metaInfo object 
+  UpdateMetaInfo(Collection_Name: string, Measurement: string){
+    //looping on the configurations
+    for(let i = 0; i<this.channelsData.length; i++){
+
+      //looping on mainsections
+      for(let j=0; j<this.channelsData[i].mainSections.length; j++){
+
+        //checking the main sections for metaInfo
+        if(this.channelsData[i].mainSections[j].name == "Single Measuremens / Compare Positions"){
+
+          //looping on the _metaInfo array
+          for(let k = 0; k<this.channelsData[i].mainSections[j].__metaInfo.length ){
+
+            //checking for the Content collection name 
+            if(this.channelsData[i].mainSections[j].__metaInfo[k].contentCollectionName == Collection_Name){
+
+              //adding the 
+            }
+          }
+        }
+      }
+      
+    }
+  }
 
   resetConfig() {
     localStorage.removeItem('chData');
