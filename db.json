@@ -283,7 +283,10 @@
                             "contentCollectionName": "MyFirstCC",
                             "aliasTable": "Einzelmessung",
                             "processAllAtOnce": false,
-                            "selectedMeasurements": []
+                            "selectedMeasurements": [
+                                "sultan",
+                                "farooka"
+                            ]
                         }
                     ]
                 },
@@ -428,7 +431,6 @@
                                     "selectedMeasurements": []
                                 },
                                 {
-
                                     "browseButtonName": "Select Measurement 2",
                                     "contentCollectionName": "My3rdCC",
                                     "aliasTable": "Oktavpegel",

@@ -46,7 +46,8 @@ export class TreeComponentComponent implements OnInit, OnChanges {
             let node = {
               name: data.depotContentName,
               hasChildren: !data.isMeasurements,
-              data: data
+              data: data,
+              selected: true
             };
             cNode.push(node);
           });
@@ -65,14 +66,18 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   selectionCount = 0;
 
 
+  onloadNodeChildren(event: any): void {
+    console.log("state changed")
+    console.log(event)
+  }
 
   onSelect(event: any): void {
-    this.selectionCount = event.node.TreeModel.selectedLeafNodeIds.length
-    this.addMeasuremets.emit(event.node);
+    this.selectionCount = event.treeModel.selectedLeafNodes.length
+    this.addMeasuremets.emit(event.node.data.data.depotContentId);
   }
 
   onDeselect(event: any): void {
-    this.selectionCount = event.node.TreeModel.selectedLeafNodeIds.length
+    this.selectionCount = event.treeModel.selectedLeafNodes.length
   }
 
 
