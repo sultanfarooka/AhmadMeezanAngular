@@ -3,6 +3,7 @@ import { ITreeOptions, TreeModel, TreeNode, TREE_ACTIONS } from '@circlon/angula
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
 import { ApiService } from '../services/api.service';
+import { ITreeModel, ITreeNode } from '@circlon/angular-tree-component/lib/defs/api';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   //OPEN OR CLOSED STATE OF TREE PANEL PASSED FROM THE PARENT COMPONENT
   @Input() MeasurementPanel = false;
+  @Input() previousSelections = [];
 
   //EMITTING EVENT HANDELED BY THE PARENT COMPONENT FOR CLOSING THE TREE PANEL
   @Output() closeMeasurementPanelEvent = new EventEmitter();
@@ -71,6 +73,14 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   onloadNodeChildren(event: any): void {
     console.log("state changed")
     console.log(event)
+
+    event.node.data.children.forEach((ele: any) => {
+      console.log(ele)
+    });
+
+
+
+
   }
 
   onSelect(event: any): void {

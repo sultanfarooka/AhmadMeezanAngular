@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
 
 
   selectedContentCollection: string
+  previousMeasurementsSelection: string[]
 
   TreePanel = false;
 
@@ -50,6 +51,19 @@ export class HomeComponent implements OnInit {
         });
     }
   }
+
+
+  openMeasurementTree(contentCollection: string) {
+    this.TreePanel = true;
+    this.selectedContentCollection = contentCollection;
+
+
+
+
+
+  }
+
+
 
   // Downloading the selected channel into a text file
   SaveConfig() {

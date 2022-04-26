@@ -158,15 +158,15 @@
                 class="indicator my-2 w-full"
               >
                 <span
-                  *ngIf="mInfo.selectedMeasurements"
+                  *ngIf="
+                    mInfo.selectedMeasurements &&
+                    mInfo.selectedMeasurements.length > 0
+                  "
                   class="indicator-item font-xs badge badge-secondary"
                   >{{ mInfo.selectedMeasurements.length }}</span
                 >
                 <button
-                  (click)="
-                    this.TreePanel = true;
-                    this.selectedContentCollection = mInfo.contentCollectionName
-                  "
+                  (click)="openMeasurementTree(mInfo.contentCollectionName)"
                   class="btn btn-primary h-auto w-full mx-1 btn-xs lg:m-2 lg:btn-sm lg:h-auto"
                 >
                   {{ mInfo.browseButtonName }}
