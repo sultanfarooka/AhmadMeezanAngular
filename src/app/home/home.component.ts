@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
 
   selectedContentCollection: string
-  CurrentCollection: string[];
+  previousMeasurementsSelection: string[];
 
   TreePanel = false;
 
@@ -325,7 +325,7 @@ export class HomeComponent implements OnInit {
             //checking for the Content collection name 
             if (this.channelsData[i].mainSections[j].__metaInfo[k].contentCollectionName == contentCollection) {
 
-              this.CurrentCollection = this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements;
+              this.previousMeasurementsSelection = this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements;
               found = true;
 
             }
@@ -347,7 +347,7 @@ export class HomeComponent implements OnInit {
               //checking for the same _meta Object
               if (this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].contentCollectionName == contentCollection) {
 
-                this.CurrentCollection = this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements;
+                this.previousMeasurementsSelection = this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m].selectedMeasurements;
               }
             }
           }
