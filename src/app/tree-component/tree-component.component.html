@@ -9,7 +9,7 @@
   >
     <div class="">
       <h1 class="w-full btn btn-active btn-ghost rounded-t rounded-b-none">
-        Select Measurements
+        Select Measurements ({{ selectionCount }})
       </h1>
     </div>
     <div
@@ -17,7 +17,14 @@
       class="h-full overflow-y-auto bg-base-200 p-2 rounded-b"
     >
       <div class="tree">
-        <tree-root [nodes]="treeNodes" [options]="options"></tree-root>
+        <tree-root
+          #tree
+          [nodes]="treeNodes"
+          [options]="options"
+          (select)="onSelect($event)"
+          (deselect)="onDeselect($event)"
+          (loadNodeChildren)="onloadNodeChildren($event)"
+        ></tree-root>
       </div>
     </div>
     <div

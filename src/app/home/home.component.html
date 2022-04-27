@@ -27,7 +27,7 @@
       (change)="ImportFile($event)"
       hidden
     />
-    <button class="btn btn-primary btn-sm" (click)="file.click()">
+    <button #ConfigFile class="btn btn-primary btn-sm" (click)="file.click()">
       <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
       Configurations
     </button>
@@ -39,7 +39,7 @@
     <a class="btn btn-primary btn-sm" routerLink="/jobStatus">
       <fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status
     </a>
-    <button class="btn btn-primary btn-sm">
+    <button class="btn btn-primary btn-sm" (click)="resetConfig()">
       <fa-icon [icon]="resetSelection" class="mr-2"></fa-icon>Reset Current
       Selections
     </button>
@@ -130,6 +130,7 @@
                         placeholder="From"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                        [disabled]="!page.selected"
                       />
                       <input
                         *ngIf="page.isScaled"
@@ -137,10 +138,12 @@
                         placeholder="to"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledTo"
+                        [disabled]="!page.selected"
                       />
                       <button
                         *ngIf="page.channelSelection"
                         class="btn btn-primary btn-xs"
+                        [disabled]="!page.selected"
                       >
                         CH
                       </button>
@@ -153,13 +156,20 @@
           </div>
           <div class="col-span-2 h-full p-2">
             <div class="flex flex-col">
-              <div class="indicator my-2">
-                <span class="indicator-item font-xs badge badge-secondary"
-                  >95</span
+              <div
+                *ngFor="let mInfo of mSection.__metaInfo"
+                class="indicator my-2 w-full"
+              >
+                <span
+                  *ngIf="
+                    mInfo.selectedMeasurements &&
+                    mInfo.selectedMeasurements.length > 0
+                  "
+                  class="indicator-item font-xs badge badge-secondary"
+                  >{{ mInfo.selectedMeasurements.length }}</span
                 >
                 <button
-                  *ngFor="let mInfo of mSection.__metaInfo"
-                  (click)="this.TreePanel = true"
+                  (click)="openMeasurementTree(mInfo.contentCollectionName)"
                   class="btn btn-primary h-auto w-full mx-1 btn-xs lg:m-2 lg:btn-sm lg:h-auto"
                 >
                   {{ mInfo.browseButtonName }}
@@ -217,6 +227,7 @@
                         placeholder="From"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                        [disabled]="!page.selected"
                       />
                       <input
                         *ngIf="page.isScaled"
@@ -224,10 +235,12 @@
                         placeholder="to"
                         class="input input-bordered input-xs w-16"
                         [(ngModel)]="dataSection.pages[idx].scaledTo"
+                        [disabled]="!page.selected"
                       />
                       <button
                         *ngIf="page.channelSelection"
                         class="btn btn-primary btn-xs"
+                        [disabled]="!page.selected"
                       >
                         CH
                       </button>
@@ -258,7 +271,12 @@
           <!-- Measurement Tree -->
           <app-tree-component
             [MeasurementPanel]="TreePanel"
-            (closeMeasurementPanelEvent)="this.TreePanel = false"
+            [previousSelections]="previousMeasurementsSelection"
+            (closeMeasurementPanelEvent)="
+              this.TreePanel = false; this.selectedContentCollection = ''
+            "
+            (addMeasuremets)="addSelectedMeasurements($event)"
+            (removeMeasuremets)="removeSelectedMeasurements($event)"
           ></app-tree-component>
           <!-- Measurement Tree -->
         </div>

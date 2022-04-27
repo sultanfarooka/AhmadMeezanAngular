@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
-import { apiEndPoints } from './apiEndPoints';
+import { apiEndPointsProd, apiEndPointsDev } from './apiEndPoints';
 import { depot, depotApiRes } from '../models/depotModels';
 import { ChannelData } from '../Models/channelModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,28 +23,33 @@ export class ApiService {
     }),
   };
 
+  //API END POINT BASE ON THE ENVIROMENT
+  apiEndPoint = environment.production ? apiEndPointsProd : apiEndPointsDev;
 
   //GET REQUEST -> GETS ROOTS NODES FOR MEASUREMENTS
   getRootNodes(): Observable<depotApiRes> {
     return this.http
-      .get<depotApiRes>(apiEndPoints.measurementTreeNodesApi)
+      .get<depotApiRes>(this.apiEndPoint.measurementTreeNodesApi)
       .pipe(retry(1), catchError(this.handleError));
   }
 
+
+  //GET REQUEST --> GETS CHILDREN NODE FRO SELECTED TREE NODE
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
-      .get<depotApiRes>(apiEndPoints.measurementTreeNodesApi + depotContentBrowseURL)
+      .get<depotApiRes>(this.apiEndPoint.measurementTreeChildNodesApi2)
       .pipe(catchError(this.handleError));
   }
 
+  //GET CONFIGURATIONS
   getChannelsData(): Observable<ChannelData[]> {
     return this.http
-      .get<ChannelData[]>(apiEndPoints.channelsDataApi)
+      .get<ChannelData[]>(this.apiEndPoint.channelsDataApi)
       .pipe(catchError(this.handleError))
   }
 
 
-
+  //ERROR HANDLING
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
