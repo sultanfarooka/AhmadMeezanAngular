@@ -34,7 +34,12 @@ export class ApiService {
   }
 
 
-  //GET REQUEST --> GETS CHILDREN NODE FRO SELECTED TREE NODE
+  //
+  /**
+   * GET REQUEST --> GETS CHILDREN NODE FRO SELECTED TREE NODE
+   * @param depotContentBrowseURL 
+   * @returns 
+   */
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
       .get<depotApiRes>(this.apiEndPoint.measurementTreeChildNodesApi2)
