@@ -1,7 +1,7 @@
 <div class="flex">
   <!-- SIDE MENUE -->
 
-  <div
+  <!-- <div
     [ngClass]="sideMenu ? 'w-72' : 'w-0'"
     class="h-screen bg-base-300 transition-all duration-1000 absolute overflow-hidden right-0 top-0 z-10 lg:static"
   >
@@ -13,14 +13,17 @@
         <fa-icon [icon]="xmarkIcon"></fa-icon>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- MIAN SECTION -->
   <div class="w-full h-screen">
-    <div class="navbar bg-base-200 shadow-lg">
-      <div class="navbar-start">
+    <div
+      class="flex justify-between items-center px-2 h-10 bg-base-200 shadow-lg"
+    >
+      <div class="">
         <div class="dropdown">
-          <label (click)="toggleSideMenu()" class="btn btn-ghost">
+          <a class="normal-case font-semibold text-xl">Quick Look Acustics</a>
+          <!-- <label (click)="toggleSideMenu()" class="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -35,13 +38,11 @@
                 d="M4 6h16M4 12h16M4 18h7"
               />
             </svg>
-          </label>
+          </label> -->
         </div>
       </div>
-      <div class="navbar-center">
-        <a class="normal-case font-semibold text-xl">Quick Look Acustics</a>
-      </div>
-      <div class="navbar-end gap-2">
+      <div class=""></div>
+      <div class="gap-1">
         <div class="dropdown dropdown-end">
           <fa-icon
             tabindex="0"
@@ -50,7 +51,7 @@
           ></fa-icon>
           <ul
             tabindex="0"
-            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52 mt-4 h-60 overflow-y-scroll"
+            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52 h-60 overflow-y-scroll"
           >
             <li *ngFor="let theme of themes" (click)="changeTheme(theme)">
               <a>{{ theme }}</a>
@@ -65,21 +66,21 @@
           ></fa-icon>
           <ul
             tabindex="0"
-            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52 mt-4"
+            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52"
           >
             <li><a>Item 1</a></li>
             <li><a>Item 2</a></li>
           </ul>
         </div>
         <div class="dropdown dropdown-end">
-          <div tabindex="0" class="avatar">
-            <div class="w-10 rounded">
-              <img src="https://api.lorem.space/image/face?hash=92048" />
-            </div>
-          </div>
+          <button class="btn btn-ghost items-center rounded-btn">
+            <fa-icon class="mr-1" tabindex="0" [icon]="bellIcon"></fa-icon>User
+            Name
+          </button>
+
           <ul
             tabindex="0"
-            class="menu dropdown-content p-1 shadow bg-base-200 rounded-box w-52 mt-4"
+            class="menu dropdown-content p-1 shadow bg-base-200 rounded-box w-52"
           >
             <li class="hover-bordered text-sm"><a>Item 1</a></li>
             <li class="hover-bordered text-sm"><a>Item 2</a></li>
