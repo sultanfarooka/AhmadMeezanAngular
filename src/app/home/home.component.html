@@ -31,7 +31,7 @@
       <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
       Configurations
     </button>
-    <button class="btn btn-primary btn-sm" (click)="file.click()">
+    <button class="btn btn-primary btn-xs" (click)="file.click()">
       <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Start
     </button>
   </div>
@@ -50,7 +50,7 @@
 
 <!--CHANNELS LIST-->
 
-<div class="pl-2 pt-0 grid grid-cols-12 relative h-full">
+<div class="pl-2 pt-0 grid grid-cols-12 relative">
   <div class="col-span-2 lg:col-span-1 shadow-lg">
     <ul class="menu bg-base-300 h-full">
       <li
@@ -88,11 +88,11 @@
           <div class="col-span-11">
             <div
               *ngFor="let dataTypes of mSection.dataTypes"
-              class="grid grid-cols-12 m-2 rounded bg-base-300"
+              class="grid grid-cols-12 bg-zinc-100 shadow border-b border-base-300"
             >
               <!-- Data Type -->
 
-              <div class="col-span-12">
+              <div class="col-span-12 pl-1">
                 <p class="font-semibold px-1">{{ dataTypes.name }}:</p>
               </div>
 
@@ -101,11 +101,11 @@
                   <!-- Data Section -->
                   <div
                     *ngFor="let dataSection of dataTypes.dataSections"
-                    class="col-span-12 lg:col-span-3 m-1 border bg-base-100 rounded"
+                    class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1"
                   >
                     <p
                       *ngIf="dataSection.name"
-                      class="text-xs font-semibold p-1 border-b"
+                      class="text-xs font-semibold p-1 border-b bg-base-100"
                     >
                       {{ dataSection.name }}:
                       <!--GROUP NAME-->
@@ -113,8 +113,10 @@
                     <!-- Pages  -->
                     <div
                       *ngFor="let page of dataSection.pages; let idx = index"
-                      class="flex flex-wrap items-center p-1 space-x-1 space-y-1"
-                      [ngClass]="dataSection.pages.length > 1 ? 'border-b' : ''"
+                      class="flex flex-wrap items-center p-1 space-x-1 space-y-1 bg-base-100"
+                      [ngClass]="
+                        dataSection.pages.length > 1 ? 'border-b' : 'border'
+                      "
                     >
                       <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
                       <div class="w-full flex">
@@ -139,7 +141,7 @@
                         *ngIf="page.isScaled"
                         type="number"
                         placeholder="From"
-                        class="input input-bordered input-xs w-24"
+                        class="input input-bordered input-xs w-2/5"
                         [(ngModel)]="dataSection.pages[idx].scaledFrom"
                         [disabled]="!page.selected"
                       />
@@ -147,7 +149,7 @@
                         *ngIf="page.isScaled"
                         type="number"
                         placeholder="to"
-                        class="input input-bordered input-xs w-24"
+                        class="input input-bordered input-xs w-2/5"
                         [(ngModel)]="dataSection.pages[idx].scaledTo"
                         [disabled]="!page.selected"
                       />
@@ -166,7 +168,9 @@
               </div>
             </div>
           </div>
-          <div class="col-span-1 h-full p-1">
+          <div
+            class="col-span-1 h-full p-1 bg-zinc-100 border-l border-base-300"
+          >
             <div class="flex flex-col">
               <button
                 *ngFor="let mInfo of mSection.__metaInfo"
@@ -201,63 +205,94 @@
             >
               <!-- Data Type -->
 
-              <div class="col-span-3 lg:col-span-2 p-2 border-b">
-                <p class="text-lg font-semibold p-2">{{ dataTypes.name }}:</p>
-              </div>
+              <div class="col-span-12 lg:col-span-11">
+                <div
+                  class="grid grid-cols-12 bg-zinc-100 shadow lg:border-b border-base-300"
+                >
+                  <!-- Data Type -->
 
-              <div class="col-span-7 lg:col-span-8 border-b">
-                <div class="grid grid-cols-12">
-                  <!-- Data Section -->
-                  <div
-                    *ngFor="let dataSection of dataTypes.dataSections"
-                    class="col-span-12 lg:col-span-6 p-2"
-                  >
-                    <p
-                      *ngIf="dataSection.name"
-                      class="text-sm p-1 font-semibold"
-                    >
-                      {{ dataSection.name }}:
-                    </p>
-                    <!-- Pages  -->
-                    <div
-                      *ngFor="let page of dataSection.pages; let idx = index"
-                      class="flex items-center p-1 space-x-2"
-                    >
-                      <input
-                        type="checkbox"
-                        checked="checked"
-                        class="checkbox checkbox-sm"
-                        [(ngModel)]="dataSection.pages[idx].selected"
-                      />
-                      <span class="label-text">{{ page.name }}</span>
-                      <input
-                        *ngIf="page.isScaled"
-                        type="number"
-                        placeholder="From"
-                        class="input input-bordered input-xs w-16"
-                        [(ngModel)]="dataSection.pages[idx].scaledFrom"
-                        [disabled]="!page.selected"
-                      />
-                      <input
-                        *ngIf="page.isScaled"
-                        type="number"
-                        placeholder="to"
-                        class="input input-bordered input-xs w-16"
-                        [(ngModel)]="dataSection.pages[idx].scaledTo"
-                        [disabled]="!page.selected"
-                      />
-                      <button
-                        *ngIf="page.channelSelection"
-                        class="btn btn-primary btn-xs"
-                        [disabled]="!page.selected"
+                  <div class="col-span-12 pl-1">
+                    <p class="font-semibold px-1">{{ dataTypes.name }}:</p>
+                  </div>
+
+                  <div class="col-span-12">
+                    <div class="grid grid-cols-12">
+                      <!-- Data Section -->
+                      <div
+                        *ngFor="let dataSection of dataTypes.dataSections"
+                        class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1 border bg-base-100"
                       >
-                        CH
-                      </button>
+                        <p
+                          *ngIf="dataSection.name"
+                          class="text-xs font-semibold p-1 border-b"
+                        >
+                          {{ dataSection.name }}:
+                          <!--GROUP NAME-->
+                        </p>
+                        <!-- Pages  -->
+                        <div
+                          *ngFor="
+                            let page of dataSection.pages;
+                            let idx = index
+                          "
+                          class="flex flex-wrap items-center p-1 space-x-1 space-y-1"
+                          [ngClass]="
+                            dataSection.pages.length > 1 ? 'border-b' : ''
+                          "
+                        >
+                          <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
+                          <div class="w-full flex">
+                            <span class="label-text text-xs ml-1 w-full">{{
+                              page.name
+                            }}</span>
+                            <input
+                              type="checkbox"
+                              checked="checked"
+                              class="toggle toggle-xs float-right"
+                              [(ngModel)]="dataSection.pages[idx].selected"
+                            />
+                          </div>
+                          <!-- <span class="label-text text-xs w-full">{{
+                        page.name
+                      }}</span> -->
+
+                          <!-- </div>
+                      <div class="w-full flex items-center pl-5 py-1 space-x-2"> -->
+
+                          <input
+                            *ngIf="page.isScaled"
+                            type="number"
+                            placeholder="From"
+                            class="input input-bordered input-xs w-2/5"
+                            [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                            [disabled]="!page.selected"
+                          />
+                          <input
+                            *ngIf="page.isScaled"
+                            type="number"
+                            placeholder="to"
+                            class="input input-bordered input-xs w-2/5"
+                            [(ngModel)]="dataSection.pages[idx].scaledTo"
+                            [disabled]="!page.selected"
+                          />
+
+                          <button
+                            *ngIf="page.channelSelection"
+                            class="btn btn-primary btn-xs flex-grow"
+                            [disabled]="!page.selected"
+                          >
+                            CH
+                          </button>
+                          <!-- </div> -->
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-span-2 h-full p-2 border-b border-l">
+              <div
+                class="col-span-12 lg:col-span-1 h-full p-1 border-b lg:border-l lg:border-t border-base-300 bg-zinc-100"
+              >
                 <button
                   *ngFor="let mInfo of dataTypes.__metaInfo"
                   (click)="openMeasurementTree(mInfo.contentCollectionName)"

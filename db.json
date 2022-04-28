@@ -90,11 +90,11 @@
                                         {
                                             "name": "All",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
+                                            "isScaled": false,
+                                            "channelSelection": false,
                                             "channelSelectionText": "Select Channels"
                                         }
                                     ]
@@ -105,7 +105,7 @@
                                         {
                                             "name": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consecteturs",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -120,7 +120,7 @@
                                         {
                                             "name": "checkbox plus channel",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -135,7 +135,7 @@
                                         {
                                             "name": "checkbox plus channel",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -150,7 +150,7 @@
                                         {
                                             "name": "checkbox plus channel",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -165,7 +165,7 @@
                                         {
                                             "name": "Fokus page",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -185,7 +185,7 @@
                                         {
                                             "name": "All",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -200,7 +200,7 @@
                                         {
                                             "name": "airborne noise",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -215,7 +215,7 @@
                                         {
                                             "name": "KS for Lager",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -235,7 +235,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -245,7 +245,7 @@
                                         {
                                             "name": "1kHz bis 6kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -255,7 +255,7 @@
                                         {
                                             "name": "6khz bis 19khz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -270,7 +270,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -280,7 +280,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -290,7 +290,7 @@
                                         {
                                             "name": "1kHz bis 9,4kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -324,7 +324,7 @@
                                         {
                                             "name": "sultan",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -339,7 +339,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -354,7 +354,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -390,7 +390,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -412,7 +412,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -434,7 +434,7 @@
                                         {
                                             "name": "New One",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -480,7 +480,7 @@
                                         {
                                             "name": "All22222",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -495,7 +495,7 @@
                                         {
                                             "name": "Fokus page",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -515,7 +515,7 @@
                                         {
                                             "name": "All",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -530,7 +530,7 @@
                                         {
                                             "name": "airborne noise",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -545,7 +545,7 @@
                                         {
                                             "name": "KS for Lager",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -565,7 +565,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -575,7 +575,7 @@
                                         {
                                             "name": "1kHz bis 6kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -585,7 +585,7 @@
                                         {
                                             "name": "6khz bis 19khz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -600,7 +600,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -610,7 +610,7 @@
                                         {
                                             "name": "bis 1kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -620,7 +620,7 @@
                                         {
                                             "name": "1kHz bis 9,4kHz",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -653,7 +653,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -663,7 +663,7 @@
                                         {
                                             "name": "SinglePosition",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -699,7 +699,7 @@
                                         {
                                             "name": "Mittlewart LS: 1m",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,
@@ -709,7 +709,7 @@
                                         {
                                             "name": "SinglePosition",
                                             "connectedPageName": "",
-                                            "selected": true,
+                                            "selected": false,
                                             "scaledTo": "\"\"",
                                             "scaledFrom": "\"\"",
                                             "isScaled": true,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as signalR from "@microsoft/signalr";
+import { JobStatus } from '../models/jobStatusModel';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,10 @@ export class JobStatusService {
 
 
   listenJobStatus = () => {
-    this.hubConnection.on('SendJobStatus', (status) => {
+
+    this.hubConnection.on('SendJobStatus', (status: JobStatus) => {
       console.log(status)
+
     })
   }
 }
