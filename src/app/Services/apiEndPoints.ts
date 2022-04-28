@@ -1,6 +1,8 @@
+import { environment } from "src/environments/environment"
+
 export const apiEndPointsProd = {
 
-    baseURL: 'http://localhost:3000/',
+    baseURL: environment.production, //
 
     measurementTreeNodesApi: 'http://localhost:3000/rootNodes',
 
