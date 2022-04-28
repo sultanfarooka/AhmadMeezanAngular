@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlay, faPause, faStop, faList } from '@fortawesome/free-solid-svg-icons';
+import { JobStatus } from '../models/jobStatusModel';
+import { JobStatusService } from '../services/job-status.service';
 @Component({
   selector: 'app-job-status',
   templateUrl: './job-status.component.html',
@@ -7,9 +9,16 @@ import { faPlay, faPause, faStop, faList } from '@fortawesome/free-solid-svg-ico
 })
 export class JobStatusComponent implements OnInit {
 
-  constructor() { }
+  constructor(public jobStatusService: JobStatusService) { }
+
+
 
   ngOnInit(): void {
+    this.jobStatusService.startConnection();
+
+    this.jobStatusService.listenJobStatus();
+
+
   }
 
   playIcon = faPlay;

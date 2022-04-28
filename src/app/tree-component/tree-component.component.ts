@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { ITreeOptions, TreeModel, TreeNode, TREE_ACTIONS } from '@circlon/angular-tree-component';
 import { ViewEncapsulation } from '@angular/core';
 import { rootNodes, childNodes } from '../mockData';
@@ -25,6 +25,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   @Output() addMeasuremets = new EventEmitter<any>();
   @Output() removeMeasuremets = new EventEmitter<any>();
 
+  @ViewChild('tree') tree: any;
 
   //LOADING TREE FROM BACKEND
   loading = true
@@ -74,11 +75,13 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     // console.log("state changed")
     // console.log(event)
 
-    // event.node.data.children.forEach((node: any) => {
-    //   console.log(node.)
-    // });
+    event.node.data.children.forEach((node: any) => {
+      if (this.previousSelections.findIndex(x => x == node.data.depotContentId) != -1) {
+        this.tree.treeModel.getNodeBy((n: any) => n.id === node.id).setIsSelected(true);
+      }
+    });
 
-    console.log(this.previousSelections)
+    //console.log(this.previousSelections)
 
 
   }
