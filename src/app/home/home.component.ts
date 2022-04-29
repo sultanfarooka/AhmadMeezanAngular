@@ -81,6 +81,10 @@ export class HomeComponent implements OnInit {
   }
 
   // Uploading the channel file
+  /**
+   * Uploading the channel file
+   * @param event file upload event arg
+   */
   ImportFile(event: any) {
 
     if (event.target.files.length == 0) {
