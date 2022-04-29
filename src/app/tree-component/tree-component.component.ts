@@ -134,6 +134,9 @@ export class TreeComponentComponent implements OnInit, OnChanges {
       this.loadRootNodes();
     else
       this.treeNodes = [];
+
+    if (this.MeasurementPanel)
+      this.loadRootNodes()
   }
 
   //TO EMIT TREE CLOSING EVENT
@@ -142,7 +145,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.loadRootNodes()
+
   }
 
 
