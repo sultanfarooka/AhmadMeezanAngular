@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://wv1485:44392",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
