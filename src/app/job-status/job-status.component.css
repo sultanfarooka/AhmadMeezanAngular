@@ -1,5 +1,6 @@
 .collapse-title,
 .collapse>input[type="checkbox"]{
-    padding: 0px;
-    min-height: 1.75rem;
+    
+    background-color: red;
+   
 }

@@ -180,17 +180,28 @@ export class JobStatusComponent implements OnInit {
     }
   ]
 
+  showNested = -1;
+
   counter(i: number) {
     return new Array(i);
   }
 
 
   ngOnInit(): void {
-    this.jobStatusService.startConnection();
+    // this.jobStatusService.startConnection();
 
-    this.jobStatusService.listenJobStatus();
+    // this.jobStatusService.listenJobStatus();
 
 
+  }
+
+
+  toggleSubTree(j: any): void {
+    debugger;
+    if (this.showNested == j)
+      this.showNested = -1
+    else
+      this.showNested = j
   }
 
   playIcon = faPlay;
