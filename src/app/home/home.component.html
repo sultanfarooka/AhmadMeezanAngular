@@ -31,7 +31,11 @@
       <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
       Configurations
     </button>
-    <button class="btn btn-primary btn-xs" (click)="file.click()">
+    <button
+      class="btn btn-primary btn-xs"
+      [disabled]="isUserAuthenticated"
+      (click)="doLogin()"
+    >
       <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Start
     </button>
   </div>

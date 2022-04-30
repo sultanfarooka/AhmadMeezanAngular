@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TreeModule } from '@circlon/angular-tree-component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +14,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TreeComponentComponent } from './tree-component/tree-component.component';
 import { JobStatusComponent } from './job-status/job-status.component';
 
-
-
+import { checkIfUserIsAuthenticated } from './oauth/check-login-intializer';
+import { Interceptor401Service } from './oauth/interceptor401.service';
+import { AccountService } from './oauth/account.service';
+import { OauthComponent } from './oauth/oauth.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { JobStatusComponent } from './job-status/job-status.component';
     SettingsComponent,
     NotfoundComponent,
     TreeComponentComponent,
-    JobStatusComponent
+    JobStatusComponent,
+    OauthComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +35,21 @@ import { JobStatusComponent } from './job-status/job-status.component';
     FontAwesomeModule,
     TreeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor401Service,
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: checkIfUserIsAuthenticated,
+      multi: true,
+      deps: [AccountService],
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
