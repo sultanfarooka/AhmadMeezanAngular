@@ -16,11 +16,11 @@
         </tr>
     </thead>
   </table>
-  <div *ngFor="let job of this.JobStatus; let j = index">
+  <div *ngFor="let job of this.JobStatus1; let j = index">
     <table class="table-auto table-zebra table table-compact w-full justify-left ">
       <tr class="h-8">
         <td class="w-10">{{j + 1}}</td>
-        <td class=" w-72">{{job.JobGroupId}}</td>
+        <td class=" w-72">{{job.jobGroupId}}</td>
         <td class="w-28">{{job.Name}}</td>
         <td class="w-28">{{job.IsCompleted}}</td>
         <td class="w-24">{{job.Progress}}</td>

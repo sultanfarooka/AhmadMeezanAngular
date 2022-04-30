@@ -5,18 +5,17 @@ import { retry, catchError } from 'rxjs/operators';
 
 import { apiEndPointsProd, apiEndPointsDev } from './apiEndPoints';
 import { depot, depotApiRes } from '../models/depotModels';
-import { ChannelData } from '../Models/channelModel';
+import { ChannelData, ConfigRes } from '../Models/channelModel';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   //BASE URL FOR THE API ENDPOINT
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  //HTTP OPTIONS 
+  //HTTP OPTIONS
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,33 +28,50 @@ export class ApiService {
   //GET REQUEST -> GETS ROOTS NODES FOR MEASUREMENTS
   getRootNodes(): Observable<depotApiRes> {
     return this.http
-      .get<depotApiRes>(this.apiEndPoint.measurementTreeNodesApi)
+      .get<depotApiRes>(
+        this.apiEndPoint.baseURL + this.apiEndPoint.measurementTreeNodesApi,
+        {
+          withCredentials: true,
+        }
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
-
 
   //
   /**
    * GET REQUEST --> GETS CHILDREN NODE FRO SELECTED TREE NODE
-   * @param depotContentBrowseURL 
-   * @returns 
+   * @param depotContentBrowseURL
+   * @returns
    */
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
-      .get<depotApiRes>(this.apiEndPoint.measurementTreeChildNodesApi2)
+      .get<depotApiRes>(
+        this.apiEndPoint.baseURL + this.apiEndPoint.measurementTreeNodesApi,
+        {
+          params: {
+            browseUrl: depotContentBrowseURL,
+          },
+          withCredentials: true,
+        }
+      )
       .pipe(catchError(this.handleError));
   }
 
   //GET CONFIGURATIONS
-  getChannelsData(): Observable<ChannelData[]> {
+  getChannelsData(): Observable<ConfigRes> {
     return this.http
-      .get<ChannelData[]>(this.apiEndPoint.channelsDataApi)
-      .pipe(catchError(this.handleError))
+      .get<ConfigRes>(
+        this.apiEndPoint.baseURL + this.apiEndPoint.channelsDataApi
+      )
+      .pipe(catchError(this.handleError));
   }
-
 
   //ERROR HANDLING
   handleError(error: any) {
+    console.log({ error });
+    console.log((error.headers as Headers).get('x-powered-by'));
+    console.log((error.headers as Headers).get('set-cookie'));
+    if (error.url == '/api/PAKcloud/browseCloud') window.open(error.url); // use same window to redirect user
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // Get client-side error
@@ -69,9 +85,4 @@ export class ApiService {
       return errorMessage;
     });
   }
-
-
-
-
-
 }

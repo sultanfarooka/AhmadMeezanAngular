@@ -1,0 +1,8 @@
+// {
+//   "/api": {
+//     "target": "https://xyz_server:44382",
+//     "secure": false,
+//     "changeOrigin": true,
+//     "logLevel": "debug"
+//   }
+// }
