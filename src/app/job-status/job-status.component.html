@@ -21,14 +21,14 @@
       <tr class="h-8">
         <td class="w-10">{{j + 1}}</td>
         <td class=" w-72">{{job.jobGroupId}}</td>
-        <td class="w-28">{{job.Name}}</td>
-        <td class="w-28">{{job.IsCompleted}}</td>
-        <td class="w-24">{{job.Progress}}</td>
-        <td class="w-20">{{job.State}}</td>
-        <td class="w-24">{{job.Priority}}</td>
-        <td class="w-72">{{job.Datetime_Received}}</td>
-        <td class="w-72">{{job.Datetime_StartProcess}}</td>
-        <td class="w-72">{{job.Datetime_Completed}}</td>
+        <td class="w-28">{{job.name}}</td>
+        <td class="w-28">{{job.isCompleted}}</td>
+        <td class="w-24">{{job.progress}}</td>
+        <td class="w-20">{{job.state}}</td>
+        <td class="w-24">{{job.priority}}</td>
+        <td class="w-72">{{job.datetime_Received}}</td>
+        <td class="w-72">{{job.datetime_StartProcess}}</td>
+        <td class="w-72">{{job.datetime_Completed}}</td>
         <td class="w-16">
 
           <label class="btn btn-xs btn-ghost swap swap-rotate">
@@ -78,18 +78,18 @@
     >
       <tr *ngFor="let nestedJob of job.Jobs; let k = index">
         <td class="w-10">{{k + 1}}</td>
-        <td class="w-36">{{nestedJob.JobId}}</td>
-        <td class="w-40">{{nestedJob.DataType}}</td>
-        <td class="w-20">{{nestedJob.IsCompleted}}</td>
-        <td class="w-24">{{nestedJob.Progress}}</td>
-        <td class="w-52">{{nestedJob.Remarks}}</td>
-        <td class="w-40">{{nestedJob.ReceivedBy}}</td>
-        <td class="w-20">{{nestedJob.State}}</td>
-        <td class="w-24">{{nestedJob.Priority}}</td>
-        <td class="w-32">{{nestedJob.IsSuccess}}</td>
-        <td class="w-64">{{nestedJob.Datetime_Received}}</td>
-        <td class="w-64">{{nestedJob.Datetime_StartProcess}}</td>
-        <td class="w-64">{{nestedJob.Datetime_Completed}}</td>
+        <td class="w-36">{{nestedJob.jobId}}</td>
+        <td class="w-40">{{nestedJob.dataType}}</td>
+        <td class="w-20">{{nestedJob.isCompleted}}</td>
+        <td class="w-24">{{nestedJob.progress}}</td>
+        <td class="w-52">{{nestedJob.remarks}}</td>
+        <td class="w-40">{{nestedJob.receivedBy}}</td>
+        <td class="w-20">{{nestedJob.state}}</td>
+        <td class="w-24">{{nestedJob.priority}}</td>
+        <td class="w-32">{{nestedJob.isSuccess}}</td>
+        <td class="w-64">{{nestedJob.datetime_Received}}</td>
+        <td class="w-64">{{nestedJob.datetime_StartProcess}}</td>
+        <td class="w-64">{{nestedJob.datetime_Completed}}</td>
       </tr>
     </table>
   </div>
