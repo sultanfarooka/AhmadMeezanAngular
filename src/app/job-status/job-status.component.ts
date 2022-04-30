@@ -12,7 +12,7 @@ export class JobStatusComponent implements OnInit {
   constructor(public jobStatusService: JobStatusService) { }
 
 
-  JobStatus: [
+  JobStatus= [
     {
       "IsCompleted": true,
       "JobGroupId": "1650891358_Demo_Calpo_API",
@@ -197,7 +197,6 @@ export class JobStatusComponent implements OnInit {
 
 
   toggleSubTree(j: any): void {
-    debugger;
     if (this.showNested == j)
       this.showNested = -1
     else
