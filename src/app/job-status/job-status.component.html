@@ -1,2 +1,97 @@
-<p>lksjfkljdsklfjdklfj</p>
-<p *ngFor="let job of JobStatus1">{{ job.jobGroupId }}</p>
+<div class="w-full p-6 drop-shadow-sm absolute">
+  <table class="table-auto table-zebra table table-compact w-full justify-left">
+    <thead>
+      <tr>
+        <th class="w-10">#</th>
+        <th class=" w-72 ">Group Id</th>
+        <th class="w-28">Name</th>
+        <th class="w-28">Status</th>
+        <th class="w-24">Progress</th>
+        <th class="w-20">State</th>
+        <th class="w-24">Priority</th>
+        <th class="w-72">Date Recieved</th>
+        <th class="w-72">Date Started</th>
+        <th class="w-72">Date Completed</th>
+        <th class="w-16"></th>
+        </tr>
+    </thead>
+  </table>
+  <div *ngFor="let job of this.JobStatus1; let j = index">
+    <table class="table-auto table-zebra table table-compact w-full justify-left ">
+      <tr class="h-8">
+        <td class="w-10">{{j + 1}}</td>
+        <td class=" w-72">{{job.jobGroupId}}</td>
+        <td class="w-28">{{job.Name}}</td>
+        <td class="w-28">{{job.IsCompleted}}</td>
+        <td class="w-24">{{job.Progress}}</td>
+        <td class="w-20">{{job.State}}</td>
+        <td class="w-24">{{job.Priority}}</td>
+        <td class="w-72">{{job.Datetime_Received}}</td>
+        <td class="w-72">{{job.Datetime_StartProcess}}</td>
+        <td class="w-72">{{job.Datetime_Completed}}</td>
+        <td class="w-16">
+
+          <label class="btn btn-xs btn-ghost swap swap-rotate">
+  
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" (click)="toggleSubTree(j)"/>
+            
+            <!-- hamburger icon -->
+            <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+            
+            <!-- close icon -->
+            <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+            
+          </label>
+        </td>
+      </tr>
+    </table>
+
+    <!--SUB TREE-->
+<div [ngClass]="showNested == j ? '' : 'h-0 overflow-hidden'" class="transition-all duration-1000">
+    <table 
+    class="table-auto ml-10 table-zebra table table-compact w-full h-0 shadow-md  ">
+  
+      <thead>
+        <tr>
+          <th class="w-10">#</th>
+          <th class="w-36">Job ID </th> 
+          <th class="w-40">Data Type </th>        
+          <th class="w-20">Status</th>
+          <th class="w-24">Progress</th>
+          <th class="w-52">Remarks</th>
+          <th class="w-40">Recieved By</th>
+          <th class="w-20">State</th>
+          <th class="w-24">Priority</th>
+          <th class="w-32">Sucessfull</th>
+          <th class="w-64">Date Recieved</th>
+          <th class="w-64">Date Started</th>
+          <th class="w-64">Date Completed</th>
+          </tr>
+      </thead>
+    </table>
+
+    <table
+      class="table-auto ml-10 bg-slate-300 table-zebra table table-compact w-full h-0"
+     
+      
+    >
+      <tr *ngFor="let nestedJob of job.Jobs; let k = index">
+        <td class="w-10">{{k + 1}}</td>
+        <td class="w-36">{{nestedJob.JobId}}</td>
+        <td class="w-40">{{nestedJob.DataType}}</td>
+        <td class="w-20">{{nestedJob.IsCompleted}}</td>
+        <td class="w-24">{{nestedJob.Progress}}</td>
+        <td class="w-52">{{nestedJob.Remarks}}</td>
+        <td class="w-40">{{nestedJob.ReceivedBy}}</td>
+        <td class="w-20">{{nestedJob.State}}</td>
+        <td class="w-24">{{nestedJob.Priority}}</td>
+        <td class="w-32">{{nestedJob.IsSuccess}}</td>
+        <td class="w-64">{{nestedJob.Datetime_Received}}</td>
+        <td class="w-64">{{nestedJob.Datetime_StartProcess}}</td>
+        <td class="w-64">{{nestedJob.Datetime_Completed}}</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+</div>

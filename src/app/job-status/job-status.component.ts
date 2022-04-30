@@ -30,6 +30,19 @@ export class JobStatusComponent implements OnInit {
     );
   }
 
+  showNested = -1;
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  toggleSubTree(j: any): void {
+    if (this.showNested == j)
+      this.showNested = -1
+    else
+      this.showNested = j
+  }
+
   playIcon = faPlay;
   pauseIcon = faPause;
   stopIcon = faStop;
