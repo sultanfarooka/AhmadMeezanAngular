@@ -1,27 +1,27 @@
 export class JobStatus {
-  IsCompleted: boolean;
+  isCompleted: boolean;
   jobGroupId: string;
-  Name: string;
-  Progress: string;
-  State: number;
-  Priority: number;
-  Datetime_Received: string;
-  Datetime_StartProcess: string;
-  Datetime_Completed: string;
-  Jobs: Job[];
+  name: string;
+  progress: string;
+  state: number;
+  priority: number;
+  datetime_Received: string;
+  datetime_StartProcess: string;
+  datetime_Completed: string;
+  jobs: Job[];
 }
 
 export class Job {
-  JobId: string;
-  DataType: string;
-  Progress: string;
-  Remarks: string;
-  ReceivedBy: string;
-  State: number;
-  Priority: number;
-  IsCompleted: boolean;
-  IsSuccess: boolean;
-  Datetime_Received: string;
-  Datetime_StartProcess: string;
-  Datetime_Completed: string;
+  jobId: string;
+  dataType: string;
+  progress: string;
+  remarks: string;
+  receivedBy: string;
+  state: number;
+  priority: number;
+  isCompleted: boolean;
+  isSuccess: boolean;
+  datetime_Received: string;
+  datetime_StartProcess: string;
+  datetime_Completed: string;
 }
