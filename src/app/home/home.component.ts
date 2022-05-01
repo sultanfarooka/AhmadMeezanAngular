@@ -4,6 +4,7 @@ import {
   faFileArrowDown,
   faFileArrowUp,
   faListCheck,
+  faEllipsisVertical
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
     public apiService: ApiService,
     private httpClient: HttpClient,
     private accountService: AccountService
-  ) {}
+  ) { }
 
   //Mock object for channel data, later it will be taken from backend
   channelsData: ChannelData[] = [];
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
   loadConfigIcon = faFileArrowUp;
   jobStatusIcon = faListCheck;
   resetSelection = faArrowsRotate;
+  optionsIcon = faEllipsisVertical;
 
   selectedContentCollection: string;
   previousMeasurementsSelection: string[];
@@ -46,28 +48,28 @@ export class HomeComponent implements OnInit {
   userName: string;
 
   ngOnInit(): void {
-    this.subscription = this.accountService.isUserAuthenticated.subscribe(
-      (isAuthenticated) => {
-        this.isUserAuthenticated = (isAuthenticated as any).Success;
-        if (this.isUserAuthenticated == true) {
-          var chData = localStorage.getItem('chData');
+    // this.subscription = this.accountService.isUserAuthenticated.subscribe(
+    //   (isAuthenticated) => {
+    //     this.isUserAuthenticated = (isAuthenticated as any).Success;
+    //     if (this.isUserAuthenticated == true) {
+    var chData = localStorage.getItem('chData') == "undefined" ? null : localStorage.getItem('chData');
 
-          if (chData != '[]' && chData != null) {
-            this.channelsData = JSON.parse(chData);
-            debugger;
-            this.selectedCh = this.channelsData[0].tabName;
-          } else {
-            this.apiService.getChannelsData().subscribe((data) => {
-              this.channelsData = data.Data;
-              this.selectedCh = this.channelsData[0].tabName;
-            });
-          }
-        } else {
-          alert('user not logged in yet');
-        }
-      }
-    );
-    this.accountService.updateUserAuthenticationStatus();
+    if (chData != '[]' && chData != null) {
+      this.channelsData = JSON.parse(chData);
+      debugger;
+      this.selectedCh = this.channelsData[0].tabName;
+    } else {
+      this.apiService.getChannelsData().subscribe((data) => {
+        this.channelsData = data.Data;
+        this.selectedCh = this.channelsData[0].tabName;
+      });
+    }
+    //     } else {
+    //       alert('user not logged in yet');
+    //     }
+    //   }
+    // );
+    // this.accountService.updateUserAuthenticationStatus();
 
     // var chData = localStorage.getItem('chData');
 

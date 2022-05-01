@@ -17,3 +17,12 @@ export const apiEndPointsDev = {
 
   channelsDataApi: '/api/Config/getUIMapping',
 };
+
+
+export const apiEndPointsLocalDev = {
+  baseURL: 'http://localhost:3000/', //
+  measurementTreeNodesApi: 'rootNodes',
+  measurementTreeChildNodesApi2: 'childNodes',
+
+  channelsDataApi: 'channelsData',
+};

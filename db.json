@@ -74,671 +74,673 @@
         ],
         "errorMessage": null
     },
-    "channelsData": [
-        {
-            "tabName": "M254",
-            "mainSections": [
-                {
-                    "name": "Single Measuremens / Compare Positions",
-                    "dataTypes": [
-                        {
-                            "name": "Testcandidate Prep",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "All",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": false,
-                                            "channelSelection": false,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consecteturs",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "checkbox plus channel",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "checkbox plus channel",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "checkbox plus channel",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Fokus page",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Overall Anly",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "All",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "airborne noise",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "KS for Lager",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "APS",
-                            "dataSections": [
-                                {
-                                    "name": "LS Group",
-                                    "pages": [
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "1kHz bis 6kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "6khz bis 19khz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "KS-Group",
-                                    "pages": [
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "1kHz bis 9,4kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "__metaInfo": [
-                        {
-                            "browseButtonName": "Select Measurement",
-                            "contentCollectionName": "MyFirstCC",
-                            "aliasTable": "Einzelmessung",
-                            "processAllAtOnce": false,
-                            "selectedMeasurements": []
-                        }
-                    ]
-                },
-                {
-                    "name": "Multiple Measuremens / Compare Measuremens",
-                    "dataTypes": [
-                        {
-                            "name": "Octave pgl",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "sultan",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "__metaInfo": [
-                                {
-                                    "browseButtonName": "Select Measurement",
-                                    "contentCollectionName": "My2ndCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                },
-                                {
-                                    "browseButtonName": "Select Measurement 2",
-                                    "contentCollectionName": "My3rdCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Octave pglfdsfs",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "SinglePosition",
-                                            "connectedPageName": "",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "SinglePosition",
-                                            "connectedPageName": "",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "New One",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "__metaInfo": [
-                                {
-                                    "browseButtonName": "Select Measurement",
-                                    "contentCollectionName": "My2ndCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                },
-                                {
-                                    "browseButtonName": "Select Measurement 2",
-                                    "contentCollectionName": "My3rdCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "tabName": "M255",
-            "mainSections": [
-                {
-                    "name": "Single Measuremens / Compare Positions",
-                    "dataTypes": [
-                        {
-                            "name": "Testcandidate Prep",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "All22222",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Fokus page",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Overall Anly",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "All",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "airborne noise",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "KS for Lager",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "APS",
-                            "dataSections": [
-                                {
-                                    "name": "LS Group",
-                                    "pages": [
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "1kHz bis 6kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "6khz bis 19khz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "KS-Group",
-                                    "pages": [
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "bis 1kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "1kHz bis 9,4kHz",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "__metaInfo": [
-                        {
-                            "browseButtonName": "Select Measurement",
-                            "contentCollectionName": "MyFirstCC",
-                            "aliasTable": "Einzelmessung",
-                            "processAllAtOnce": false
-                        }
-                    ]
-                },
-                {
-                    "name": "Multiple Measuremens / Compare Measuremens",
-                    "dataTypes": [
-                        {
-                            "name": "Octave pgl",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "SinglePosition",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "__metaInfo": [
-                                {
-                                    "browseButtonName": "Select Measurement",
-                                    "contentCollectionName": "My2ndCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                },
-                                {
-                                    "browseButtonName": "Select Measurement 2",
-                                    "contentCollectionName": "My3rdCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Octave pgl",
-                            "dataSections": [
-                                {
-                                    "name": "",
-                                    "pages": [
-                                        {
-                                            "name": "Mittlewart LS: 1m",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        },
-                                        {
-                                            "name": "SinglePosition",
-                                            "connectedPageName": "",
-                                            "selected": false,
-                                            "scaledTo": "\"\"",
-                                            "scaledFrom": "\"\"",
-                                            "isScaled": true,
-                                            "channelSelection": true,
-                                            "channelSelectionText": "Select Channels"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "__metaInfo": [
-                                {
-                                    "browseButtonName": "Select Measurement",
-                                    "contentCollectionName": "My2ndCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                },
-                                {
-                                    "browseButtonName": "Select Measurement 2",
-                                    "contentCollectionName": "My3rdCC",
-                                    "aliasTable": "Oktavpegel",
-                                    "processAllAtOnce": true,
-                                    "selectedMeasurements": []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+    "channelsData": {
+        "Data": [
+            {
+                "tabName": "M254",
+                "mainSections": [
+                    {
+                        "name": "Single Measuremens / Compare Positions",
+                        "dataTypes": [
+                            {
+                                "name": "Testcandidate Prep",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "All",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": false,
+                                                "channelSelection": false,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consecteturs",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "checkbox plus channel",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "checkbox plus channel",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "checkbox plus channel",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Fokus page",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Overall Anly",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "All",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "airborne noise",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "KS for Lager",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "APS",
+                                "dataSections": [
+                                    {
+                                        "name": "LS Group",
+                                        "pages": [
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "1kHz bis 6kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "6khz bis 19khz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "KS-Group",
+                                        "pages": [
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "1kHz bis 9,4kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "__metaInfo": [
+                            {
+                                "browseButtonName": "Select Measurement",
+                                "contentCollectionName": "MyFirstCC",
+                                "aliasTable": "Einzelmessung",
+                                "processAllAtOnce": false,
+                                "selectedMeasurements": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Multiple Measuremens / Compare Measuremens",
+                        "dataTypes": [
+                            {
+                                "name": "Octave pgl",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "sultan",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "__metaInfo": [
+                                    {
+                                        "browseButtonName": "Select Measurement",
+                                        "contentCollectionName": "My2ndCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    },
+                                    {
+                                        "browseButtonName": "Select Measurement 2",
+                                        "contentCollectionName": "My3rdCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Octave pglfdsfs",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "SinglePosition",
+                                                "connectedPageName": "",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "SinglePosition",
+                                                "connectedPageName": "",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "New One",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "__metaInfo": [
+                                    {
+                                        "browseButtonName": "Select Measurement",
+                                        "contentCollectionName": "My2ndCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    },
+                                    {
+                                        "browseButtonName": "Select Measurement 2",
+                                        "contentCollectionName": "My3rdCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "tabName": "M255",
+                "mainSections": [
+                    {
+                        "name": "Single Measuremens / Compare Positions",
+                        "dataTypes": [
+                            {
+                                "name": "Testcandidate Prep",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "All22222",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Fokus page",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Overall Anly",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "All",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "airborne noise",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "KS for Lager",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "APS",
+                                "dataSections": [
+                                    {
+                                        "name": "LS Group",
+                                        "pages": [
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "1kHz bis 6kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "6khz bis 19khz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "KS-Group",
+                                        "pages": [
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "bis 1kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "1kHz bis 9,4kHz",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "__metaInfo": [
+                            {
+                                "browseButtonName": "Select Measurement",
+                                "contentCollectionName": "MyFirstCC",
+                                "aliasTable": "Einzelmessung",
+                                "processAllAtOnce": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Multiple Measuremens / Compare Measuremens",
+                        "dataTypes": [
+                            {
+                                "name": "Octave pgl",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "SinglePosition",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "__metaInfo": [
+                                    {
+                                        "browseButtonName": "Select Measurement",
+                                        "contentCollectionName": "My2ndCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    },
+                                    {
+                                        "browseButtonName": "Select Measurement 2",
+                                        "contentCollectionName": "My3rdCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Octave pgl",
+                                "dataSections": [
+                                    {
+                                        "name": "",
+                                        "pages": [
+                                            {
+                                                "name": "Mittlewart LS: 1m",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            },
+                                            {
+                                                "name": "SinglePosition",
+                                                "connectedPageName": "",
+                                                "selected": false,
+                                                "scaledTo": "\"\"",
+                                                "scaledFrom": "\"\"",
+                                                "isScaled": true,
+                                                "channelSelection": true,
+                                                "channelSelectionText": "Select Channels"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "__metaInfo": [
+                                    {
+                                        "browseButtonName": "Select Measurement",
+                                        "contentCollectionName": "My2ndCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    },
+                                    {
+                                        "browseButtonName": "Select Measurement 2",
+                                        "contentCollectionName": "My3rdCC",
+                                        "aliasTable": "Oktavpegel",
+                                        "processAllAtOnce": true,
+                                        "selectedMeasurements": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

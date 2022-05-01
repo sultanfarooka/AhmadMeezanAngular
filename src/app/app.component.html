@@ -23,28 +23,24 @@
       <div class="">
         <div class="dropdown">
           <a class="normal-case font-semibold text-xl">Quick Look Acustics</a>
-          <!-- <label (click)="toggleSideMenu()" class="btn btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
-          </label> -->
         </div>
       </div>
       <div class=""></div>
       <div class="gap-1">
         <div class="dropdown dropdown-end">
           <fa-icon
+            tabindex="0"
+            [icon]="jobStatusIcon"
+            class="btn btn-ghost rounded-btn"
+          ></fa-icon>
+          <ul
+            tabindex="0"
+            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52"
+          >
+            <li>dfsdfdsf</li>
+            <li>dfsdfdsf</li>
+          </ul>
+          <!-- <fa-icon
             tabindex="0"
             [icon]="themeIcon"
             class="btn btn-ghost rounded-btn"
@@ -56,7 +52,7 @@
             <li *ngFor="let theme of themes" (click)="changeTheme(theme)">
               <a>{{ theme }}</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="dropdown dropdown-end">
           <fa-icon
