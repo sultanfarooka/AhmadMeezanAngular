@@ -18,6 +18,7 @@ import { checkIfUserIsAuthenticated } from './oauth/check-login-intializer';
 import { Interceptor401Service } from './oauth/interceptor401.service';
 import { AccountService } from './oauth/account.service';
 import { OauthComponent } from './oauth/oauth.component';
+import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { OauthComponent } from './oauth/oauth.component';
     TreeComponentComponent,
     JobStatusComponent,
     OauthComponent,
+    JobStatusDropdownComponent,
   ],
   imports: [
     BrowserModule,
