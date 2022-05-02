@@ -1,10 +1,11 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import {
   faArrowsRotate,
   faFileArrowDown,
   faFileArrowUp,
   faListCheck,
-  faEllipsisVertical
+  faEllipsisVertical,
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   //Mock object for channel data, later it will be taken from backend
-  channelsData: ChannelData[] = [];
+  @Input() channelsData: ChannelData[] = [];
   selectedCh = '';
   saveConfigIcon = faFileArrowDown;
   loadConfigIcon = faFileArrowUp;
@@ -34,10 +35,17 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
 
+
   selectedContentCollection: string;
   previousMeasurementsSelection: string[];
 
   TreePanel = false;
+
+  openedDataSections: string[] = [];
+
+
+
+
 
   ngDoCheck(): void {
     localStorage.setItem('chData', JSON.stringify(this.channelsData));
