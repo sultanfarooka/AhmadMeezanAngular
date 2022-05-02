@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
 
     if (chData != '[]' && chData != null) {
       this.channelsData = JSON.parse(chData);
-      debugger;
       this.selectedCh = this.channelsData[0].tabName;
     } else {
       this.apiService.getChannelsData().subscribe((data) => {

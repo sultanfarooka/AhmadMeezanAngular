@@ -3,9 +3,9 @@
 
   <!-- <div
     [ngClass]="sideMenu ? 'w-72' : 'w-0'"
-    class="h-screen bg-base-300 transition-all duration-1000 absolute overflow-hidden right-0 top-0 z-10 lg:static"
+    class="absolute top-0 right-0 z-10 h-screen overflow-hidden transition-all duration-1000 bg-base-300 lg:static"
   >
-    <div class="w-full flex justify-between lg:justify-center">
+    <div class="flex justify-between w-full lg:justify-center">
       <div class="btn btn-ghost">
         <h1 class="text-2xl">LOGO</h1>
       </div>
@@ -18,11 +18,11 @@
   <!-- MIAN SECTION -->
   <div class="w-full h-screen">
     <div
-      class="flex justify-between items-center px-2 h-10 bg-base-200 shadow-lg"
+      class="flex items-center justify-between h-10 px-2 shadow-lg bg-base-200"
     >
       <div class="">
         <div class="dropdown">
-          <a class="normal-case font-semibold text-xl">Quick Look Acustics</a>
+          <a class="text-xl font-semibold normal-case">Quick Look Acustics</a>
         </div>
       </div>
       <div class=""></div>
@@ -33,12 +33,8 @@
             [icon]="jobStatusIcon"
             class="btn btn-ghost rounded-btn"
           ></fa-icon>
-          <ul
-            tabindex="0"
-            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52"
-          >
-            <li>dfsdfdsf</li>
-            <li>dfsdfdsf</li>
+          <ul tabindex="0" class="shadow menu dropdown-content w-96">
+            <app-job-status-dropdown></app-job-status-dropdown>
           </ul>
           <!-- <fa-icon
             tabindex="0"
@@ -47,7 +43,7 @@
           ></fa-icon>
           <ul
             tabindex="0"
-            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52 h-60 overflow-y-scroll"
+            class="p-2 overflow-y-scroll shadow menu dropdown-content bg-base-200 rounded-box w-52 h-60"
           >
             <li *ngFor="let theme of themes" (click)="changeTheme(theme)">
               <a>{{ theme }}</a>
@@ -62,7 +58,7 @@
           ></fa-icon>
           <ul
             tabindex="0"
-            class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52"
+            class="p-2 shadow menu dropdown-content bg-base-200 rounded-box w-52"
           >
             <li><a>Item 1</a></li>
             <li><a>Item 2</a></li>
@@ -76,10 +72,10 @@
 
           <ul
             tabindex="0"
-            class="menu dropdown-content p-1 shadow bg-base-200 rounded-box w-52"
+            class="p-1 shadow menu dropdown-content bg-base-200 rounded-box w-52"
           >
-            <li class="hover-bordered text-sm"><a>Item 1</a></li>
-            <li class="hover-bordered text-sm"><a>Item 2</a></li>
+            <li class="text-sm hover-bordered"><a>Item 1</a></li>
+            <li class="text-sm hover-bordered"><a>Item 2</a></li>
           </ul>
         </div>
         <div class="dropdown dropdown-end">
