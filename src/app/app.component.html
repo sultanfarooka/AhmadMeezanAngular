@@ -33,9 +33,9 @@
             [icon]="jobStatusIcon"
             class="btn btn-ghost rounded-btn"
           ></fa-icon>
-          <ul tabindex="0" class="shadow menu dropdown-content w-96">
-            <app-job-status-dropdown></app-job-status-dropdown>
-          </ul>
+            <div class = "dropdown-content">
+              <app-job-status-dropdown tabindex="0" class="dropdown-item "></app-job-status-dropdown>
+            </div>
           <!-- <fa-icon
             tabindex="0"
             [icon]="themeIcon"
@@ -65,8 +65,8 @@
           </ul>
         </div>
         <div class="dropdown dropdown-end">
-          <button class="btn btn-ghost items-center rounded-btn">
-            <fa-icon class="mr-2" tabindex="0" [icon]="userIcon"></fa-icon>User
+          <button class="items-center btn btn-ghost rounded-btn">
+            <fa-icon class="mr-1" tabindex="0" [icon]="bellIcon"></fa-icon>User
             Name
           </button>
 
@@ -77,42 +77,6 @@
             <li class="text-sm hover-bordered"><a>Item 1</a></li>
             <li class="text-sm hover-bordered"><a>Item 2</a></li>
           </ul>
-        </div>
-        <div class="dropdown dropdown-end">
-          <fa-icon
-            tabindex="0"
-            [icon]="optionsIcon"
-            class="btn btn-ghost rounded-btn"
-          ></fa-icon>
-          <div
-            tabindex="0"
-            class="dropdown-content p-1 shadow bg-base-200 rounded-box w-60"
-          >
-            <button class="btn btn-sm btn-ghost w-full" (click)="SaveConfig()">
-              <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-              Configurations
-            </button>
-
-            <input
-              #file
-              type="file"
-              accept="txt/*"
-              (change)="ImportFile($event)"
-              hidden
-            />
-            <button
-              class="btn btn-sm btn-ghost w-full text-left"
-              (click)="file.click()"
-            >
-              <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
-              Configurations
-            </button>
-
-            <button class="btn btn-sm btn-ghost w-full" (click)="resetConfig()">
-              <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
-              current selection
-            </button>
-          </div>
         </div>
       </div>
     </div>
