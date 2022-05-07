@@ -33,12 +33,9 @@
             [icon]="jobStatusIcon"
             class="btn btn-ghost rounded-btn"
           ></fa-icon>
-          <ul
-            tabindex="0"
-            class="shadow menu dropdown-content w-96"
-          >
-            <app-job-status-dropdown></app-job-status-dropdown>
-          </ul>
+            <div class = "dropdown-content">
+              <app-job-status-dropdown tabindex="0" class="dropdown-item dropdown-toggle"></app-job-status-dropdown>
+            </div>
           <!-- <fa-icon
             tabindex="0"
             [icon]="themeIcon"
