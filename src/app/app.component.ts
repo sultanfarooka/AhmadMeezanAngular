@@ -9,19 +9,22 @@ import { HomeComponent } from './home/home.component';
 })
 export class AppComponent {
 
-  // @ViewChild(HomeComponent) HomeCompChild: HomeComponent;
-  @ViewChildren(HomeComponent) HomeCompChild: QueryList<HomeComponent>
+  HomeCompChild: HomeComponent;
+
+  closeDropDown = true;
+
 
   SaveConfig() {
-    console.log(this.HomeCompChild);
+    this.HomeCompChild.SaveConfig()
+
   }
 
   ImportFile(event: Event) {
-    // this.HomeCompChild.ImportFile(event);
+    this.HomeCompChild.ImportFile(event);
   }
 
   resetConfig() {
-    // this.HomeCompChild.resetConfig();
+    this.HomeCompChild.resetConfig();
   }
 
 
@@ -50,7 +53,9 @@ export class AppComponent {
     this.sideMenu = !this.sideMenu;
   }
 
-
+  onActivate(compRef: any) {
+    this.HomeCompChild = compRef;
+  }
 
 
 }

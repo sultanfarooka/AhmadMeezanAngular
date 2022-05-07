@@ -59,7 +59,9 @@
     <div
       *ngFor="let chData of channelsData"
       (click)="this.selectedCh = chData.tabName"
-      [ngClass]="chData.tabName == selectedCh ? 'shadow rounded' : ''"
+      [ngClass]="
+        chData.tabName == selectedCh ? 'shadow-xl rounded border-primary' : ''
+      "
       class="mb-2"
     >
       <div class="flex justify-between rounded-t text-center">
@@ -108,7 +110,7 @@
       </div>
       <button
         class="btn btn-xs rounded-b btn-success w-full"
-        [disabled]="chData.tabName != selectedCh"
+        [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
       >
         Start
       </button>
@@ -139,126 +141,165 @@
     class="col-span-10 lg:col-span-11"
   >
     <!-- MAIN SECTION VIEW -->
-    <div *ngFor="let mSection of chData.mainSections" class="flex flex-col">
-      <div class="relative">
+    <div
+      *ngFor="let mSection of chData.mainSections"
+      class="flex flex-col bg-zinc-100"
+    >
+      <div class="w-full relative">
         <h1 class="w-full font-semibold text-center bg-base-300 shadow-lg p-1">
           {{ mSection.name }}
         </h1>
       </div>
 
       <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
-      <div *ngIf="mSection.__metaInfo" class="grid grid-cols-12">
-        <div class="col-span-11 w-full">
-          <div
-            *ngFor="let dataTypes of mSection.dataTypes"
-            class="grid grid-cols-12 bg-zinc-100 shadow border-b border-base-300"
-          >
-            <!-- Data Type -->
-
-            <div class="col-span-12 pl-1 flex items-center">
-              <input
-                type="checkbox"
-                class="toggle toggle-xs float-right"
-                [(ngModel)]="dataTypes.dataSections[0].pages[0].selected"
-              />
-              <p class="font-semibold px-1">{{ dataTypes.name }}</p>
-            </div>
+      <div class="relative flex">
+        <div
+          *ngIf="mSection.__metaInfo"
+          class="grid grid-cols-12 border-r border-base-300"
+        >
+          <div class="col-span-12 w-full">
             <div
-              class="col-span-12 transition-all duration-1000"
-              [ngClass]="
-                dataTypes.dataSections[0].pages[0].selected
-                  ? ''
-                  : 'h-0 overflow-hidden'
-              "
+              *ngFor="let dataTypes of mSection.dataTypes"
+              class="grid grid-cols-12 bg-zinc-100 shadow border-b border-base-300"
             >
-              <div class="grid grid-cols-12">
-                <!-- Data Section -->
-                <div
-                  *ngFor="let dataSection of dataTypes.dataSections"
-                  class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1"
-                >
-                  <p
-                    *ngIf="dataSection.name"
-                    class="text-xs font-semibold p-1 border-b bg-base-100"
-                  >
-                    {{ dataSection.name }}:
-                    <!--GROUP NAME-->
-                  </p>
-                  <!-- Pages  -->
+              <!-- Data Type -->
+
+              <div class="col-span-12 pl-1 flex items-center">
+                <input
+                  type="checkbox"
+                  class="toggle toggle-xs float-right"
+                  [(ngModel)]="dataTypes.dataSections[0].pages[0].selected"
+                />
+                <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+              </div>
+              <div
+                class="col-span-12 transition-all duration-1000"
+                [ngClass]="
+                  dataTypes.dataSections[0].pages[0].selected
+                    ? ''
+                    : 'h-0 overflow-hidden transition-all duration-700'
+                "
+              >
+                <div class="grid grid-cols-12">
+                  <!-- Data Section -->
                   <div
-                    *ngFor="let page of dataSection.pages; let idx = index"
-                    class="flex flex-wrap items-center p-1 space-x-1 space-y-1 bg-base-100"
-                    [ngClass]="
-                      dataSection.pages.length > 1 ? 'border-b' : 'border'
-                    "
+                    *ngFor="let dataSection of dataTypes.dataSections"
+                    class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1"
                   >
-                    <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
-                    <div class="w-full flex">
-                      <span class="label-text text-xs ml-1 w-full">{{
-                        page.name
-                      }}</span>
-                      <input
-                        type="checkbox"
-                        checked="checked"
-                        class="toggle toggle-xs float-right"
-                        [(ngModel)]="dataSection.pages[idx].selected"
-                      />
-                    </div>
-                    <!-- <span class="label-text text-xs w-full">{{
+                    <p
+                      *ngIf="dataSection.name"
+                      class="text-xs font-semibold p-1 border-b bg-base-100"
+                    >
+                      {{ dataSection.name }}:
+                      <!--GROUP NAME-->
+                    </p>
+                    <!-- Pages  -->
+                    <div
+                      *ngFor="let page of dataSection.pages; let idx = index"
+                      class="flex flex-wrap items-center p-1 space-x-1 space-y-1 bg-base-100"
+                      [ngClass]="
+                        dataSection.pages.length > 1 ? 'border-b' : 'border'
+                      "
+                    >
+                      <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
+                      <div class="w-full flex">
+                        <span class="label-text text-xs ml-1 w-full">{{
+                          page.name
+                        }}</span>
+                        <input
+                          type="checkbox"
+                          checked="checked"
+                          class="toggle toggle-xs float-right"
+                          [(ngModel)]="dataSection.pages[idx].selected"
+                        />
+                      </div>
+                      <!-- <span class="label-text text-xs w-full">{{
                         page.name
                       }}</span> -->
 
-                    <!-- </div>
+                      <!-- </div>
                       <div class="w-full flex items-center pl-5 py-1 space-x-2"> -->
 
-                    <input
-                      *ngIf="page.isScaled"
-                      type="number"
-                      placeholder="From"
-                      class="input input-bordered input-xs w-2/5"
-                      [(ngModel)]="dataSection.pages[idx].scaledFrom"
-                      [disabled]="!page.selected"
-                    />
-                    <input
-                      *ngIf="page.isScaled"
-                      type="number"
-                      placeholder="to"
-                      class="input input-bordered input-xs w-2/5"
-                      [(ngModel)]="dataSection.pages[idx].scaledTo"
-                      [disabled]="!page.selected"
-                    />
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="From"
+                        class="input input-bordered input-xs w-2/5"
+                        [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                        [disabled]="!page.selected"
+                      />
+                      <input
+                        *ngIf="page.isScaled"
+                        type="number"
+                        placeholder="to"
+                        class="input input-bordered input-xs w-2/5"
+                        [(ngModel)]="dataSection.pages[idx].scaledTo"
+                        [disabled]="!page.selected"
+                      />
 
-                    <button
-                      *ngIf="page.channelSelection"
-                      class="btn btn-primary btn-xs flex-grow"
-                      [disabled]="!page.selected"
-                    >
-                      C
-                    </button>
-                    <!-- </div> -->
+                      <button
+                        *ngIf="page.channelSelection"
+                        class="btn btn-primary btn-xs flex-grow"
+                        [disabled]="!page.selected"
+                      >
+                        C
+                      </button>
+                      <!-- </div> -->
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div
+            class="col-span-1 hidden h-full p-1 bg-zinc-100 border-l border-base-300"
+          >
+            <div class="flex flex-col">
+              <button
+                *ngFor="let mInfo of mSection.__metaInfo"
+                (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                class="btn btn-primary h-auto btn-xs"
+              >
+                <span>{{ mInfo.browseButtonName }}</span>
+
+                <div
+                  *ngIf="
+                    mInfo.selectedMeasurements &&
+                    mInfo.selectedMeasurements.length > 0
+                  "
+                  class="badge badge-primary"
+                >
+                  ({{ mInfo.selectedMeasurements.length }})
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-span-1 h-full p-1 bg-zinc-100 border-l border-base-300">
-          <div class="flex flex-col">
+
+        <div
+          class="w-auto border-l border-base-300 bg-zinc-100 opacity-1 h-full hover:absolute hover:shadow-md right-0"
+        >
+          <div
+            class="flex flex-col transition-all duration-700 bg-zinc-100 h-full"
+          >
             <button
               *ngFor="let mInfo of mSection.__metaInfo"
               (click)="openMeasurementTree(mInfo.contentCollectionName)"
-              class="btn btn-primary h-auto btn-xs"
+              class="btn btn-primary h-auto btn-xs before:content-['SM'] hover:before:content-['Select_Measurements']"
             >
-              <span>{{ mInfo.browseButtonName }}</span>
+              <!-- <span class="w-0 overflow-hidden hover:w-auto">{{
+                mInfo.browseButtonName
+              }}</span>
+              <span class="w-auto hover:w-0 hover:overflow-hidden">SM</span> -->
 
               <div
                 *ngIf="
                   mInfo.selectedMeasurements &&
-                  mInfo.selectedMeasurements.length > 0
+                  mInfo.selectedMeasurements.length == 0
                 "
                 class="badge badge-primary"
               >
-                ({{ mInfo.selectedMeasurements.length }})
+                ({{ mInfo.selectedMeasurements.length + 12 }})
               </div>
             </button>
           </div>
