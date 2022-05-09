@@ -244,6 +244,7 @@
                         [ngClass]="
                           !page.selected ? 'btn-disabled' : 'btn-primary'
                         "
+                        (click)="openChannelModal(dataTypes.name)"
                         ><fa-icon
                           [icon]="SelectedChannelIcon"
                           size="lg"
@@ -431,17 +432,15 @@
   </div>
 </div>
 
-//Channel Modal
 <input type="checkbox" id="my-modal" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
-    <p class="py-4">
-      You've been selected for a chance to get one year of subscription to use
-      Wikipedia for free!
-    </p>
+<div class="modal w-full h-full ">
+  <div class="modal-box w-full h-full">
+    <h3 class="font-bold text-lg">Channel Selection</h3>
+    <app-channel-modal
+    [DataType]="SelectedChannelForDatatype"
+    ></app-channel-modal>
     <div class="modal-action">
-      <label for="my-modal" class="btn">Yay!</label>
+      <label for="my-modal" class="btn btn-primary">Yay!</label>
     </div>
   </div>
 </div>

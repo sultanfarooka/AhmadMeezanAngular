@@ -14,6 +14,7 @@ import { AccountService } from '../oauth/account.service';
 import { Subscription } from 'rxjs-compat/Subscription';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ChannelModalComponent } from './channel-modal/channel-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,8 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
   SelectedChannelIcon = faSliders;
+  SelectedChannelForDatatype = "";
+  ChannelSelectionComponent: ChannelModalComponent;
 
   metaInfoHovered = false;
 
@@ -598,5 +601,11 @@ export class HomeComponent implements OnInit {
       this.selectedContentCollection,
       selectedNode
     );
+  }
+
+  openChannelModal(SelectedDataType: any){
+    console.log("Responding");
+    this.SelectedChannelForDatatype = SelectedDataType;
+    console.log(this.SelectedChannelForDatatype);
   }
 }
