@@ -55,9 +55,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('chData', JSON.stringify(this.channelsData));
   }
 
-  isUserAuthenticated = false;
-  subscription: Subscription;
-  userName: string;
+
 
   ngOnInit(): void {
     // this.subscription = this.accountService.isUserAuthenticated.subscribe(

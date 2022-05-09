@@ -1,4 +1,8 @@
 {
+    "username": {
+        "Sucess": true,
+        "Data": "Umer Sultan"
+    },
     "rootNodes": {
         "success": true,
         "data": [
@@ -84,9 +88,11 @@
                         "dataTypes": [
                             {
                                 "name": "Testcandidate Prep",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "All",
@@ -102,6 +108,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consecteturs",
@@ -117,6 +124,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "checkbox plus channel",
@@ -132,6 +140,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "checkbox plus channel",
@@ -147,6 +156,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "checkbox plus channel",
@@ -162,6 +172,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Fokus page",
@@ -179,9 +190,11 @@
                             },
                             {
                                 "name": "Overall Anly",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "All",
@@ -197,6 +210,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "airborne noise",
@@ -212,6 +226,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "KS for Lager",
@@ -229,6 +244,7 @@
                             },
                             {
                                 "name": "APS",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "LS Group",
@@ -318,9 +334,11 @@
                         "dataTypes": [
                             {
                                 "name": "Octave pgl",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "sultan",
@@ -336,6 +354,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",
@@ -351,6 +370,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",
@@ -384,9 +404,11 @@
                             },
                             {
                                 "name": "Octave pglfdsfs",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",
@@ -409,6 +431,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",
@@ -431,6 +454,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "New One",
@@ -474,9 +498,11 @@
                         "dataTypes": [
                             {
                                 "name": "Testcandidate Prep",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "All22222",
@@ -492,6 +518,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Fokus page",
@@ -509,9 +536,11 @@
                             },
                             {
                                 "name": "Overall Anly",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "All",
@@ -527,6 +556,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "airborne noise",
@@ -542,6 +572,7 @@
                                     },
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "KS for Lager",
@@ -559,6 +590,7 @@
                             },
                             {
                                 "name": "APS",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "LS Group",
@@ -647,9 +679,11 @@
                         "dataTypes": [
                             {
                                 "name": "Octave pgl",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",
@@ -693,9 +727,11 @@
                             },
                             {
                                 "name": "Octave pgl",
+                                "selected": true,
                                 "dataSections": [
                                     {
                                         "name": "",
+                                        "selected": true,
                                         "pages": [
                                             {
                                                 "name": "Mittlewart LS: 1m",

@@ -54,8 +54,8 @@
 
 <!--CHANNELS LIST-->
 
-<div class="pl-2 pt-0 grid grid-cols-12 relative">
-  <div class="col-span-2 bg-base-300 lg:col-span-1 flex flex-col">
+<div class="pl-2 pt-0 flex relative">
+  <div class="w-auto bg-base-300 flex flex-col">
     <div
       *ngFor="let chData of channelsData"
       (click)="this.selectedCh = chData.tabName"
@@ -65,17 +65,18 @@
       class="mb-2"
     >
       <div class="flex justify-between rounded-t text-center">
-        <span
-          class="w-full rounded-tl"
+        <button
+          class="w-full rounded-tl px-1 btn-primary"
           [ngClass]="
             chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'
           "
-          >{{ chData.tabName }}</span
         >
+          {{ chData.tabName }}
+        </button>
         <div class="dropdown">
           <button
             tabindex="0"
-            class="btn-primary btn-xs rounded-tr h-full float-right"
+            class="btn-primary btn-xs rounded-tr h-full float-right p-1"
             [disabled]="chData.tabName != selectedCh"
             [ngClass]="
               chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'
@@ -109,7 +110,7 @@
         </div>
       </div>
       <button
-        class="btn btn-xs rounded-b btn-success w-full"
+        class="btn btn-xs rounded-b btn-primary w-full"
         [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
       >
         Start
@@ -154,7 +155,7 @@
       <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
       <div class="relative flex">
         <div *ngIf="mSection.__metaInfo" class="flex border-r border-base-300">
-          <div class="col-span-12 w-full">
+          <div class="w-full">
             <div
               *ngFor="let dataTypes of mSection.dataTypes"
               class="grid grid-cols-12 bg-zinc-100 shadow border-b border-base-300"
@@ -164,15 +165,15 @@
               <div class="col-span-12 pl-1 flex items-center">
                 <input
                   type="checkbox"
-                  class="toggle toggle-xs float-right"
-                  [(ngModel)]="dataTypes.dataSections[0].pages[0].selected"
+                  class="toggle toggle-xs"
+                  [(ngModel)]="dataTypes.selected"
                 />
                 <p class="font-semibold px-1">{{ dataTypes.name }}</p>
               </div>
               <div
                 class="col-span-12 transition-all duration-1000"
                 [ngClass]="
-                  dataTypes.dataSections[0].pages[0].selected
+                  dataTypes.selected
                     ? ''
                     : 'h-0 overflow-hidden transition-all duration-700'
                 "
@@ -263,7 +264,7 @@
             (mouseout)="metaInfoHovered = false"
           >
             <div
-              class="flex flex-col bg-zinc-100 h-full transition-all duration-700"
+              class="flex flex-col bg-zinc-100 h-full transition-all duration-700 p-1"
             >
               <button
                 *ngFor="let mInfo of mSection.__metaInfo"
@@ -294,105 +295,165 @@
 
       <!-- START -->
       <!-- MULTIPLE MEASUREMENTS / COMPARE MEASUREMENTS (META_INFO AT DATATYPES LEVEL )-->
-      <div *ngIf="!mSection.__metaInfo" class="grid grid-cols-12">
-        <div class="col-span-12 border-r">
+      <div *ngIf="!mSection.__metaInfo" class="relative flex flex-col">
+        <div *ngFor="let dataTypes of mSection.dataTypes" class="flex w-full">
+          <!-- Data Type -->
+
           <div
-            *ngFor="let dataTypes of mSection.dataTypes"
-            class="grid grid-cols-12"
+            class="flex flex-wrap bg-zinc-100 shadow lg:border-b border-base-300"
           >
             <!-- Data Type -->
 
-            <div class="col-span-12 lg:col-span-11">
+            <div class="w-full pl-1 flex items-center">
+              <input
+                type="checkbox"
+                class="toggle toggle-xs"
+                [(ngModel)]="dataTypes.selected"
+              />
+              <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+            </div>
+
+            <div class="w-full">
               <div
-                class="grid grid-cols-12 bg-zinc-100 shadow lg:border-b border-base-300"
+                class="grid grid-cols-12"
+                [ngClass]="
+                  dataTypes.selected
+                    ? ''
+                    : 'h-0 overflow-hidden transition-all duration-700'
+                "
               >
-                <!-- Data Type -->
-
-                <div class="col-span-12 pl-1">
-                  <p class="font-semibold px-1">{{ dataTypes.name }}:</p>
-                </div>
-
-                <div class="col-span-12">
-                  <div class="grid grid-cols-12">
-                    <!-- Data Section -->
-                    <div
-                      *ngFor="let dataSection of dataTypes.dataSections"
-                      class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1 border bg-base-100"
-                    >
-                      <p
-                        *ngIf="dataSection.name"
-                        class="text-xs font-semibold p-1 border-b"
-                      >
-                        {{ dataSection.name }}:
-                        <!--GROUP NAME-->
-                      </p>
-                      <!-- Pages  -->
-                      <div
-                        *ngFor="let page of dataSection.pages; let idx = index"
-                        class="flex flex-wrap items-center p-1 space-x-1 space-y-1"
-                        [ngClass]="
-                          dataSection.pages.length > 1 ? 'border-b' : ''
-                        "
-                      >
-                        <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
-                        <div class="w-full flex">
-                          <span class="label-text text-xs ml-1 w-full">{{
-                            page.name
-                          }}</span>
-                          <input
-                            type="checkbox"
-                            checked="checked"
-                            class="toggle toggle-xs float-right"
-                            [(ngModel)]="dataSection.pages[idx].selected"
-                          />
-                        </div>
-                        <!-- <span class="label-text text-xs w-full">{{
+                <!-- Data Section -->
+                <div
+                  *ngFor="let dataSection of dataTypes.dataSections"
+                  class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1 border bg-base-100"
+                >
+                  <p
+                    *ngIf="dataSection.name"
+                    class="text-xs font-semibold p-1 border-b"
+                  >
+                    {{ dataSection.name }}:
+                    <!--GROUP NAME-->
+                  </p>
+                  <!-- Pages  -->
+                  <div
+                    *ngFor="let page of dataSection.pages; let idx = index"
+                    class="flex flex-wrap items-center p-1 space-x-1 space-y-1"
+                    [ngClass]="dataSection.pages.length > 1 ? 'border-b' : ''"
+                  >
+                    <!-- <div class="w-full flex items-center p-1 space-x-2"> -->
+                    <div class="w-full flex">
+                      <span class="label-text text-xs ml-1 w-full">{{
+                        page.name
+                      }}</span>
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        class="toggle toggle-xs float-right"
+                        [(ngModel)]="dataSection.pages[idx].selected"
+                      />
+                    </div>
+                    <!-- <span class="label-text text-xs w-full">{{
                         page.name
                       }}</span> -->
 
-                        <!-- </div>
+                    <!-- </div>
                       <div class="w-full flex items-center pl-5 py-1 space-x-2"> -->
 
-                        <input
-                          *ngIf="page.isScaled"
-                          type="number"
-                          placeholder="From"
-                          class="input input-bordered input-xs w-2/5"
-                          [(ngModel)]="dataSection.pages[idx].scaledFrom"
-                          [disabled]="!page.selected"
-                        />
-                        <input
-                          *ngIf="page.isScaled"
-                          type="number"
-                          placeholder="to"
-                          class="input input-bordered input-xs w-2/5"
-                          [(ngModel)]="dataSection.pages[idx].scaledTo"
-                          [disabled]="!page.selected"
-                        />
+                    <input
+                      *ngIf="page.isScaled"
+                      type="number"
+                      placeholder="From"
+                      class="input input-bordered input-xs w-2/5"
+                      [(ngModel)]="dataSection.pages[idx].scaledFrom"
+                      [disabled]="!page.selected"
+                    />
+                    <input
+                      *ngIf="page.isScaled"
+                      type="number"
+                      placeholder="to"
+                      class="input input-bordered input-xs w-2/5"
+                      [(ngModel)]="dataSection.pages[idx].scaledTo"
+                      [disabled]="!page.selected"
+                    />
 
-                        <label
-                          for="my-modal"
-                          class="btn btn-xs tooltip tooltip-primary"
-                          *ngIf="page.channelSelection"
-                          [attr.data-tip]="
-                            dataSection.pages[idx].channelSelectionText
-                          "
-                          [ngClass]="
-                            !page.selected ? 'btn-disabled' : 'btn-primary'
-                          "
-                          ><fa-icon
-                            [icon]="SelectedChannelIcon"
-                            size="lg"
-                          ></fa-icon
-                        ></label>
-                        <!-- </div> -->
+                    <label
+                      for="my-modal"
+                      class="btn btn-xs tooltip tooltip-primary"
+                      *ngIf="page.channelSelection"
+                      [attr.data-tip]="
+                        dataSection.pages[idx].channelSelectionText
+                      "
+                      [ngClass]="
+                        !page.selected ? 'btn-disabled' : 'btn-primary'
+                      "
+                      ><fa-icon [icon]="SelectedChannelIcon" size="lg"></fa-icon
+                    ></label>
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <div
+                  *ngFor="let mInfo of dataTypes.__metaInfo"
+                  class="col-span-2 m-1 border bg-base-100"
+                >
+                  <div
+                    class="flex justify-center items-center bg-zinc-100 h-full transition-all duration-700 p-1"
+                  >
+                    <button
+                      (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                      class="btn btn-primary my-1 h-auto btn-xs transition-all duration-700"
+                    >
+                      <span class="">{{ mInfo.browseButtonName }}</span>
+
+                      <div
+                        *ngIf="
+                          mInfo.selectedMeasurements &&
+                          mInfo.selectedMeasurements.length == 0
+                        "
+                        class="badge badge-primary"
+                      >
+                        ({{ mInfo.selectedMeasurements.length + 12 }})
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- <div
+            class="w-auto border-l h-full border-base-300 transition-all duration-700 hover:absolute hover:shadow-md right-0"
+            (mouseover)="metaInfoHovered = true"
+            (mouseout)="metaInfoHovered = false"
+            [ngClass]="dataTypes.selected ? '' : 'hidden overflow-hidden '"
+          >
             <div
+              class="flex flex-col bg-zinc-100 h-full transition-all duration-700 p-1"
+            >
+              <button
+                *ngFor="let mInfo of dataTypes.__metaInfo"
+                (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                class="btn btn-primary my-1 h-auto btn-xs transition-all duration-700"
+              >
+                <span *ngIf="metaInfoHovered" class="">{{
+                  mInfo.browseButtonName
+                }}</span>
+                <span *ngIf="!metaInfoHovered" class="">SM</span>
+
+                <div
+                  *ngIf="
+                    mInfo.selectedMeasurements &&
+                    mInfo.selectedMeasurements.length == 0
+                  "
+                  class="badge badge-primary"
+                >
+                  ({{ mInfo.selectedMeasurements.length + 12 }})
+                </div>
+              </button>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- <div
               class="col-span-12 lg:col-span-1 h-full p-1 border-b lg:border-l lg:border-t border-base-300 bg-zinc-100"
             >
               <button
@@ -411,27 +472,24 @@
                   ({{ mInfo.selectedMeasurements.length }})
                 </div>
               </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Measurement Tree -->
-        <app-tree-component
-          [MeasurementPanel]="TreePanel"
-          [previousSelections]="previousMeasurementsSelection"
-          (closeMeasurementPanelEvent)="
-            this.TreePanel = false; this.selectedContentCollection = ''
-          "
-          (addMeasuremets)="addSelectedMeasurements($event)"
-          (removeMeasuremets)="removeSelectedMeasurements($event)"
-        ></app-tree-component>
-        <!-- Measurement Tree -->
+            </div> -->
       </div>
     </div>
+
+    <!-- Measurement Tree -->
+    <app-tree-component
+      [MeasurementPanel]="TreePanel"
+      [previousSelections]="previousMeasurementsSelection"
+      (closeMeasurementPanelEvent)="
+        this.TreePanel = false; this.selectedContentCollection = ''
+      "
+      (addMeasuremets)="addSelectedMeasurements($event)"
+      (removeMeasuremets)="removeSelectedMeasurements($event)"
+    ></app-tree-component>
+    <!-- Measurement Tree -->
   </div>
 </div>
 
-//Channel Modal
 <input type="checkbox" id="my-modal" class="modal-toggle" />
 <div class="modal">
   <div class="modal-box">

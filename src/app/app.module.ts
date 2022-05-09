@@ -19,6 +19,7 @@ import { Interceptor401Service } from './oauth/interceptor401.service';
 import { AccountService } from './oauth/account.service';
 import { OauthComponent } from './oauth/oauth.component';
 import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
+import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-statu
     JobStatusComponent,
     OauthComponent,
     JobStatusDropdownComponent,
+    NotAuthenticatedComponent,
   ],
   imports: [
     BrowserModule,
