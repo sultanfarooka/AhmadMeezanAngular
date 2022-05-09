@@ -20,6 +20,7 @@ import { AccountService } from './oauth/account.service';
 import { OauthComponent } from './oauth/oauth.component';
 import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
 import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
+import { ChannelModalComponent } from './home/channel-modal/channel-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated
     OauthComponent,
     JobStatusDropdownComponent,
     NotAuthenticatedComponent,
+    ChannelModalComponent
   ],
   imports: [
     BrowserModule,
@@ -56,4 +58,4 @@ import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
