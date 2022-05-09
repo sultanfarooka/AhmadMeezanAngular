@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
 
+  metaInfoHovered = false;
+
 
   selectedContentCollection: string;
   previousMeasurementsSelection: string[];

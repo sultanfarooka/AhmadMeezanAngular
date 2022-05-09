@@ -153,10 +153,7 @@
 
       <!-- SINGLE MEASUREMENTS / COMPARE POSITIONS (META_INFO AT MAIN SECTION LEVEL )-->
       <div class="relative flex">
-        <div
-          *ngIf="mSection.__metaInfo"
-          class="grid grid-cols-12 border-r border-base-300"
-        >
+        <div *ngIf="mSection.__metaInfo" class="flex border-r border-base-300">
           <div class="col-span-12 w-full">
             <div
               *ngFor="let dataTypes of mSection.dataTypes"
@@ -251,57 +248,36 @@
               </div>
             </div>
           </div>
+
           <div
-            class="col-span-1 hidden h-full p-1 bg-zinc-100 border-l border-base-300"
+            class="w-auto h-full border-l border-base-300 transition-all duration-700 hover:absolute hover:shadow-md right-0"
+            (mouseover)="metaInfoHovered = true"
+            (mouseout)="metaInfoHovered = false"
           >
-            <div class="flex flex-col">
+            <div
+              class="flex flex-col bg-zinc-100 h-full transition-all duration-700"
+            >
               <button
                 *ngFor="let mInfo of mSection.__metaInfo"
                 (click)="openMeasurementTree(mInfo.contentCollectionName)"
-                class="btn btn-primary h-auto btn-xs"
+                class="btn btn-primary h-auto btn-xs transition-all duration-700"
               >
-                <span>{{ mInfo.browseButtonName }}</span>
+                <span *ngIf="metaInfoHovered" class="">{{
+                  mInfo.browseButtonName
+                }}</span>
+                <span *ngIf="!metaInfoHovered" class="">SM</span>
 
                 <div
                   *ngIf="
                     mInfo.selectedMeasurements &&
-                    mInfo.selectedMeasurements.length > 0
+                    mInfo.selectedMeasurements.length == 0
                   "
                   class="badge badge-primary"
                 >
-                  ({{ mInfo.selectedMeasurements.length }})
+                  ({{ mInfo.selectedMeasurements.length + 12 }})
                 </div>
               </button>
             </div>
-          </div>
-        </div>
-
-        <div
-          class="w-auto border-l border-base-300 bg-zinc-100 opacity-1 h-full hover:absolute hover:shadow-md right-0"
-        >
-          <div
-            class="flex flex-col transition-all duration-700 bg-zinc-100 h-full"
-          >
-            <button
-              *ngFor="let mInfo of mSection.__metaInfo"
-              (click)="openMeasurementTree(mInfo.contentCollectionName)"
-              class="btn btn-primary h-auto btn-xs before:content-['SM'] hover:before:content-['Select_Measurements']"
-            >
-              <!-- <span class="w-0 overflow-hidden hover:w-auto">{{
-                mInfo.browseButtonName
-              }}</span>
-              <span class="w-auto hover:w-0 hover:overflow-hidden">SM</span> -->
-
-              <div
-                *ngIf="
-                  mInfo.selectedMeasurements &&
-                  mInfo.selectedMeasurements.length == 0
-                "
-                class="badge badge-primary"
-              >
-                ({{ mInfo.selectedMeasurements.length + 12 }})
-              </div>
-            </button>
           </div>
         </div>
       </div>
