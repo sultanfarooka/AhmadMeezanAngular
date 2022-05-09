@@ -5,7 +5,8 @@ import {
   faFileArrowUp,
   faListCheck,
   faEllipsisVertical,
-  faUser
+  faUser,
+  faSliders
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
   jobStatusIcon = faListCheck;
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
+  SelectedChannelIcon = faSliders;
 
   metaInfoHovered = false;
 
