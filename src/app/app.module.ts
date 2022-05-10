@@ -21,6 +21,7 @@ import { OauthComponent } from './oauth/oauth.component';
 import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
 import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 import { ChannelModalComponent } from './home/channel-modal/channel-modal.component';
+import { KeysPipe } from './home/channel-modal/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ChannelModalComponent } from './home/channel-modal/channel-modal.compon
     OauthComponent,
     JobStatusDropdownComponent,
     NotAuthenticatedComponent,
-    ChannelModalComponent
+    ChannelModalComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

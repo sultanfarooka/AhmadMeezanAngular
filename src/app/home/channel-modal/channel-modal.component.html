@@ -17,14 +17,19 @@
         </tr>
     </thead>
   </table>
-  <div>
+  <div *ngFor="let key of this.channel_Data.data  | keys">
     <table class="table-auto table-zebra table table-compact w-full justify-left ">
       <tr class="h-8">
+        <td class="w-20">
+          <input
+            type="checkbox"
+            class="toggle toggle-xs"
+          />
+        </td>
         <td class="w-20"></td>
         <td class="w-20"></td>
         <td class="w-20"></td>
         <td class="w-20"></td>
-        <td class="w-20">{{this.DataType}}</td>
         <td class="w-20"></td>
         <td class="w-20"></td>
         <td class="w-20"></td>
