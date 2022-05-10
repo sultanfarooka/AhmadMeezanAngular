@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
   SelectedChannelIcon = faSliders;
-  SelectedChannelForDatatype = "";
+  SelectedChannelForDatatype: string[];
   ChannelSelectionComponent: ChannelModalComponent;
 
   metaInfoHovered = false;
@@ -601,9 +601,9 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChannelModal(SelectedDataType: any){
+  openChannelModal(SelectedChannels: string[]){
     console.log("Responding");
-    this.SelectedChannelForDatatype = SelectedDataType;
+    this.SelectedChannelForDatatype = SelectedChannels;
     console.log(this.SelectedChannelForDatatype);
   }
 }

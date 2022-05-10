@@ -101,6 +101,7 @@
                                                 "scaledTo": "\"\"",
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": false,
+                                                "selectedChannels":[],
                                                 "channelSelection": false,
                                                 "channelSelectionText": "Select Channels"
                                             }

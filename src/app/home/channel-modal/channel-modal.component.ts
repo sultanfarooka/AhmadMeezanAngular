@@ -9,7 +9,7 @@ export class ChannelModalComponent implements OnInit {
 
   constructor() { }
 
-  @Input() DataType: string = ""
+  @Input() selectedChannels: string[];
 
   Object = Object;
   //channel_Data:any[]
@@ -162,6 +162,17 @@ export class ChannelModalComponent implements OnInit {
     },
     "errorMessage": null
   }
+
+  isPresent(key: string):boolean{
+
+    let searchedIndx = this.selectedChannels.findIndex(x => x == key)
+
+    if(searchedIndx > -1)
+      return true;
+    else
+      return false;
+  }
+
 
   ngOnInit() {
   }

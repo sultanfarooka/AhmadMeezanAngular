@@ -245,7 +245,7 @@
                         [ngClass]="
                           !page.selected ? 'btn-disabled' : 'btn-primary'
                         "
-                        (click)="openChannelModal(dataTypes.name)"
+                        (click)="openChannelModal(page.selectedChannels)"
                         ><fa-icon
                           [icon]="SelectedChannelIcon"
                           size="lg"
@@ -497,7 +497,7 @@
     <div class="w-full h-full">
     <h3 class="font-bold text-lg">Channel Selection</h3>
     <app-channel-modal
-    [DataType]="SelectedChannelForDatatype"
+    [selectedChannels]="SelectedChannelForDatatype"
     ></app-channel-modal>
   </div>
     <div class="modal-action" >
