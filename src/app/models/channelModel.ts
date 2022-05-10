@@ -18,6 +18,7 @@ export interface DataSections {
 export interface DataTypes {
   name: string; //e.g Overall Anly:
   dataSections: DataSections[];
+  selected: boolean;
   __metaInfo: MetaInfo[];
 }
 

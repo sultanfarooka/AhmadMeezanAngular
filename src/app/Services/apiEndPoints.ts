@@ -25,4 +25,5 @@ export const apiEndPointsLocalDev = {
   measurementTreeChildNodesApi2: 'childNodes',
 
   channelsDataApi: 'channelsData',
+  userName: 'username'
 };

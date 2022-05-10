@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
 import { JobStatusComponent } from './job-status/job-status.component';
+import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { OauthComponent } from './oauth/oauth.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'jobStatus', component: JobStatusComponent },
   { path: 'oauth/redirect', component: OauthComponent },
   { path: 'home/job-status-dropdown', component: JobStatusDropdownComponent },
-  { path: 'home/channel-modal', component: ChannelModalComponent},
+  { path: 'notauthenticated', component: NotAuthenticatedComponent },
+  { path: 'home/channel-modal', component: ChannelModalComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

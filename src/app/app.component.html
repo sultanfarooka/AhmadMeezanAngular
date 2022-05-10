@@ -31,43 +31,20 @@
           <fa-icon
             tabindex="0"
             [icon]="jobStatusIcon"
-            class="btn btn-ghost rounded-btn"
+            class="items-center btn btn-ghost rounded-btn"
           ></fa-icon>
-            <div class = "dropdown-content">
-              <app-job-status-dropdown tabindex="0" class="dropdown-item "></app-job-status-dropdown>
-            </div>
-          <!-- <fa-icon
-            tabindex="0"
-            [icon]="themeIcon"
-            class="btn btn-ghost rounded-btn"
-          ></fa-icon>
-          <ul
-            tabindex="0"
-            class="p-2 overflow-y-scroll shadow menu dropdown-content bg-base-200 rounded-box w-52 h-60"
-          >
-            <li *ngFor="let theme of themes" (click)="changeTheme(theme)">
-              <a>{{ theme }}</a>
-            </li>
-          </ul> -->
+          <div class="dropdown-content">
+            <app-job-status-dropdown
+              tabindex="0"
+              class="dropdown-item"
+            ></app-job-status-dropdown>
+          </div>
         </div>
-        <div class="dropdown dropdown-end">
-          <fa-icon
-            tabindex="0"
-            [icon]="bellIcon"
-            class="btn btn-ghost rounded-btn"
-          ></fa-icon>
-          <ul
-            tabindex="0"
-            class="p-2 shadow menu dropdown-content bg-base-200 rounded-box w-52"
-          >
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
-          </ul>
-        </div>
+
         <div class="dropdown dropdown-end">
           <button class="items-center btn btn-ghost rounded-btn">
-            <fa-icon class="mr-1" tabindex="0" [icon]="bellIcon"></fa-icon>User
-            Name
+            <fa-icon class="mr-3" tabindex="0" [icon]="userIcon"></fa-icon
+            >{{ userName }}
           </button>
 
           <ul
@@ -77,6 +54,43 @@
             <li class="text-sm hover-bordered"><a>Item 1</a></li>
             <li class="text-sm hover-bordered"><a>Item 2</a></li>
           </ul>
+        </div>
+
+        <div class="dropdown dropdown-end">
+          <fa-icon
+            tabindex="0"
+            [icon]="optionsIcon"
+            class="btn btn-ghost rounded-btn"
+          ></fa-icon>
+          <div
+            tabindex="0"
+            class="dropdown-content p-1 shadow bg-base-200 rounded-box w-60"
+          >
+            <button class="btn btn-sm btn-ghost w-full" (click)="SaveConfig()">
+              <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
+              Configurations
+            </button>
+
+            <input
+              #file
+              type="file"
+              accept="txt/*"
+              (change)="ImportFile($event)"
+              hidden
+            />
+            <button
+              class="btn btn-sm btn-ghost w-full text-left"
+              (click)="file.click()"
+            >
+              <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
+              Configurations
+            </button>
+
+            <button class="btn btn-sm btn-ghost w-full" (click)="resetConfig()">
+              <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
+              current selection
+            </button>
+          </div>
         </div>
       </div>
     </div>

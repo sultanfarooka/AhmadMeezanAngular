@@ -19,6 +19,7 @@ import { Interceptor401Service } from './oauth/interceptor401.service';
 import { AccountService } from './oauth/account.service';
 import { OauthComponent } from './oauth/oauth.component';
 import { JobStatusDropdownComponent } from './home/job-status-dropdown/job-status-dropdown.component';
+import { NotAuthenticatedComponent } from './not-authenticated/not-authenticated.component';
 import { ChannelModalComponent } from './home/channel-modal/channel-modal.component';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ChannelModalComponent } from './home/channel-modal/channel-modal.compon
     JobStatusComponent,
     OauthComponent,
     JobStatusDropdownComponent,
+    NotAuthenticatedComponent,
     ChannelModalComponent
   ],
   imports: [
@@ -56,4 +58,4 @@ import { ChannelModalComponent } from './home/channel-modal/channel-modal.compon
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
