@@ -24,7 +24,8 @@
           <input
             type="checkbox"
             class="toggle toggle-xs"
-            
+            [checked]="isPresent(key)"
+            (change)="channalSelectionToggle($event, key)"
           />
         </td>
         <td class="w-20">{{key.name}}</td>

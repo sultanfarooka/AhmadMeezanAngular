@@ -101,9 +101,8 @@
                                                 "scaledTo": "\"\"",
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": false,
-                                                "selectedChannels":[],
                                                 "channelSelection": false,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -119,7 +118,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -135,7 +134,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -151,7 +150,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -167,7 +166,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -183,7 +182,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -205,7 +204,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -221,7 +220,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -237,7 +236,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -258,7 +257,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "1kHz bis 6kHz",
@@ -268,7 +267,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "6khz bis 19khz",
@@ -278,7 +277,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -293,7 +292,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "bis 1kHz",
@@ -303,7 +302,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "1kHz bis 9,4kHz",
@@ -313,7 +312,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -349,7 +348,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -365,7 +364,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -381,7 +380,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -419,14 +418,14 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "SinglePosition",
                                                 "connectedPageName": "",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -442,14 +441,14 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "SinglePosition",
                                                 "connectedPageName": "",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -465,7 +464,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -513,7 +512,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -529,7 +528,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -551,7 +550,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -567,7 +566,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -583,7 +582,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -604,7 +603,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "1kHz bis 6kHz",
@@ -614,7 +613,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "6khz bis 19khz",
@@ -624,7 +623,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     },
@@ -639,7 +638,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "bis 1kHz",
@@ -649,7 +648,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "1kHz bis 9,4kHz",
@@ -659,7 +658,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -694,7 +693,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "SinglePosition",
@@ -704,7 +703,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
@@ -742,7 +741,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             },
                                             {
                                                 "name": "SinglePosition",
@@ -752,7 +751,7 @@
                                                 "scaledFrom": "\"\"",
                                                 "isScaled": true,
                                                 "channelSelection": true,
-                                                "channelSelectionText": "Select Channels"
+                                                "channelSelectionText": "Select Channels", "selectedChannels": []
                                             }
                                         ]
                                     }
