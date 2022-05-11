@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-channel-modal',
@@ -10,10 +11,12 @@ export class ChannelModalComponent implements OnInit {
   constructor() { }
 
   @Input() selectedChannels: string[];
+  @Input() SelectedPageName: string;
+  @Output() SaveSelectedChannels = new EventEmitter<any>();
 
   Object = Object;
   //channel_Data:any[]
-   channel_Data = {
+  channel_Data = {
     "success": true,
     "data": {
       "1\nCH1\nSound Pressure\n\nS\nLS\nAPS\nDT_APSSpectrum\nfrequency\nShape_Normal\n\n\nDF_Mag": {
@@ -163,33 +166,38 @@ export class ChannelModalComponent implements OnInit {
     "errorMessage": null
   }
 
-  isPresent(key: string):boolean{
-    debugger;
-    if(this.selectedChannels == undefined || this.selectedChannels.length == 0)
+  isPresent(key: string): boolean {
+
+    if (this.selectedChannels == undefined || this.selectedChannels.length == 0)
       return false
-    
-    
+
+
     let searchedIndx = this.selectedChannels.findIndex(x => x == key)
 
-    if(searchedIndx > -1)
+    if (searchedIndx > -1)
       return true;
     else
       return false;
-    
+
   }
 
 
-  channalSelectionToggle(ev: any, key: string){
-      if(ev.target.checked == true){
-        this.selectedChannels.push(key);
-      }
-      else{
-        this.selectedChannels = this.selectedChannels.filter(x => x != key);
-      }
+  channalSelectionToggle(ev: any, key: string) {
+    if (ev.target.checked == true) {
+      this.selectedChannels.push(key);
+    }
+    else {
+      this.selectedChannels = this.selectedChannels.filter(x => x != key);
+    }
   }
 
 
   ngOnInit() {
-    
+
+  }
+
+
+  saveSelection() {
+    this.SaveSelectedChannels.emit({ this.selectedChannels, this.SelectedPageName });
   }
 }

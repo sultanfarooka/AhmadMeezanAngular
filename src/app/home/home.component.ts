@@ -37,7 +37,8 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
   SelectedChannelIcon = faSliders;
-  SelectedChannelForDatatype: string[];
+  SelectedChannelForDatatype: string[] = [];
+  SelectedPageName: string;
   ChannelSelectionComponent: ChannelModalComponent;
 
   metaInfoHovered = false;
@@ -601,9 +602,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChannelModal(SelectedChannels: string[]){
+  openChannelModal(SelectedChannels: string[], SelectedPage: string) {
     console.log("Responding");
     this.SelectedChannelForDatatype = SelectedChannels;
+    this.SelectedPageName = SelectedPage;
     console.log(this.SelectedChannelForDatatype);
   }
 }

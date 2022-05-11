@@ -1,47 +1,59 @@
-<div class="w-full p-6 drop-shadow-sm">
-  <table class="table-auto table-zebra table table-compact w-full justify-left">
-    <thead>
-      <tr>
-        <th class="w-20">Select</th>
-        <th class="w-20">Name</th>
-        <th class="w-20">Direction</th>
-        <th class="w-20">Mp Type</th>
-        <th class="w-20">Data Type</th>
-        <th class="w-20">Quantity</th>
-        <th class="w-20">Quantity Ref</th>
-        <th class="w-20">x axix type</th>
-        <th class="w-20">Shape</th>
-        <th class="w-20">Nth Octave</th>
-        <th class="w-20">Sub type</th>
-        <th class="w-20">Data Format</th>
-        </tr>
-    </thead>
-  </table>
-  <div *ngFor="let key of this.channel_Data.data  | keys">
-    <table class="table-auto table-zebra table table-compact w-full justify-left ">
-      <tr class="h-8">
-        <td class="w-20">
-          <input
-            type="checkbox"
-            class="toggle toggle-xs"
-            [checked]="isPresent(key)"
-            (change)="channalSelectionToggle($event, key)"
-          />
-        </td>
-        <td class="w-20">{{key.name}}</td>
-        <td class="w-20">{{key.direction}}</td>
-        <td class="w-20">{{key.mptype}}</td>
-        <td class="w-20">{{key.datatype}}</td>
-        <td class="w-20">{{key.quantity}}</td>
-        <td class="w-20">{{key.quantityref}}</td>
-        <td class="w-20">{{key.x_axis_type}}</td>
-        <td class="w-20">{{key.shape}}</td>
-        <td class="w-20">{{key.nth_octave}}</td>
-        <td class="w-20">{{key.sub_type}}
-        </td>
-        <td class="w-20">{{key.data_format}}
-        </td>
-      </tr>
-    </table>
+<div class="modal-box w-full h-full">
+  <div class="w-full h-full">
+    <h3 class="font-bold text-lg">Channel Selection</h3>
+    <div class="w-full p-6 drop-shadow-sm">
+      <table
+        class="table-auto table-zebra table table-compact w-full justify-left"
+      >
+        <thead>
+          <tr>
+            <th class="w-20">Select</th>
+            <th class="w-20">Name</th>
+            <th class="w-20">Direction</th>
+            <th class="w-20">Mp Type</th>
+            <th class="w-20">Data Type</th>
+            <th class="w-20">Quantity</th>
+            <th class="w-20">Quantity Ref</th>
+            <th class="w-20">x axix type</th>
+            <th class="w-20">Shape</th>
+            <th class="w-20">Nth Octave</th>
+            <th class="w-20">Sub type</th>
+            <th class="w-20">Data Format</th>
+          </tr>
+        </thead>
+      </table>
+      <div *ngFor="let key of this.channel_Data.data | keys">
+        <table
+          class="table-auto table-zebra table table-compact w-full justify-left"
+        >
+          <tr class="h-8">
+            <td class="w-20">
+              <input
+                type="checkbox"
+                class="toggle toggle-xs"
+                [checked]="isPresent(key)"
+                (change)="channalSelectionToggle($event, key)"
+              />
+            </td>
+            <td class="w-20">{{ key.name }}</td>
+            <td class="w-20">{{ key.direction }}</td>
+            <td class="w-20">{{ key.mptype }}</td>
+            <td class="w-20">{{ key.datatype }}</td>
+            <td class="w-20">{{ key.quantity }}</td>
+            <td class="w-20">{{ key.quantityref }}</td>
+            <td class="w-20">{{ key.x_axis_type }}</td>
+            <td class="w-20">{{ key.shape }}</td>
+            <td class="w-20">{{ key.nth_octave }}</td>
+            <td class="w-20">{{ key.sub_type }}</td>
+            <td class="w-20">{{ key.data_format }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="modal-action">
+    <label for="my-modal" class="btn btn-primary" (click)="saveSelection()"
+      >Save</label
+    >
   </div>
 </div>
