@@ -164,16 +164,32 @@ export class ChannelModalComponent implements OnInit {
   }
 
   isPresent(key: string):boolean{
-
+    debugger;
+    if(this.selectedChannels == undefined || this.selectedChannels.length == 0)
+      return false
+    
+    
     let searchedIndx = this.selectedChannels.findIndex(x => x == key)
 
     if(searchedIndx > -1)
       return true;
     else
       return false;
+    
+  }
+
+
+  channalSelectionToggle(ev: any, key: string){
+      if(ev.target.checked == true){
+        this.selectedChannels.push(key);
+      }
+      else{
+        this.selectedChannels = this.selectedChannels.filter(x => x != key);
+      }
   }
 
 
   ngOnInit() {
+    
   }
 }
