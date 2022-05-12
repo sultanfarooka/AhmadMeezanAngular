@@ -602,10 +602,93 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  openChannelModal(SelectedChannels: string[], SelectedPage: string) {
+
+  getPreviouslySelectedChannels(pageName: string): string[] {
+    let found = false;
+    let selectedChs: string[] = [];
+    this.channelsData.forEach((chData) => {
+      chData.mainSections.forEach(mainSec => {
+        mainSec.dataTypes.forEach(dTypes => {
+          dTypes.dataSections.forEach(dataSec => {
+            dataSec.pages.forEach(page => {
+              if (page.name == pageName) {
+                found = true;
+                selectedChs = page.selectedChannels;
+                return
+              }
+            })
+            if (found)
+              return
+          })
+          if (found)
+            return
+        })
+        if (found)
+          return
+      })
+      if (found)
+        return
+    })
+
+    return selectedChs
+
+    // for (let i = 0; i < this.channelsData.length; i++) {
+    //   //looping on mainsections
+    //   for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
+    //     for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; j++) {
+    //       for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++) {
+    //         for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
+
+    //         }
+
+    //       }
+
+    //     }
+    //   }
+
+
+
+
+
+  }
+
+
+
+
+
+  openChannelModal(SelectedPage: string) {
     console.log("Responding");
-    this.SelectedChannelForDatatype = SelectedChannels;
+    this.SelectedChannelForDatatype = this.getPreviouslySelectedChannels(SelectedPage);
     this.SelectedPageName = SelectedPage;
-    console.log(this.SelectedChannelForDatatype);
+  }
+
+
+  saveChannelSelection(selectedChannels: string[]) {
+    console.log(selectedChannels);
+    let found = false;
+    this.channelsData.forEach((chData) => {
+      chData.mainSections.forEach(mainSec => {
+        mainSec.dataTypes.forEach(dTypes => {
+          dTypes.dataSections.forEach(dataSec => {
+            dataSec.pages.forEach(page => {
+              if (page.name == this.SelectedPageName) {
+                found = true;
+                page.selectedChannels = selectedChannels;
+                return
+              }
+            })
+            if (found)
+              return
+          })
+          if (found)
+            return
+        })
+        if (found)
+          return
+      })
+      if (found)
+        return
+    })
+
   }
 }

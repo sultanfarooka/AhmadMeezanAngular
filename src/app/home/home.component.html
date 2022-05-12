@@ -245,9 +245,7 @@
                         [ngClass]="
                           !page.selected ? 'btn-disabled' : 'btn-primary'
                         "
-                        (click)="
-                          openChannelModal(page.selectedChannels, page.name)
-                        "
+                        (click)="openChannelModal(page.name)"
                         ><fa-icon
                           [icon]="SelectedChannelIcon"
                           size="lg"
@@ -493,11 +491,11 @@
   </div>
 </div>
 
-<input type="checkbox" id="my-modal" class="modal-toggle" />
-<div class="modal w-full h-full">
+<input #modal type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal w-full h-full" (click)="modal.click()">
   <app-channel-modal
     [SelectedPageName]="SelectedPageName"
-    [selectedChannels]="SelectedChannelForDatatype"
-    (SaveSelectedChannels)="saveChannelSelection($event)"
+    [(selectedChannels)]="SelectedChannelForDatatype"
+    (selectedChannelsChange)="saveChannelSelection($event)"
   ></app-channel-modal>
 </div>

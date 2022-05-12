@@ -12,7 +12,7 @@ export class ChannelModalComponent implements OnInit {
 
   @Input() selectedChannels: string[];
   @Input() SelectedPageName: string;
-  @Output() SaveSelectedChannels = new EventEmitter<any>();
+  @Output() selectedChannelsChange = new EventEmitter();
 
   Object = Object;
   //channel_Data:any[]
@@ -168,6 +168,7 @@ export class ChannelModalComponent implements OnInit {
 
   isPresent(key: string): boolean {
 
+
     if (this.selectedChannels == undefined || this.selectedChannels.length == 0)
       return false
 
@@ -179,6 +180,7 @@ export class ChannelModalComponent implements OnInit {
     else
       return false;
 
+
   }
 
 
@@ -188,7 +190,15 @@ export class ChannelModalComponent implements OnInit {
     }
     else {
       this.selectedChannels = this.selectedChannels.filter(x => x != key);
+
     }
+    let selectedChannels = this.selectedChannels
+    let selectedPage = this.SelectedPageName;
+    this.selectedChannelsChange.emit(this.selectedChannels);
+
+
+
+
   }
 
 
@@ -198,6 +208,6 @@ export class ChannelModalComponent implements OnInit {
 
 
   saveSelection() {
-    this.SaveSelectedChannels.emit({ this.selectedChannels, this.SelectedPageName });
+
   }
 }

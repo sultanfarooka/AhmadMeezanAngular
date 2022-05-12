@@ -31,8 +31,8 @@
               <input
                 type="checkbox"
                 class="toggle toggle-xs"
-                [checked]="isPresent(key)"
-                (change)="channalSelectionToggle($event, key)"
+                [checked]="isPresent(key.key)"
+                (change)="channalSelectionToggle($event, key.key)"
               />
             </td>
             <td class="w-20">{{ key.name }}</td>
@@ -50,10 +50,5 @@
         </table>
       </div>
     </div>
-  </div>
-  <div class="modal-action">
-    <label for="my-modal" class="btn btn-primary" (click)="saveSelection()"
-      >Save</label
-    >
   </div>
 </div>
