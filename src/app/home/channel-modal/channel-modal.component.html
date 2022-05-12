@@ -1,9 +1,9 @@
 <div class="modal-box w-full h-full">
   <div class="w-full h-full">
-    <h3 class="font-bold text-lg">Channel Selection</h3>
-    <div class="w-full p-6 drop-shadow-sm">
+    <h3 class="font-bold text-lg text-center">Channel Selection</h3>
+    <div class="w-full p-6 drop-shadow-sm overflow-y-auto">
       <table
-        class="table-auto table-zebra table table-compact w-full justify-left"
+        class=" table-auto table-zebra table table-compact w-full justify-left"
       >
         <thead>
           <tr>
@@ -22,6 +22,7 @@
           </tr>
         </thead>
       </table>
+      
       <div *ngFor="let key of this.channel_Data.data | keys">
         <table
           class="table-auto table-zebra table table-compact w-full justify-left"
@@ -48,7 +49,9 @@
             <td class="w-20">{{ key.data_format }}</td>
           </tr>
         </table>
+        <hr>
       </div>
+      <hr>
     </div>
   </div>
 </div>
