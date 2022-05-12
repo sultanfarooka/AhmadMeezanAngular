@@ -747,4 +747,16 @@ export class HomeComponent implements OnInit {
     reader.readAsText(File);
 
   }
+
+  ResetSelectedConfig(){
+    this.apiService.getChannelsData().subscribe((data) => {
+      for (let i = 0; i< data.Data.length; i++){
+        for(let j=0; j<this.channelsData.length; j++){
+          if(this.channelsData[j].tabName == data.Data[i].tabName){
+            this.channelsData[j] = data.Data[i];
+          }
+        }
+      }
+    });
+  }
 }
