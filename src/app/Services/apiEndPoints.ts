@@ -23,7 +23,7 @@ export const apiEndPointsLocalDev = {
   baseURL: 'http://localhost:3000/', //
   measurementTreeNodesApi: 'rootNodes',
   measurementTreeChildNodesApi2: 'childNodes',
-
+  channels: 'getChannels',
   channelsDataApi: 'channelsData',
   userName: 'username'
 };
