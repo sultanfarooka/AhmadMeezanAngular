@@ -691,4 +691,57 @@ export class HomeComponent implements OnInit {
     })
 
   }
+
+  //Saving configuration for the selected channels
+  SaveSelectedConfig(){
+
+    let found = false;
+    this.channelsData.forEach((chData) =>{
+      if(chData.tabName == this.selectedCh){
+        found = true;
+        let Data = chData;
+        var Json = JSON.stringify(Data);
+        var element = document.createElement('a');
+        element.setAttribute(
+          'href',
+          'data:text/json;charset=UTF-8,' + encodeURIComponent(Json)
+        );
+        element.setAttribute('download', chData.tabName + '.json');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click(); // simulate click
+        document.body.removeChild(element);
+      }
+
+      if(found)
+        return;
+    })
+
+    if(found)
+    return;
+
+  }
+
+  //Loading configuration for the selected channels
+  LoadSelectedConfig(event: any){
+
+    let File = event.target.files[0];
+
+    var reader = new FileReader();
+    reader.onload = () => {
+      // this 'text' is the content of the file
+      let text = reader.result as string;
+      let channel: ChannelData = JSON.parse(text);
+
+      for(let i =0; i<this.channelsData.length; i++) {
+        if(this.channelsData[i].tabName == this.selectedCh){
+          this.channelsData[i] = channel;
+        }
+      }
+
+      event.target.value = null;
+    };
+    reader.readAsText(File);
+
+  }
 }

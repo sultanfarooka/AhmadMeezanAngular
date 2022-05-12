@@ -88,13 +88,20 @@
             tabindex="0"
             class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40"
           >
-            <li class="text-left btn-xs btn-ghost rounded">
+            <li class="text-left btn-xs btn-ghost rounded" (click)="SaveSelectedConfig()">
               <a>
-                <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
+                <fa-icon class="mr-2" [icon]="saveConfigIcon" ></fa-icon>Save
                 Configurations</a
               >
             </li>
-            <li class="text-left btn-xs btn-ghost rounded">
+            <input
+              #file
+              type="file"
+              accept="txt/*"
+              (change)="LoadSelectedConfig($event)"
+              hidden
+            />
+            <li class="text-left btn-xs btn-ghost rounded" (click)="file.click()">
               <a>
                 <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Laod
                 Configurations</a
@@ -102,8 +109,7 @@
             </li>
             <li class="text-left btn-xs btn-ghost rounded">
               <a>
-                <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Laod
-                Reset current selections</a
+                <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset selections</a
               >
             </li>
           </ul>
