@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   metaInfoHovered = false;
 
-
+  modelElement = ''
   selectedContentCollection: string;
   previousMeasurementsSelection: string[];
 
@@ -661,6 +661,9 @@ export class HomeComponent implements OnInit {
     this.SelectedChannelForDatatype = this.getPreviouslySelectedChannels(SelectedPage);
     this.SelectedPageName = SelectedPage;
   }
+
+
+
 
 
   saveChannelSelection(selectedChannels: string[]) {
