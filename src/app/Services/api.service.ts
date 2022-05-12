@@ -35,7 +35,11 @@ export class ApiService {
     }).pipe(retry(1), catchError(this.handleError));
   }
 
-
+  getChannels(selectedMeasurements: string[]): Observable<any> {
+    return this.http.get<any>(this.apiEndPoint.baseURL + this.apiEndPoint.getChannels,
+      { withCredentials: true })
+      .pipe(retry(1), catchError(this.handleError));
+  }
 
 
   //GET REQUEST -> GETS ROOTS NODES FOR MEASUREMENTS

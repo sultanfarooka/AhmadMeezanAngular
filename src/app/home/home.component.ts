@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import {
   faArrowsRotate,
   faFileArrowDown,
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     private accountService: AccountService
   ) { }
 
+  @ViewChild(ChannelModalComponent) ModalComp: ChannelModalComponent;
   //Mock object for channel data, later it will be taken from backend
   @Input() channelsData: ChannelData[] = [];
   selectedCh = '';
@@ -632,34 +633,41 @@ export class HomeComponent implements OnInit {
 
     return selectedChs
 
-    // for (let i = 0; i < this.channelsData.length; i++) {
-    //   //looping on mainsections
-    //   for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
-    //     for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; j++) {
-    //       for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++) {
-    //         for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
-
-    //         }
-
-    //       }
-
-    //     }
-    //   }
-
-
-
-
 
   }
 
+  getPrevSaveMeasurement(selectedPage: string): string[] {
+    for (let i = 0; i < this.channelsData.length; i++) {
+      for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
+        for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
+          for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++) {
+            for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
+              if (this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name == selectedPage) {
+                if (this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo != undefined) {
+                  return []
+                }
+                if (this.channelsData[i].mainSections[j].__metaInfo != undefined) {
+                  return []
+                }
+              }
+            }
+
+          }
+
+        }
+      }
+    }
+    return []
+  }
 
 
-
-
-  openChannelModal(SelectedPage: string) {
+  async openChannelModal(SelectedPage: string) {
     console.log("Responding");
-    this.SelectedChannelForDatatype = this.getPreviouslySelectedChannels(SelectedPage);
+    this.SelectedChannelForDatatype = await this.getPreviouslySelectedChannels(SelectedPage);
+    this.previousMeasurementsSelection = await this.getPrevSaveMeasurement('')
     this.SelectedPageName = SelectedPage;
+
+    this.ModalComp.ngOnInit();
   }
 
 

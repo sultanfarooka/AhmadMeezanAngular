@@ -2,7 +2,32 @@
   <div class="w-full h-full">
     <h3 class="font-bold text-lg">Channel Selection</h3>
     <div class="w-full p-6 drop-shadow-sm">
+      <div *ngIf="loading" class="h-full flex justify-center pt-4">
+        <span class="animate-pulse">loading...</span>
+      </div>
+      <div *ngIf="no_measurements" class="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span
+            >No measurements selected. Please select measurements first for
+            channel selection.</span
+          >
+        </div>
+      </div>
       <table
+        *ngIf="channel_Data != null"
         class="table-auto table-zebra table table-compact w-full justify-left"
       >
         <thead>
@@ -21,12 +46,8 @@
             <th class="w-20">Data Format</th>
           </tr>
         </thead>
-      </table>
-      <div *ngFor="let key of this.channel_Data.data | keys">
-        <table
-          class="table-auto table-zebra table table-compact w-full justify-left"
-        >
-          <tr class="h-8">
+        <tbody>
+          <tr *ngFor="let key of this.channel_Data.data | keys" class="h-8">
             <td class="w-20">
               <input
                 type="checkbox"
@@ -47,8 +68,8 @@
             <td class="w-20">{{ key.sub_type }}</td>
             <td class="w-20">{{ key.data_format }}</td>
           </tr>
-        </table>
-      </div>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

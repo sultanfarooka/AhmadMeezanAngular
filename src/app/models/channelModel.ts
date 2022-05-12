@@ -33,7 +33,7 @@ export interface MetaInfo {
   contentCollectionName: string;
   aliasTable: string;
   processAllAtOnce: boolean;
-  selectedMeasurements: string[]; //"depotContentId":
+  selectedMeasurements: string[]; //depotContentId:
 }
 
 export interface ChannelData {
@@ -44,4 +44,27 @@ export interface ChannelData {
 export interface ConfigRes {
   sucess: boolean;
   Data: ChannelData[];
+}
+
+
+
+
+export interface channelsRes {
+  success: boolean;
+  data: channelsData;
+  errorMessage: string
+}
+
+export interface channelsData {
+  name: string;
+  direction: string;
+  mptype: string;
+  datatype: string;
+  quantity: string;
+  quantityref: string;
+  x_axis_type: string;
+  shape: string;
+  nth_octave: string;
+  sub_type: string;
+  data_format: string;
 }

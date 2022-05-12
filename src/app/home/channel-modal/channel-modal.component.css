@@ -1,4 +1,5 @@
 
 .modal-box {
     max-width: 130rem;
+    min-width: 50rem;
 }
