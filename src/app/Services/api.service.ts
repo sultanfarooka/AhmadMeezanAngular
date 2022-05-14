@@ -3,9 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
-import { apiEndPointsProd, apiEndPointsDev, apiEndPointsLocalDev } from './apiEndPoints';
+import {
+  apiEndPointsProd,
+  apiEndPointsDev,
+  apiEndPointsLocalDev,
+} from './apiEndPoints';
 import { depot, depotApiRes } from '../models/depotModels';
-import { userNameRes } from '../models/userNameModel'
+import { userNameRes } from '../models/userNameModel';
 import { ChannelData, ConfigRes } from '../Models/channelModel';
 import { environment } from 'src/environments/environment';
 
@@ -14,7 +18,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   //BASE URL FOR THE API ENDPOINT
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //HTTP OPTIONS
   httpOptions = {
@@ -25,14 +29,15 @@ export class ApiService {
 
   //API END POINT BASE ON THE ENVIROMENT
   //apiEndPoint = environment.production ? apiEndPointsProd : apiEndPointsDev;
-  apiEndPoint = apiEndPointsLocalDev;
-
+  apiEndPoint = apiEndPointsDev;
 
   //Get user name
   getUserName(): Observable<userNameRes> {
-    return this.http.get<userNameRes>(this.apiEndPoint.baseURL + this.apiEndPoint.userName, {
-      withCredentials: true,
-    }).pipe(retry(1), catchError(this.handleError));
+    return this.http
+      .get<userNameRes>(this.apiEndPoint.baseURL + this.apiEndPoint.userName, {
+        withCredentials: true,
+      })
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   getChannels(selectedMeasurements: string[]): Observable<any> {
@@ -82,11 +87,6 @@ export class ApiService {
       )
       .pipe(catchError(this.handleError));
   }
-
-
-
-
-
 
   //ERROR HANDLING
   handleError(error: any) {

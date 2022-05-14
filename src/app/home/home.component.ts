@@ -6,7 +6,7 @@ import {
   faListCheck,
   faEllipsisVertical,
   faUser,
-  faSliders
+  faSliders,
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     public apiService: ApiService,
     private httpClient: HttpClient,
     private accountService: AccountService
-  ) { }
+  ) {}
 
   @ViewChild(ChannelModalComponent) ModalComp: ChannelModalComponent;
   //Mock object for channel data, later it will be taken from backend
@@ -52,22 +52,23 @@ export class HomeComponent implements OnInit {
 
   openedDataSections: string[] = [];
 
-
-
-
-
   ngDoCheck(): void {
     localStorage.setItem('chData', JSON.stringify(this.channelsData));
   }
 
-
+  isUserAuthenticated = false;
+  subscription: Subscription;
+  userName: string;
 
   ngOnInit(): void {
     // this.subscription = this.accountService.isUserAuthenticated.subscribe(
     //   (isAuthenticated) => {
     //     this.isUserAuthenticated = (isAuthenticated as any).Success;
     //     if (this.isUserAuthenticated == true) {
-    var chData = localStorage.getItem('chData') == "undefined" ? null : localStorage.getItem('chData');
+    var chData =
+      localStorage.getItem('chData') == 'undefined'
+        ? null
+        : localStorage.getItem('chData');
 
     if (chData != '[]' && chData != null) {
       this.channelsData = JSON.parse(chData);
@@ -83,21 +84,21 @@ export class HomeComponent implements OnInit {
     //     }
     //   }
     // );
-    // this.accountService.updateUserAuthenticationStatus();
+    //this.accountService.updateUserAuthenticationStatus();
 
-    // var chData = localStorage.getItem('chData');
+    var chData = localStorage.getItem('chData');
 
-    // if (chData != null) {
-    //   this.channelsData = JSON.parse(chData);
-    //   this.selectedCh = this.channelsData[0].tabName;
-    // } else if (this.accountService.isUserAuthenticated) {
-    //   this.accountService.login();
-    // } else {
-    //   this.apiService.getChannelsData().subscribe((data) => {
-    //     this.channelsData = data.Data;
-    //     this.selectedCh = this.channelsData[0].tabName;
-    //   });
-    // }
+    if (chData != null) {
+      this.channelsData = JSON.parse(chData);
+      this.selectedCh = this.channelsData[0].tabName;
+      // } else if (this.accountService.isUserAuthenticated) {
+      //   this.accountService.login();
+      // } else {
+      //   this.apiService.getChannelsData().subscribe((data) => {
+      //     this.channelsData = data.Data;
+      //     this.selectedCh = this.channelsData[0].tabName;
+      //   });
+    }
   }
 
   doLogin() {

@@ -14,10 +14,11 @@ export const apiEndPointsDev = {
 
   measurementTreeNodesApi: '/api/PAKcloud/browseCloud',
   measurementTreeChildNodesApi2: 'http://localhost:3000/childNodes',
-
+  // channelsDataApi: '/api/PAKcloud/getMeasurements/',
   channelsDataApi: '/api/Config/getUIMapping',
+  userName: '/api/PAKcloud/getAuthUser',
+  getChannels: '',
 };
-
 
 export const apiEndPointsLocalDev = {
   baseURL: 'http://localhost:3000/', //
@@ -25,5 +26,5 @@ export const apiEndPointsLocalDev = {
   measurementTreeChildNodesApi2: 'childNodes',
   getChannels: 'getChannels',
   channelsDataApi: 'channelsData',
-  userName: 'username'
+  userName: 'username',
 };
