@@ -37,7 +37,12 @@ export class ApiService {
 
   getChannels(selectedMeasurements: string[]): Observable<any> {
     return this.http.get<any>(this.apiEndPoint.baseURL + this.apiEndPoint.getChannels,
-      { withCredentials: true })
+      {
+        params: {
+          ccName: selectedMeasurements,
+        },
+        withCredentials: true
+      })
       .pipe(retry(1), catchError(this.handleError));
   }
 

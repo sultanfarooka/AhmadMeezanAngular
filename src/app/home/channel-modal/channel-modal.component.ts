@@ -68,7 +68,7 @@ export class ChannelModalComponent implements OnInit {
     else {
 
       setTimeout(() => {
-        this.apiService.getChannels([]).subscribe((data) => {
+        this.apiService.getChannels(this.previousMeasurementsSelection).subscribe((data) => {
           this.channel_Data = data.data;
         });
         this.loading = false
