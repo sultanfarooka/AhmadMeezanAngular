@@ -54,8 +54,8 @@
 
 <!--CHANNELS LIST-->
 
-<div class="pl-2 pt-0 flex relative">
-  <div class="w-auto bg-base-300 flex flex-col">
+<div class="pl-2 flex relative">
+  <div class="w-auto pt-10 bg-base-300 flex flex-col">
     <div
       *ngFor="let chData of channelsData"
       (click)="this.selectedCh = chData.tabName"
@@ -178,13 +178,26 @@
             >
               <!-- Data Type -->
 
-              <div class="col-span-12 pl-1 flex items-center">
-                <input
-                  type="checkbox"
-                  class="toggle toggle-xs"
-                  [(ngModel)]="dataTypes.selected"
-                />
-                <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+              <div class="col-span-12 pl-1 flex space-x-4 items-center">
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="toggle toggle-xs"
+                    [(ngModel)]="dataTypes.selected"
+                  />
+                  <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+                </div>
+                <div
+                  *ngIf="dataTypes.selected == true"
+                  class="flex items-center bg-base-300"
+                >
+                  <input
+                    type="checkbox"
+                    class="toggle toggle-xs"
+                    (change)="selectAllToggle($event, dataTypes.name)"
+                  />
+                  <p class="text-sm px-1">Select All</p>
+                </div>
               </div>
               <div
                 class="col-span-12 transition-all duration-1000"
@@ -277,8 +290,8 @@
 
           <div
             class="w-auto h-full border-l border-base-300 transition-all duration-700 hover:absolute hover:shadow-md right-0"
-            (mouseover)="metaInfoHovered = true"
-            (mouseout)="metaInfoHovered = false"
+            (mouseover)="metaInfoHovered = mSection.name"
+            (mouseout)="metaInfoHovered = ''"
           >
             <div
               class="flex flex-col bg-zinc-100 h-full transition-all duration-700 p-1"
@@ -286,12 +299,14 @@
               <button
                 *ngFor="let mInfo of mSection.__metaInfo"
                 (click)="openMeasurementTree(mInfo.contentCollectionName)"
-                class="btn btn-primary h-auto btn-xs transition-all duration-700"
+                class="btn btn-primary w-max-16 h-auto btn-xs transition-all duration-700"
               >
-                <span *ngIf="metaInfoHovered" class="">{{
+                <span *ngIf="metaInfoHovered == mSection.name" class="">{{
                   mInfo.browseButtonName
                 }}</span>
-                <span *ngIf="!metaInfoHovered" class="">SM</span>
+                <span *ngIf="metaInfoHovered != mSection.name" class=""
+                  >SM</span
+                >
 
                 <div
                   *ngIf="
@@ -321,16 +336,29 @@
           >
             <!-- Data Type -->
 
-            <div class="w-full pl-1 flex items-center">
-              <input
-                type="checkbox"
-                class="toggle toggle-xs"
-                [(ngModel)]="dataTypes.selected"
-              />
-              <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+            <div class="w-full pl-1 flex space-x-4 items-center">
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  class="toggle toggle-xs"
+                  [(ngModel)]="dataTypes.selected"
+                />
+                <p class="font-semibold px-1">{{ dataTypes.name }}</p>
+              </div>
+              <div
+                *ngIf="dataTypes.selected"
+                class="flex items-center bg-base-300"
+              >
+                <input
+                  type="checkbox"
+                  class="toggle toggle-xs"
+                  (change)="selectAllToggle($event, dataTypes.name)"
+                />
+                <p class="text-sm px-1">Select All</p>
+              </div>
             </div>
 
-            <div class="w-full">
+            <div class="w-full flex relative">
               <div
                 class="grid grid-cols-12"
                 [ngClass]="
@@ -408,7 +436,8 @@
                     <!-- </div> -->
                   </div>
                 </div>
-                <div
+
+                <!-- <div
                   *ngFor="let mInfo of dataTypes.__metaInfo"
                   class="col-span-2 m-1 border bg-base-100"
                 >
@@ -432,6 +461,39 @@
                       </div>
                     </button>
                   </div>
+                </div> -->
+              </div>
+              <div
+                class="w-auto h-full border-l border-t border-base-300 transition-all duration-700 hover:absolute hover:shadow-md right-0"
+                (mouseover)="metaInfoHovered = dataTypes.name"
+                (mouseout)="metaInfoHovered = ''"
+                [ngClass]="dataTypes.selected ? '' : 'hidden'"
+              >
+                <div
+                  class="flex flex-col bg-zinc-100 h-full transition-all duration-700 p-1 space-y-1"
+                >
+                  <button
+                    *ngFor="let mInfo of dataTypes.__metaInfo"
+                    (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                    class="btn btn-primary w-max-16 h-auto btn-xs transition-all duration-700"
+                  >
+                    <span *ngIf="metaInfoHovered == dataTypes.name" class="">{{
+                      mInfo.browseButtonName
+                    }}</span>
+                    <span *ngIf="metaInfoHovered != dataTypes.name" class=""
+                      >SM</span
+                    >
+
+                    <div
+                      *ngIf="
+                        mInfo.selectedMeasurements &&
+                        mInfo.selectedMeasurements.length == 0
+                      "
+                      class="badge badge-primary"
+                    >
+                      ({{ mInfo.selectedMeasurements.length }})
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>

@@ -6,7 +6,7 @@ import {
   faListCheck,
   faEllipsisVertical,
   faUser,
-  faSliders
+  faSliders,
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     public apiService: ApiService,
     private httpClient: HttpClient,
     private accountService: AccountService
-  ) { }
+  ) {}
 
   @ViewChild(ChannelModalComponent) ModalComp: ChannelModalComponent;
   //Mock object for channel data, later it will be taken from backend
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   SelectedPageName: string;
   ChannelSelectionComponent: ChannelModalComponent;
 
-  metaInfoHovered = false;
+  metaInfoHovered = '';
 
   modelElement = ''
   selectedContentCollection: string;
@@ -52,22 +52,23 @@ export class HomeComponent implements OnInit {
 
   openedDataSections: string[] = [];
 
-
-
-
-
   ngDoCheck(): void {
     localStorage.setItem('chData', JSON.stringify(this.channelsData));
   }
 
-
+  isUserAuthenticated = false;
+  subscription: Subscription;
+  userName: string;
 
   ngOnInit(): void {
     // this.subscription = this.accountService.isUserAuthenticated.subscribe(
     //   (isAuthenticated) => {
     //     this.isUserAuthenticated = (isAuthenticated as any).Success;
     //     if (this.isUserAuthenticated == true) {
-    var chData = localStorage.getItem('chData') == "undefined" ? null : localStorage.getItem('chData');
+    var chData =
+      localStorage.getItem('chData') == 'undefined'
+        ? null
+        : localStorage.getItem('chData');
 
     if (chData != '[]' && chData != null) {
       this.channelsData = JSON.parse(chData);
@@ -83,21 +84,21 @@ export class HomeComponent implements OnInit {
     //     }
     //   }
     // );
-    // this.accountService.updateUserAuthenticationStatus();
+    //this.accountService.updateUserAuthenticationStatus();
 
-    // var chData = localStorage.getItem('chData');
+    var chData = localStorage.getItem('chData');
 
-    // if (chData != null) {
-    //   this.channelsData = JSON.parse(chData);
-    //   this.selectedCh = this.channelsData[0].tabName;
-    // } else if (this.accountService.isUserAuthenticated) {
-    //   this.accountService.login();
-    // } else {
-    //   this.apiService.getChannelsData().subscribe((data) => {
-    //     this.channelsData = data.Data;
-    //     this.selectedCh = this.channelsData[0].tabName;
-    //   });
-    // }
+    if (chData != null) {
+      this.channelsData = JSON.parse(chData);
+      this.selectedCh = this.channelsData[0].tabName;
+      // } else if (this.accountService.isUserAuthenticated) {
+      //   this.accountService.login();
+      // } else {
+      //   this.apiService.getChannelsData().subscribe((data) => {
+      //     this.channelsData = data.Data;
+      //     this.selectedCh = this.channelsData[0].tabName;
+      //   });
+    }
   }
 
   doLogin() {
@@ -644,10 +645,10 @@ export class HomeComponent implements OnInit {
             for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
               if (this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name == selectedPage) {
                 if (this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo != undefined) {
-                  return []
+                  return this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo[0].selectedMeasurements;
                 }
                 if (this.channelsData[i].mainSections[j].__metaInfo != undefined) {
-                  return []
+                  return this.channelsData[i].mainSections[j].__metaInfo[0].selectedMeasurements;
                 }
               }
             }
@@ -671,7 +672,23 @@ export class HomeComponent implements OnInit {
   }
 
 
+  selectAllToggle(ev: any, dataSection: string) {
 
+    for (let i = 0; i < this.channelsData.length; i++) {
+      for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
+        for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
+          if (this.channelsData[i].mainSections[j].dataTypes[k].name == dataSection) {
+            this.channelsData[i].mainSections[j].dataTypes[k].dataSections.forEach(ds => {
+              ds.pages.forEach(page => {
+                page.selected = ev.target.checked;
+              })
+            })
+          }
+        }
+
+      }
+    }
+  }
 
 
   saveChannelSelection(selectedChannels: string[]) {
@@ -704,11 +721,11 @@ export class HomeComponent implements OnInit {
   }
 
   //Saving configuration for the selected channels
-  SaveSelectedConfig(){
+  SaveSelectedConfig() {
 
     let found = false;
-    this.channelsData.forEach((chData) =>{
-      if(chData.tabName == this.selectedCh){
+    this.channelsData.forEach((chData) => {
+      if (chData.tabName == this.selectedCh) {
         found = true;
         let Data = chData;
         var Json = JSON.stringify(Data);
@@ -724,17 +741,17 @@ export class HomeComponent implements OnInit {
         document.body.removeChild(element);
       }
 
-      if(found)
+      if (found)
         return;
     })
 
-    if(found)
-    return;
+    if (found)
+      return;
 
   }
 
   //Loading configuration for the selected channels
-  LoadSelectedConfig(event: any){
+  LoadSelectedConfig(event: any) {
 
     let File = event.target.files[0];
 
@@ -744,8 +761,8 @@ export class HomeComponent implements OnInit {
       let text = reader.result as string;
       let channel: ChannelData = JSON.parse(text);
 
-      for(let i =0; i<this.channelsData.length; i++) {
-        if(this.channelsData[i].tabName == this.selectedCh){
+      for (let i = 0; i < this.channelsData.length; i++) {
+        if (this.channelsData[i].tabName == this.selectedCh) {
           this.channelsData[i] = channel;
         }
       }
@@ -756,11 +773,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ResetSelectedConfig(){
+  ResetSelectedConfig() {
     this.apiService.getChannelsData().subscribe((data) => {
-      for (let i = 0; i< data.Data.length; i++){
-        for(let j=0; j<this.channelsData.length; j++){
-          if(this.channelsData[j].tabName == data.Data[i].tabName){
+      for (let i = 0; i < data.Data.length; i++) {
+        for (let j = 0; j < this.channelsData.length; j++) {
+          if (this.channelsData[j].tabName == data.Data[i].tabName) {
             this.channelsData[j] = data.Data[i];
           }
         }
