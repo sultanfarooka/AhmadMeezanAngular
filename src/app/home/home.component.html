@@ -128,6 +128,7 @@
       <button
         class="btn btn-xs rounded-b btn-primary w-full"
         [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
+        (click)="startJob(chData.tabName)"
       >
         Start
       </button>
@@ -332,7 +333,7 @@
           <!-- Data Type -->
 
           <div
-            class="flex flex-wrap bg-zinc-100 shadow lg:border-b border-base-300"
+            class="flex w-full flex-wrap bg-zinc-100 shadow lg:border-b border-base-300"
           >
             <!-- Data Type -->
 
@@ -360,7 +361,7 @@
 
             <div class="w-full flex relative">
               <div
-                class="grid grid-cols-12"
+                class="grid grid-cols-12 w-full"
                 [ngClass]="
                   dataTypes.selected
                     ? ''

@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   metaInfoHovered = '';
 
-  modelElement = ''
+  modelElement = '';
   selectedContentCollection: string;
   previousMeasurementsSelection: string[];
 
@@ -604,125 +604,143 @@ export class HomeComponent implements OnInit {
     );
   }
 
-
   getPreviouslySelectedChannels(pageName: string): string[] {
     let found = false;
     let selectedChs: string[] = [];
     this.channelsData.forEach((chData) => {
-      chData.mainSections.forEach(mainSec => {
-        mainSec.dataTypes.forEach(dTypes => {
-          dTypes.dataSections.forEach(dataSec => {
-            dataSec.pages.forEach(page => {
+      chData.mainSections.forEach((mainSec) => {
+        mainSec.dataTypes.forEach((dTypes) => {
+          dTypes.dataSections.forEach((dataSec) => {
+            dataSec.pages.forEach((page) => {
               if (page.name == pageName) {
                 found = true;
                 selectedChs = page.selectedChannels;
-                return
+                return;
               }
-            })
-            if (found)
-              return
-          })
-          if (found)
-            return
-        })
-        if (found)
-          return
-      })
-      if (found)
-        return
-    })
+            });
+            if (found) return;
+          });
+          if (found) return;
+        });
+        if (found) return;
+      });
+      if (found) return;
+    });
 
-    return selectedChs
-
-
+    return selectedChs;
   }
 
   getPrevSaveMeasurement(selectedPage: string): string[] {
     for (let i = 0; i < this.channelsData.length; i++) {
       for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
-        for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
-          for (let l = 0; l < this.channelsData[i].mainSections[j].dataTypes[k].dataSections.length; l++) {
-            for (let m = 0; m < this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages.length; m++) {
-              if (this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l].pages[m].name == selectedPage) {
-                if (this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo != undefined) {
-                  return this.channelsData[i].mainSections[j].dataTypes[k].__metaInfo[0].selectedMeasurements;
+        for (
+          let k = 0;
+          k < this.channelsData[i].mainSections[j].dataTypes.length;
+          k++
+        ) {
+          for (
+            let l = 0;
+            l <
+            this.channelsData[i].mainSections[j].dataTypes[k].dataSections
+              .length;
+            l++
+          ) {
+            for (
+              let m = 0;
+              m <
+              this.channelsData[i].mainSections[j].dataTypes[k].dataSections[l]
+                .pages.length;
+              m++
+            ) {
+              if (
+                this.channelsData[i].mainSections[j].dataTypes[k].dataSections[
+                  l
+                ].pages[m].name == selectedPage
+              ) {
+                if (
+                  this.channelsData[i].mainSections[j].dataTypes[k]
+                    .__metaInfo != undefined
+                ) {
+                  return this.channelsData[i].mainSections[j].dataTypes[k]
+                    .__metaInfo[0].selectedMeasurements;
                 }
-                if (this.channelsData[i].mainSections[j].__metaInfo != undefined) {
-                  return this.channelsData[i].mainSections[j].__metaInfo[0].selectedMeasurements;
+                if (
+                  this.channelsData[i].mainSections[j].__metaInfo != undefined
+                ) {
+                  return this.channelsData[i].mainSections[j].__metaInfo[0]
+                    .selectedMeasurements;
                 }
               }
             }
-
           }
-
         }
       }
     }
-    return []
+    return [];
   }
 
-
   async openChannelModal(SelectedPage: string) {
-    console.log("Responding");
-    this.SelectedChannelForDatatype = await this.getPreviouslySelectedChannels(SelectedPage);
-    this.previousMeasurementsSelection = await this.getPrevSaveMeasurement('')
+    console.log('Responding');
+    this.SelectedChannelForDatatype = await this.getPreviouslySelectedChannels(
+      SelectedPage
+    );
+    this.previousMeasurementsSelection = await this.getPrevSaveMeasurement('');
     this.SelectedPageName = SelectedPage;
 
     this.ModalComp.ngOnInit();
   }
 
-
   selectAllToggle(ev: any, dataSection: string) {
-
     for (let i = 0; i < this.channelsData.length; i++) {
       for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
-        for (let k = 0; k < this.channelsData[i].mainSections[j].dataTypes.length; k++) {
-          if (this.channelsData[i].mainSections[j].dataTypes[k].name == dataSection) {
-            this.channelsData[i].mainSections[j].dataTypes[k].dataSections.forEach(ds => {
-              ds.pages.forEach(page => {
+        for (
+          let k = 0;
+          k < this.channelsData[i].mainSections[j].dataTypes.length;
+          k++
+        ) {
+          if (
+            this.channelsData[i].mainSections[j].dataTypes[k].name ==
+            dataSection
+          ) {
+            this.channelsData[i].mainSections[j].dataTypes[
+              k
+            ].dataSections.forEach((ds) => {
+              ds.pages.forEach((page) => {
                 page.selected = ev.target.checked;
-              })
-            })
+              });
+            });
           }
         }
-
       }
     }
   }
-
 
   saveChannelSelection(selectedChannels: string[]) {
     console.log(selectedChannels);
     let found = false;
     this.channelsData.forEach((chData) => {
-      chData.mainSections.forEach(mainSec => {
-        mainSec.dataTypes.forEach(dTypes => {
-          dTypes.dataSections.forEach(dataSec => {
-            dataSec.pages.forEach(page => {
+      chData.mainSections.forEach((mainSec) => {
+        mainSec.dataTypes.forEach((dTypes) => {
+          dTypes.dataSections.forEach((dataSec) => {
+            dataSec.pages.forEach((page) => {
               if (page.name == this.SelectedPageName) {
                 found = true;
                 page.selectedChannels = selectedChannels;
-                return
+                return;
               }
-            })
-            if (found)
-              return
-          })
-          if (found)
-            return
-        })
-        if (found)
-          return
-      })
-      if (found)
-        return
-    })
-
+            });
+            if (found) return;
+          });
+          if (found) return;
+        });
+        if (found) return;
+      });
+      if (found) return;
+    });
   }
 
   //Saving configuration for the selected channels
   SaveSelectedConfig() {
-
     let found = false;
     this.channelsData.forEach((chData) => {
       if (chData.tabName == this.selectedCh) {
@@ -741,18 +759,14 @@ export class HomeComponent implements OnInit {
         document.body.removeChild(element);
       }
 
-      if (found)
-        return;
-    })
+      if (found) return;
+    });
 
-    if (found)
-      return;
-
+    if (found) return;
   }
 
   //Loading configuration for the selected channels
   LoadSelectedConfig(event: any) {
-
     let File = event.target.files[0];
 
     var reader = new FileReader();
@@ -770,7 +784,6 @@ export class HomeComponent implements OnInit {
       event.target.value = null;
     };
     reader.readAsText(File);
-
   }
 
   ResetSelectedConfig() {
@@ -783,5 +796,12 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+  }
+
+  startJob(tabName: string) {
+    let selectedChConfig = this.channelsData.filter(
+      (x) => x.tabName == this.selectedCh
+    )[0];
+    this.apiService.sendTabConfig(selectedChConfig);
   }
 }

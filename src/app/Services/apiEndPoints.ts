@@ -18,6 +18,7 @@ export const apiEndPointsDev = {
   channelsDataApi: '/api/Config/getUIMapping',
   userName: '/api/PAKcloud/getAuthUser',
   getChannels: '',
+  SendTabConfig: '/api/Jobs',
 };
 
 export const apiEndPointsLocalDev = {
