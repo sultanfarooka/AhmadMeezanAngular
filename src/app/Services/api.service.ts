@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   //BASE URL FOR THE API ENDPOINT
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //HTTP OPTIONS
   httpOptions = {
@@ -29,7 +29,7 @@ export class ApiService {
 
   //API END POINT BASE ON THE ENVIROMENT
   //apiEndPoint = environment.production ? apiEndPointsProd : apiEndPointsDev;
-  apiEndPoint = apiEndPointsDev;
+  apiEndPoint = apiEndPointsLocalDev;
 
   //Get user name
   getUserName(): Observable<userNameRes> {
