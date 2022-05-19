@@ -55,7 +55,7 @@
 <!--CHANNELS LIST-->
 
 <div class="flex relative">
-  <div class="w-auto pt-10 bg-base-300 flex flex-col">
+  <div class="w-auto pt-10 px-1 bg-zinc-800 flex flex-col">
     <div
       *ngFor="let chData of channelsData"
       (click)="this.selectedCh = chData.tabName"
@@ -68,7 +68,9 @@
         <button
           class="w-full rounded-tl px-1 btn-primary"
           [ngClass]="
-            chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'
+            chData.tabName == selectedCh
+              ? 'bg-primary'
+              : 'btn-disabled bg-base-300 text-gray-600 rounded-bl'
           "
         >
           {{ chData.tabName }}
@@ -79,7 +81,9 @@
             class="btn-primary btn-xs rounded-tr h-full float-right p-1"
             [disabled]="chData.tabName != selectedCh"
             [ngClass]="
-              chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'
+              chData.tabName == selectedCh
+                ? 'btn-primary'
+                : 'btn-disabled bg-base-300 text-gray-600 rounded-br'
             "
           >
             <fa-icon [icon]="optionsIcon"></fa-icon>
@@ -109,7 +113,7 @@
               (click)="file.click()"
             >
               <a>
-                <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Laod
+                <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
                 Configurations</a
               >
             </li>
@@ -305,9 +309,9 @@
                 <span *ngIf="metaInfoHovered == mSection.name" class="">{{
                   mInfo.browseButtonName
                 }}</span>
-                <span *ngIf="metaInfoHovered != mSection.name" class=""
-                  >SM</span
-                >
+                <span *ngIf="metaInfoHovered != mSection.name" class="">
+                  <fa-icon class="mr-2" [icon]="measurementsIcon"></fa-icon
+                ></span>
 
                 <div
                   *ngIf="

@@ -7,6 +7,7 @@ import {
   faEllipsisVertical,
   faUser,
   faSliders,
+  faRuler
 } from '@fortawesome/free-solid-svg-icons';
 import { ChannelData } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
     public apiService: ApiService,
     private httpClient: HttpClient,
     private accountService: AccountService
-  ) {}
+  ) { }
 
   @ViewChild(ChannelModalComponent) ModalComp: ChannelModalComponent;
   //Mock object for channel data, later it will be taken from backend
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit {
   resetSelection = faArrowsRotate;
   optionsIcon = faEllipsisVertical;
   SelectedChannelIcon = faSliders;
+  measurementsIcon = faRuler;
   SelectedChannelForDatatype: string[] = [];
   SelectedPageName: string;
   ChannelSelectionComponent: ChannelModalComponent;
