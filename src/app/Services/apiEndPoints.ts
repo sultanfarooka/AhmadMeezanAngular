@@ -28,4 +28,5 @@ export const apiEndPointsLocalDev = {
   getChannels: 'getChannels',
   channelsDataApi: 'channelsData',
   userName: 'username',
+  SendTabConfig: '/api/Jobs',
 };

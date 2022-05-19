@@ -54,7 +54,7 @@
 
 <!--CHANNELS LIST-->
 
-<div class="pl-2 flex relative">
+<div class="flex relative">
   <div class="w-auto pt-10 bg-base-300 flex flex-col">
     <div
       *ngFor="let chData of channelsData"
@@ -126,7 +126,7 @@
         </div>
       </div>
       <button
-        class="btn btn-xs rounded-b btn-primary w-full"
+        class="btn btn-xs rounded-b btn-success w-full"
         [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
         (click)="startJob(chData.tabName)"
       >

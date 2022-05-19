@@ -18,11 +18,14 @@
   <!-- MIAN SECTION -->
   <div class="w-full h-screen">
     <div
-      class="flex items-center justify-between h-10 px-2 shadow-lg bg-base-200"
+      class="flex items-center justify-between px-2 shadow-lg bg-zinc-800 text-white h-12"
     >
-      <div class="">
+      <div class="container">
         <div class="dropdown">
-          <a class="text-xl font-semibold normal-case">Quick Look Acustics</a>
+          <a
+            class="text-xl font-semibold normal-case text-gray-400 hover:text-white"
+            >Quick Look Acustics</a
+          >
         </div>
       </div>
       <div class=""></div>
@@ -31,7 +34,7 @@
           <fa-icon
             tabindex="0"
             [icon]="jobStatusIcon"
-            class="items-center btn btn-ghost rounded-btn"
+            class="items-center btn btn-ghost rounded-btn text-gray-400 hover:text-white"
           ></fa-icon>
           <div class="dropdown-content">
             <app-job-status-dropdown
@@ -42,7 +45,9 @@
         </div>
 
         <div class="dropdown dropdown-end">
-          <button class="items-center btn btn-ghost rounded-btn">
+          <button
+            class="items-center btn btn-ghost rounded-btn text-gray-400 hover:text-white"
+          >
             <fa-icon class="mr-3" tabindex="0" [icon]="userIcon"></fa-icon
             >{{ userName }}
           </button>
@@ -60,7 +65,7 @@
           <fa-icon
             tabindex="0"
             [icon]="optionsIcon"
-            class="btn btn-ghost rounded-btn"
+            class="btn btn-ghost rounded-btn text-gray-400 hover:text-white"
           ></fa-icon>
           <div
             tabindex="0"
