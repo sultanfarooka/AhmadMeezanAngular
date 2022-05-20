@@ -18,6 +18,15 @@ export const apiEndPointsDev = {
   channelsDataApi: '/api/Config/getUIMapping',
   userName: '/api/PAKcloud/getAuthUser',
   getChannels: '',
+
+
+  //authentication endPoints 
+  isAuthenticated: '/api/pakcloud/IsAuthenticated',
+  authenticate: '/api/PAKcloud/Authenticate',
+  SendTabConfig: "api/Jobs",
+
+
+
 };
 
 export const apiEndPointsLocalDev = {
@@ -27,4 +36,10 @@ export const apiEndPointsLocalDev = {
   getChannels: 'getChannels',
   channelsDataApi: 'channelsData',
   userName: 'username',
+  SendTabConfig: "jobs",
+
+  //authentication endPoints 
+  isAuthenticated: 'isauthenticated',
+  authenticate: 'authenticate'
+
 };

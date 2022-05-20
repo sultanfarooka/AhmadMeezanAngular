@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs-compat/operators/tap';
 import { DOCUMENT } from '@angular/common';
 import { environment } from 'src/environments/environment.prod';
+import { apiEndPointsDev, apiEndPointsLocalDev } from '../services/apiEndPoints';
 
 @Injectable({
   providedIn: 'root',
@@ -17,11 +18,14 @@ export class AccountService {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private httpClient: HttpClient
-  ) {}
+  ) { }
+
+
+  apiEndPoint = environment.devEnv == 'local' ? apiEndPointsLocalDev : apiEndPointsDev;
 
   updateUserAuthenticationStatus() {
     return this.httpClient
-      .get<boolean>(`${environment.apiUrl}/pakcloud/IsAuthenticated`, {
+      .get<boolean>(this.apiEndPoint.baseURL + this.apiEndPoint.isAuthenticated, {
         withCredentials: true,
       })
       .pipe(
@@ -32,10 +36,11 @@ export class AccountService {
   }
 
   setUserAsNotAuthenticated() {
-    this._isUserAuthenticatedSubject.next(false);
+    this._isUserAuthenticatedSubject.next(true);
   }
 
   login() {
-    this.document.location.href = `${environment.apiUrl}/PAKcloud/Authenticate`;
+
+    this.document.location.href = this.apiEndPoint.baseURL + this.apiEndPoint.authenticate;
   }
 }

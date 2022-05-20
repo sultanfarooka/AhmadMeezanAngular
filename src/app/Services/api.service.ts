@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   //BASE URL FOR THE API ENDPOINT
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //HTTP OPTIONS
   httpOptions = {
@@ -29,7 +29,21 @@ export class ApiService {
 
   //API END POINT BASE ON THE ENVIROMENT
   //apiEndPoint = environment.production ? apiEndPointsProd : apiEndPointsDev;
-  apiEndPoint = apiEndPointsDev;
+  apiEndPoint = environment.devEnv == 'local' ? apiEndPointsLocalDev : apiEndPointsDev;
+
+  //send tab config
+  sendTabConfig(tabConfig: any) {
+    this.http
+      .post(
+        this.apiEndPoint.baseURL + this.apiEndPoint.SendTabConfig,
+        JSON.stringify(tabConfig),
+        { withCredentials: true }
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+
+
 
   //Get user name
   getUserName(): Observable<userNameRes> {

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     private apiService: ApiService,
     private accountService: AccountService,
     private router: Router
-  ) {}
+  ) { }
 
   HomeCompChild: HomeComponent;
 
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     this.HomeCompChild.resetConfig();
   }
 
-  isUserAuthenticated: boolean = false;
+  isUserAuthenticated: boolean = true;
   subscription: Subscription;
   userName: string;
 
@@ -113,6 +113,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // this.apiService.getUserName().subscribe((data: userNameRes) => {
+    //   this.userName = data.Data;
+    // });
+
     this.subscription = this.accountService.isUserAuthenticated.subscribe(
       (isAuthenticated) => {
         this.isUserAuthenticated = (isAuthenticated as any).Success;

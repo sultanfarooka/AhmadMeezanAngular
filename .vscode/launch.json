@@ -6,7 +6,7 @@
         "type": "chrome",
         "request": "launch",
         "preLaunchTask": "npm: start",
-        "url": "https://xyz_server:4200/",
+        "url": "https://localhost:4200/",
         "webRoot": "${workspaceFolder}"
       },
       {

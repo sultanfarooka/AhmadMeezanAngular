@@ -965,5 +965,11 @@
             }
         },
         "errorMessage": null
+    },
+    "isauthenticated": {
+        "Success": true
+    },
+    "authenticate": {
+        "Success": true
     }
 }

@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   SelectedChannelForDatatype: string[] = [];
   SelectedPageName: string;
   ChannelSelectionComponent: ChannelModalComponent;
+  sendingJobCongfig: string = '';
 
   metaInfoHovered = '';
 
@@ -800,5 +801,21 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  startJob(tabName: string) {}
+  async startJob(tabName: string) {
+
+    this.sendingJobCongfig = tabName;
+
+    await new Promise(resolve => {
+      setTimeout(() => {
+        let selectedChConfig = this.channelsData.filter(
+          (x) => x.tabName == this.selectedCh
+        )[0];
+        this.apiService.sendTabConfig(selectedChConfig);
+        resolve('Resolving')
+      }, 3000)
+
+    })
+
+    this.sendingJobCongfig = '';
+  }
 }
