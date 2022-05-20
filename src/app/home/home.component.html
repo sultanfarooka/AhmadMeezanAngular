@@ -1,42 +1,72 @@
-
 <!--tabs side bar -->
 <div class="pl-2 flex relative">
   <div class="w-auto p-2 pt-10 bg-base-300 flex flex-col">
-    <div *ngFor="let chData of channelsData; let idxMotor = index" (click)="this.selectedCh = chData.tabName"
-      [ngClass]="chData.tabName == selectedCh ? 'shadow-xl rounded border-primary' : ''"
+    <div
+      *ngFor="let chData of channelsData; let idxMotor = index"
+      (click)="this.selectedCh = chData.tabName"
+      [ngClass]="
+        chData.tabName == selectedCh ? 'shadow-xl rounded border-primary' : ''
+      "
       [ngClass]="idxMotor == 0 ? '' : 'pt-4'"
-      class="mb-2">
-
+      class="mb-2"
+    >
       <div class="flex justify-between rounded-t text-center">
-
         <!-- tab button -->
-        <button class="w-16 w-full rounded-tl px-1 btn-primary"
-          [ngClass]="chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'">
+        <button
+          class="w-16 w-full rounded-tl px-1 btn-primary"
+          [ngClass]="
+            chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'
+          "
+        >
           {{ chData.tabName }}
         </button>
         <!-- tab button -->
 
         <!-- tab actions -->
         <div class="dropdown">
-          <button tabindex="0" class="btn-primary btn-xs rounded-tr h-full float-right p-1"
-            [disabled]="chData.tabName != selectedCh" [ngClass]="chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'">
+          <button
+            tabindex="0"
+            class="btn-primary btn-xs rounded-tr h-full float-right p-1"
+            [disabled]="chData.tabName != selectedCh"
+            [ngClass]="
+              chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'
+            "
+          >
             <fa-icon [icon]="optionsIcon"></fa-icon>
           </button>
-          <ul tabindex="0" class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40">
-            <li class="text-left btn-xs btn-ghost rounded" (click)="SaveSelectedConfig()">
+          <ul
+            tabindex="0"
+            class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40"
+          >
+            <li
+              class="text-left btn-xs btn-ghost rounded"
+              (click)="SaveSelectedConfig()"
+            >
               <a>
                 <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
                 Configurations
               </a>
             </li>
-            <input #file type="file" accept="txt/*" (change)="LoadSelectedConfig($event)" hidden />
-            <li class="text-left btn-xs btn-ghost rounded" (click)="file.click()">
+            <input
+              #file
+              type="file"
+              accept="txt/*"
+              (change)="LoadSelectedConfig($event)"
+              hidden
+            />
+            <li
+              class="text-left btn-xs btn-ghost rounded"
+              (click)="file.click()"
+            >
               <a>
-                <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Laod
-                Configurations
-              </a>
+                <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
+                Configurations</a
+              >
             </li>
-            <li class="text-left btn-xs btn-ghost rounded" (click)="ResetSelectedConfig()">
+            <li
+              class="text-left btn-xs btn-ghost rounded"
+              (click)="ResetSelectedConfig()"
+            >
               <a>
                 <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
                 selections
@@ -45,15 +75,16 @@
           </ul>
         </div>
         <!-- tab actions -->
-
       </div>
 
       <!-- start job button  -->
-      <button class="btn btn-xs rounded-b btn-primary w-full" [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''">
+      <button
+        class="btn btn-xs rounded-b btn-primary w-full"
+        [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
+      >
         Start
       </button>
     </div>
-
   </div>
   <!--tabs side bar -->
 
@@ -209,9 +240,9 @@
                 <span *ngIf="metaInfoHovered == mSection.name" class="">{{
                   mInfo.browseButtonName
                 }}</span>
-                <span *ngIf="metaInfoHovered != mSection.name" class=""
-                  >SM</span
-                >
+                <span *ngIf="metaInfoHovered != mSection.name" class="">
+                  <fa-icon class="mr-2" [icon]="measurementsIcon"></fa-icon
+                ></span>
 
                 <div
                   *ngIf="
