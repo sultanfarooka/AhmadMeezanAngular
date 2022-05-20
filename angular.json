@@ -17,7 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-tailwindcss",
+            "baseHref": ".",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,13 +32,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "8kb"
                 }
               ],
               "fileReplacements": [
@@ -64,7 +65,12 @@
           "options": {
             "browserTarget": "projectname:build",
             // "proxyConfig": "src/proxy.conf.json",
-            "ssl": true
+            "port": 4200,
+            "poll": 2000,
+            "ssl": true,
+            "host": "xyz_server",
+            "sslCert": "./Certificates/xyz_ServerUnlimited.pem",
+            "sslKey": "./Certificates/xyz_ServerUnlimited.pem"
           },
           "configurations": {
             "production": {

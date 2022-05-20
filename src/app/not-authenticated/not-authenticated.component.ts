@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from '../oauth/account.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { AccountService } from '../oauth/account.service';
   styleUrls: ['./not-authenticated.component.css'],
 })
 export class NotAuthenticatedComponent implements OnInit {
+  @Input('IsAuthenticated') IsAuthenticated: boolean;
+
   constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {}

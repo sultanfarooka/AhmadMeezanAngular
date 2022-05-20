@@ -10,14 +10,14 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class AccountService {
-  private _isUserAuthenticatedSubject = new BehaviorSubject<boolean>(true);
+  private _isUserAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isUserAuthenticated: Observable<boolean> =
     this._isUserAuthenticatedSubject.asObservable();
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private httpClient: HttpClient
-  ) { }
+  ) {}
 
   updateUserAuthenticationStatus() {
     return this.httpClient

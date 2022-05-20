@@ -1,157 +1,61 @@
-<!-- NAVIGATION BREADCRUMBS -->
 
-<!-- <div class="text-sm p-4 breadcrumbs">
-  <ul>
-    <li><a>Home</a></li>
-    <li><a>Documents</a></li>
-    <li>Add Document</li>
-  </ul>
-</div> -->
+<!--tabs side bar -->
+<div class="pl-2 flex relative">
+  <div class="w-auto p-2 pt-10 bg-base-300 flex flex-col">
+    <div *ngFor="let chData of channelsData; let idxMotor = index" (click)="this.selectedCh = chData.tabName"
+      [ngClass]="chData.tabName == selectedCh ? 'shadow-xl rounded border-primary' : ''"
+      [ngClass]="idxMotor == 0 ? '' : 'pt-4'"
+      class="mb-2">
 
-<!-- NAVIGATION BREADCRUMBS -->
-
-<!-- BUTTON ON TOP -->
-
-<!-- <div
-  class="flex p-2 flex-wrap flex-col space-y-2 lg:flex-row lg:space-y-0 justify-between"
->
-  <div class="space-x-3">
-    <button class="btn btn-primary btn-xs" (click)="SaveConfig()">
-      <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-      Configurations
-    </button>
-    <input
-      #file
-      type="file"
-      accept="txt/*"
-      (change)="ImportFile($event)"
-      hidden
-    />
-    <button #ConfigFile class="btn btn-primary btn-xs" (click)="file.click()">
-      <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
-      Configurations
-    </button>
-    <button
-      class="btn btn-primary btn-xs"
-      [disabled]="isUserAuthenticated"
-      (click)="doLogin()"
-    >
-      <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Start
-    </button>
-  </div>
-  <div class="space-x-3">
-    <a class="btn btn-primary btn-xs" routerLink="/jobStatus">
-      <fa-icon class="mr-2" [icon]="jobStatusIcon"></fa-icon>Job Status
-    </a>
-    <button class="btn btn-primary btn-xs" (click)="resetConfig()">
-      <fa-icon [icon]="resetSelection" class="mr-2"></fa-icon>Reset Current
-      Selections
-    </button>
-  </div>
-</div> -->
-
-<!-- BUTTON ON TOP -->
-
-<!--CHANNELS LIST-->
-
-<div class="flex relative">
-  <div class="w-auto pt-10 bg-base-300 flex flex-col">
-    <div
-      *ngFor="let chData of channelsData"
-      (click)="this.selectedCh = chData.tabName"
-      [ngClass]="
-        chData.tabName == selectedCh ? 'shadow-xl rounded border-primary' : ''
-      "
-      class="mb-2"
-    >
       <div class="flex justify-between rounded-t text-center">
-        <button
-          class="w-full rounded-tl px-1 btn-primary"
-          [ngClass]="
-            chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'
-          "
-        >
+
+        <!-- tab button -->
+        <button class="w-16 w-full rounded-tl px-1 btn-primary"
+          [ngClass]="chData.tabName == selectedCh ? 'bg-primary' : 'btn-disabled'">
           {{ chData.tabName }}
         </button>
+        <!-- tab button -->
+
+        <!-- tab actions -->
         <div class="dropdown">
-          <button
-            tabindex="0"
-            class="btn-primary btn-xs rounded-tr h-full float-right p-1"
-            [disabled]="chData.tabName != selectedCh"
-            [ngClass]="
-              chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'
-            "
-          >
+          <button tabindex="0" class="btn-primary btn-xs rounded-tr h-full float-right p-1"
+            [disabled]="chData.tabName != selectedCh" [ngClass]="chData.tabName == selectedCh ? 'btn-primary' : 'btn-disabled'">
             <fa-icon [icon]="optionsIcon"></fa-icon>
           </button>
-          <ul
-            tabindex="0"
-            class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40"
-          >
-            <li
-              class="text-left btn-xs btn-ghost rounded"
-              (click)="SaveSelectedConfig()"
-            >
+          <ul tabindex="0" class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40">
+            <li class="text-left btn-xs btn-ghost rounded" (click)="SaveSelectedConfig()">
               <a>
                 <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-                Configurations</a
-              >
+                Configurations
+              </a>
             </li>
-            <input
-              #file
-              type="file"
-              accept="txt/*"
-              (change)="LoadSelectedConfig($event)"
-              hidden
-            />
-            <li
-              class="text-left btn-xs btn-ghost rounded"
-              (click)="file.click()"
-            >
+            <input #file type="file" accept="txt/*" (change)="LoadSelectedConfig($event)" hidden />
+            <li class="text-left btn-xs btn-ghost rounded" (click)="file.click()">
               <a>
                 <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Laod
-                Configurations</a
-              >
+                Configurations
+              </a>
             </li>
-            <li
-              class="text-left btn-xs btn-ghost rounded"
-              (click)="ResetSelectedConfig()"
-            >
+            <li class="text-left btn-xs btn-ghost rounded" (click)="ResetSelectedConfig()">
               <a>
                 <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
-                selections</a
-              >
+                selections
+              </a>
             </li>
           </ul>
         </div>
+        <!-- tab actions -->
+
       </div>
-      <button
-        class="btn btn-xs rounded-b btn-success w-full"
-        [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''"
-        (click)="startJob(chData.tabName)"
-      >
+
+      <!-- start job button  -->
+      <button class="btn btn-xs rounded-b btn-primary w-full" [ngClass]="chData.tabName != selectedCh ? 'hidden' : ''">
         Start
       </button>
     </div>
-    <!-- <ul class="bg-base-300 h-full">
-      <li
-        *ngFor="let chData of channelsData"
-        [ngClass]="
-          chData.tabName == selectedCh
-            ? 'border-l-8 rounded-l  bg-base-200  border-primary-focus'
-            : ''
-        "
-        (click)="this.selectedCh = chData.tabName"
-        class="text-centerh-10"
-      >
-        <span class="justify-center p-1 font-semibold">{{
-          chData.tabName
-        }}</span>
-      </li>
-    </ul> -->
-  </div>
 
-  <!--CHANNELS LIST-->
+  </div>
+  <!--tabs side bar -->
 
   <div
     *ngFor="let chData of channelsData"

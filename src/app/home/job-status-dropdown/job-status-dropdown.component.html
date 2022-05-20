@@ -1,16 +1,26 @@
 <div class="z-10 border-2 rounded-md shadow w-96 bg-base-100 border-base-300">
-    <div class="w-full p-4 text-center border-t-4 border-x-4 rounded-t-md bg-base-300">
+    <div class="w-full p-2 text-center border-t-4 border-x-4 rounded-t-md bg-base-300">
       <h1>You have  {{this.jobStatus.length}} pending tasks</h1>
     </div>
-    <div *ngFor="let job of this.jobStatus" class="w-full p-4 border-b-2 border-base-300">
+    <div *ngFor="let job of this.jobStatus" class="w-full p-2 border-b-2 border-base-300">
       <div class="flex justify-between">
-        <div>{{job.Name}}</div>
-        <div class="font-bold">{{job.Progress}}%</div>
+        <div style="line-height:25px;">
+          {{job.Name}}
+          <br>
+          {{ job.JobGroupId }}
+        </div>
+
+        <!-- progress bar -->
+        <div class="radial-progress bg-primary text-primary-content border-4 border-primary" style="--size:3rem;"
+          [style.--value]="job.Progress.split('.')[0]">
+          {{ job.Progress.split('.')[0] }}%
+        </div>
+
       </div>
-      <progress class="w-full progress progress-success " value= {{job.Progress}} max="100"></progress>
     </div>
 
-    <div class="w-full p-4 text-center">
+    <!-- View all jobs -->
+    <div class="w-full p-2 text-center">
       <a routerLink="/jobStatus">
       <label class="font-bold btn btn-ghost"> View all tasks </label>
     </a>

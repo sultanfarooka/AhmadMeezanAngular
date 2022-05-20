@@ -1,107 +1,74 @@
-<div class="flex">
-  <!-- SIDE MENUE -->
+<div *ngIf="isUserAuthenticated" class="flex">
 
-  <!-- <div
-    [ngClass]="sideMenu ? 'w-72' : 'w-0'"
-    class="absolute top-0 right-0 z-10 h-screen overflow-hidden transition-all duration-1000 bg-base-300 lg:static"
-  >
-    <div class="flex justify-between w-full lg:justify-center">
-      <div class="btn btn-ghost">
-        <h1 class="text-2xl">LOGO</h1>
-      </div>
-      <div (click)="toggleSideMenu()" class="btn btn-ghost lg:hidden">
-        <fa-icon [icon]="xmarkIcon"></fa-icon>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- MIAN SECTION -->
   <div class="w-full h-screen">
-    <div
-      class="flex items-center justify-between px-2 shadow-lg bg-zinc-800 h-12"
-    >
-      <div class="container">
-        <div class="dropdown">
-          <a
-            class="text-xl font-semibold normal-case text-gray-400 hover:text-white"
-            >Quick Look Acustics</a
-          >
-        </div>
+
+    <!-- Header section -->
+    <div class="flex items-center justify-between h-50 px-2 shadow-lg bg-base-200">
+
+      <!-- logo section -->
+      <div class="dropdown">
+        <a class="text-xl font-semibold normal-case mainLogo" [routerLink]="['']">Quick Look Acustics</a>
       </div>
-      <div class=""></div>
+
+      <!-- top right header area -->
       <div class="gap-1">
+
+        <!-- job status -->
         <div class="dropdown dropdown-end">
-          <fa-icon
-            tabindex="0"
-            [icon]="jobStatusIcon"
-            class="items-center btn btn-ghost rounded-btn text-gray-400 hover:text-white"
-          ></fa-icon>
+          <fa-icon class="items-center btn btn-ghost rounded-btn" tabindex="0" [icon]="jobStatusIcon">
+          </fa-icon>
           <div class="dropdown-content">
-            <app-job-status-dropdown
-              tabindex="0"
-              class="dropdown-item"
-            ></app-job-status-dropdown>
+            <app-job-status-dropdown tabindex="0" class="dropdown-item"></app-job-status-dropdown>
           </div>
         </div>
 
+        <!-- user info -->
         <div class="dropdown dropdown-end">
-          <button
-            class="items-center btn btn-ghost rounded-btn text-gray-400 hover:text-white"
-          >
-            <fa-icon class="mr-3" tabindex="0" [icon]="userIcon"></fa-icon
-            >{{ userName }}
+          <button class="items-center btn btn-ghost rounded-btn">
+            <fa-icon class="mr-3" tabindex="0" [icon]="userIcon"></fa-icon>
+            {{ userName }}
           </button>
-
-          <ul
-            tabindex="0"
-            class="p-1 shadow menu dropdown-content bg-base-200 rounded-box w-52"
-          >
-            <li class="text-sm hover-bordered"><a>Item 1</a></li>
-            <li class="text-sm hover-bordered"><a>Item 2</a></li>
-          </ul>
         </div>
 
+        <!-- global actions -->
         <div class="dropdown dropdown-end">
-          <fa-icon
-            tabindex="0"
-            [icon]="optionsIcon"
-            class="btn btn-ghost rounded-btn text-gray-400 hover:text-white"
-          ></fa-icon>
-          <div
-            tabindex="0"
-            class="dropdown-content p-1 shadow bg-base-200 rounded-box w-60"
-          >
+          <fa-icon class="btn btn-ghost rounded-btn" tabindex="0" [icon]="optionsIcon">
+          </fa-icon>
+          <div tabindex="0" class="dropdown-content p-1 shadow bg-base-200 rounded-box w-60">
             <button class="btn btn-sm btn-ghost w-full" (click)="SaveConfig()">
-              <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-              Configurations
+              <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>
+              Save Configurations
             </button>
 
-            <input
-              #file
-              type="file"
-              accept="txt/*"
-              (change)="ImportFile($event)"
-              hidden
-            />
-            <button
-              class="btn btn-sm btn-ghost w-full text-left"
-              (click)="file.click()"
-            >
-              <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
-              Configurations
+            <input #file type="file" accept="txt/*" (change)="ImportFile($event)" hidden />
+            <button class="btn btn-sm btn-ghost w-full text-left" (click)="file.click()">
+              <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>
+              Load Configurations
             </button>
 
             <button class="btn btn-sm btn-ghost w-full" (click)="resetConfig()">
-              <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
-              current selection
+              <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>
+              Reset current selection
             </button>
           </div>
         </div>
+
       </div>
     </div>
+
+    <!-- router outlet for main sections -->
     <div class="h-full">
       <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
+
   </div>
+
 </div>
+
+<!-- OAuth unauthenticated modal -->
+<app-not-authenticated
+  *ngIf="!isUserAuthenticated"
+  [IsAuthenticated]="isUserAuthenticated"
+></app-not-authenticated>
+
 <button #hiddenBtn class="hidden"></button>

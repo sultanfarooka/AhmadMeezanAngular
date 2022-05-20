@@ -10,18 +10,17 @@ import { SettingsComponent } from './settings/settings.component';
 import { ChannelModalComponent } from './home/channel-modal/channel-modal.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'jobStatus', component: JobStatusComponent },
   { path: 'oauth/redirect', component: OauthComponent },
   { path: 'home/job-status-dropdown', component: JobStatusDropdownComponent },
   { path: 'notauthenticated', component: NotAuthenticatedComponent },
   { path: 'home/channel-modal', component: ChannelModalComponent },
-  { path: '**', component: NotfoundComponent }
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

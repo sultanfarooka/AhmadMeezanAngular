@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   //BASE URL FOR THE API ENDPOINT
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //HTTP OPTIONS
   httpOptions = {
@@ -29,18 +29,7 @@ export class ApiService {
 
   //API END POINT BASE ON THE ENVIROMENT
   //apiEndPoint = environment.production ? apiEndPointsProd : apiEndPointsDev;
-  apiEndPoint = apiEndPointsLocalDev;
-
-  //Send selected tab config
-  sendTabConfig(tabConfig: any) {
-    this.http
-      .post(
-        this.apiEndPoint.baseURL + this.apiEndPoint.SendTabConfig,
-        JSON.stringify(tabConfig),
-        { withCredentials: true }
-      )
-      .pipe(retry(1), catchError(this.handleError));
-  }
+  apiEndPoint = apiEndPointsDev;
 
   //Get user name
   getUserName(): Observable<userNameRes> {
@@ -52,15 +41,16 @@ export class ApiService {
   }
 
   getChannels(selectedMeasurements: string[]): Observable<any> {
-    return this.http
-      .get<any>(this.apiEndPoint.baseURL + this.apiEndPoint.getChannels, {
+    return this.http.get<any>(this.apiEndPoint.baseURL + this.apiEndPoint.getChannels,
+      {
         params: {
           ccName: selectedMeasurements,
         },
-        withCredentials: true,
+        withCredentials: true
       })
       .pipe(retry(1), catchError(this.handleError));
   }
+
 
   //GET REQUEST -> GETS ROOTS NODES FOR MEASUREMENTS
   getRootNodes(): Observable<depotApiRes> {

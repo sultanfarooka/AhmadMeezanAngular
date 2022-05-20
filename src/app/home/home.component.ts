@@ -798,10 +798,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  startJob(tabName: string) {
-    let selectedChConfig = this.channelsData.filter(
-      (x) => x.tabName == this.selectedCh
-    )[0];
-    this.apiService.sendTabConfig(selectedChConfig);
-  }
+  startJob(tabName: string) {}
 }

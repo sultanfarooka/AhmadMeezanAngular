@@ -1,23 +1,34 @@
-<div class="flex flex-col space-y-4 p-4 justify-center items-center">
-  <div class="alert alert-error shadow-lg w-96">
-    <div>
+<input
+  type="checkbox"
+  id="oAuthLoginModalCheck"
+  [checked]="!IsAuthenticated"
+  class="modal-toggle"
+/>
+<div class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div class="alert alert-error shadow-lg w-full justify-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="stroke-current flex-shrink-0 h-6 w-6"
-        fill="none"
+        class="fill-current stroke-current h-20 w-16"
         viewBox="0 0 24 24"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10 0v-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8z"
         />
       </svg>
-      <span
-        >User not authenticated. Please authenticate before proceeding.</span
+    </div>
+    <p class="alert alert-error shadow-lg py-4 text-center">
+      You're not authorized to access the application. Please proceed to login
+      and check if you're authorized to use this application.
+    </p>
+    <div class="modal-action">
+      <button
+        class="btn btn-primary w-full"
+        style="text-transform: none"
+        (click)="Authenticate()"
       >
+        Login to PAKcloud
+      </button>
     </div>
   </div>
-  <button class="btn btn-primary" (click)="Authenticate()">Authenticate</button>
 </div>
