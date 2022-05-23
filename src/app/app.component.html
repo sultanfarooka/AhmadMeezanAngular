@@ -59,10 +59,10 @@
           </fa-icon>
           <div
             tabindex="0"
-            class="dropdown-content p-1 shadow bg-base-200 rounded-box w-60"
+            class="dropdown-content p-1 shadow bg-base-200 rounded-box w-72"
           >
             <button
-              class="btn btn-sm btn-ghost w-full text-left text-gray-400 hover:text-white"
+              class="btn btn-sm btn-ghost w-full text-left"
               (click)="SaveConfig()"
             >
               <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>
@@ -77,17 +77,14 @@
               hidden
             />
             <button
-              class="btn btn-sm btn-ghost w-full text-left text-gray-400 hover:text-white"
+              class="btn btn-sm btn-ghost w-full text-left"
               (click)="file.click()"
             >
               <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>
               Load Configurations
             </button>
 
-            <button
-              class="btn btn-sm btn-ghost w-full text-gray-400 hover:text-white"
-              (click)="resetConfig()"
-            >
+            <button class="btn btn-sm btn-ghost w-full" (click)="resetConfig()">
               <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>
               Reset current selection
             </button>
