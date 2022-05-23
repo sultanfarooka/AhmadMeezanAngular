@@ -40,15 +40,15 @@
           </button>
           <ul
             tabindex="0"
-            class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-40"
+            class="dropdown-content p-1 shadow bg-base-200 m-4 rounded-box w-52"
           >
             <li
-              class="text-left btn-xs btn-ghost rounded"
+              class="text-left btn-sm btn-ghost rounded"
               (click)="SaveSelectedConfig()"
             >
-              <a>
-                <fa-icon class="mr-2" [icon]="saveConfigIcon"></fa-icon>Save
-                Configurations
+              <a class="flex items-center">
+                <span class="material-symbols-outlined mr-2"> download </span
+                >Save Configurations
               </a>
             </li>
             <input
@@ -59,21 +59,21 @@
               hidden
             />
             <li
-              class="text-left btn-xs btn-ghost rounded"
+              class="text-left btn-sm btn-ghost rounded"
               (click)="file.click()"
             >
-              <a>
-                <fa-icon class="mr-2" [icon]="loadConfigIcon"></fa-icon>Load
-                Configurations</a
-              >
+              <a class="flex items-center">
+                <span class="material-symbols-outlined mr-2"> file_upload </span
+                >Load Configurations
+              </a>
             </li>
             <li
-              class="text-left btn-xs btn-ghost rounded"
+              class="text-left btn-sm btn-ghost rounded"
               (click)="ResetSelectedConfig()"
             >
-              <a>
-                <fa-icon class="mr-2" [icon]="resetSelection"></fa-icon>Reset
-                selections
+              <a class="flex items-center">
+                <span class="material-symbols-outlined mr-2"> cloud_sync </span
+                >Reset Selections
               </a>
             </li>
           </ul>
@@ -248,35 +248,42 @@
           </div>
 
           <div
-            class="w-auto h-full border-l border-base-300 transition-all duration-700 hover:absolute hover:shadow-md right-0"
+            class="w-auto pr-5 pt-4 h-full border-l border-base-300 transition-all duration-700 hover:absolute hover:shadow-md hover:right-0"
             (mouseover)="metaInfoHovered = mSection.name"
             (mouseout)="metaInfoHovered = ''"
           >
             <div
               class="flex flex-col bg-zinc-100 h-full transition-all duration-700 p-1"
             >
-              <button
-                *ngFor="let mInfo of mSection.__metaInfo"
-                (click)="openMeasurementTree(mInfo.contentCollectionName)"
-                class="btn btn-primary w-max-16 h-auto btn-xs transition-all duration-700"
-              >
-                <span *ngIf="metaInfoHovered == mSection.name" class="">{{
-                  mInfo.browseButtonName
+              <div class="indicator" *ngFor="let mInfo of mSection.__metaInfo">
+                <span class="indicator-item badge badge-sm badge-ghost">{{
+                  mInfo.selectedMeasurements.length
                 }}</span>
-                <span *ngIf="metaInfoHovered != mSection.name" class="">
-                  <fa-icon class="mr-2" [icon]="measurementsIcon"></fa-icon
-                ></span>
-
-                <div
-                  *ngIf="
-                    mInfo.selectedMeasurements &&
-                    mInfo.selectedMeasurements.length == 0
-                  "
-                  class="badge badge-primary"
+                <button
+                  (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                  class="btn btn-ghost w-max-16 h-auto btn-xs transition-all duration-700"
                 >
-                  ({{ mInfo.selectedMeasurements.length }})
-                </div>
-              </button>
+                  <span *ngIf="metaInfoHovered == mSection.name" class="">{{
+                    mInfo.browseButtonName
+                  }}</span>
+                  <span
+                    *ngIf="metaInfoHovered != mSection.name"
+                    class="material-symbols-outlined text-sm"
+                  >
+                    square_foot
+                  </span>
+
+                  <div
+                    *ngIf="
+                      mInfo.selectedMeasurements &&
+                      mInfo.selectedMeasurements.length == 0
+                    "
+                    class="badge badge-primary"
+                  >
+                    ({{ mInfo.selectedMeasurements.length }})
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>

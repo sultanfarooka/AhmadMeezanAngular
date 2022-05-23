@@ -16,6 +16,7 @@ import {
   faArrowsRotate,
   faFileArrowUp,
   faFileArrowDown,
+  faClipboardList
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { HomeComponent } from './home/home.component';
@@ -58,7 +59,7 @@ export class AppComponent implements OnInit {
   xmarkIcon = faXmark;
   bellIcon = faBell;
   themeIcon = faBrush;
-  jobStatusIcon = faListCheck;
+  jobStatusIcon = faClipboardList;
   userIcon = faUser;
   optionsIcon = faEllipsisVertical;
   saveConfigIcon = faFileArrowDown;
