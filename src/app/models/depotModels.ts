@@ -1,13 +1,13 @@
 export class depot {
-  IsMeasurements: boolean;
-  DepotContentId: string;
-  DepotContentType: string;
-  DepotContentName: string;
-  DepotContentBrowseURL: string;
+  isMeasurements: boolean;
+  depotContentId: string;
+  depotContentType: string;
+  depotContentName: string;
+  depotContentBrowseURL: string;
 }
 
 export class depotApiRes {
   success: boolean;
-  Data: depot[];
+  data: depot[];
   errorMessage: string;
 }
