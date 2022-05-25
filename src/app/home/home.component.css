@@ -2,3 +2,6 @@
     display: flex;
 }
 
+.inheritHeight{
+    height: inherit;
+}
