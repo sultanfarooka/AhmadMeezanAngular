@@ -20,6 +20,7 @@ import {
   ITreeModel,
   ITreeNode,
 } from '@circlon/angular-tree-component/lib/defs/api';
+import { depotApiRes, depot } from '../models/depotModels';
 
 @Component({
   selector: 'app-tree-component',
@@ -63,10 +64,10 @@ export class TreeComponentComponent implements OnInit, OnChanges {
         this.apiService
           .getChilNodes(selectedNode.data.data.DepotContentBrowseURL)
           .subscribe((res) => {
-            res.Data.forEach((data) => {
+            res.data.forEach((data) => {
               let node = {
-                name: data.DepotContentName,
-                hasChildren: !data.IsMeasurements,
+                name: data.depotContentName,
+                hasChildren: !data.isMeasurements,
                 data: data,
                 selected: true,
               };
@@ -115,13 +116,13 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   //GET ROOT NODES FOR THE TREE
   loadRootNodes() {
     //Call service where api is called for tree root nodes
-    this.apiService.getRootNodes().subscribe((res) => {
-      console.log(res);
-      res.Data.forEach((data) => {
+    this.apiService.getRootNodes().subscribe((res: depotApiRes) => {
+      console.log(res.data);
+      res.data.forEach((rootNode: depot) => {
         let node = {
-          name: data.DepotContentName,
-          hasChildren: !data.IsMeasurements,
-          data: data,
+          name: rootNode.depotContentName,
+          hasChildren: !rootNode.isMeasurements,
+          data: rootNode,
         };
 
         this.treeNodes.push(node);

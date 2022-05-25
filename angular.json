@@ -68,7 +68,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "projectname:build"
+            "browserTarget": "projectname:build",
+            "port": 4200,
+            "poll": 2000,
+            "ssl": false,
+            "host": "xyz_server"
           },
           "configurations": {
             "production": {
