@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
   SelectedPageName: string;
   ChannelSelectionComponent: ChannelModalComponent;
   sendingJobCongfig: string = '';
+  selectedTabData: ChannelData;
 
   metaInfoHovered = '';
 
@@ -63,6 +64,13 @@ export class HomeComponent implements OnInit {
   subscription: Subscription;
   userName: string;
 
+  tabSelection(tabName: string) {
+    this.selectedCh = tabName;
+    this.selectedTabData = this.channelsData.filter(x => x.tabName == tabName)[0];
+  }
+
+
+
   ngOnInit(): void {
     // this.subscription = this.accountService.isUserAuthenticated.subscribe(
     //   (isAuthenticated) => {
@@ -79,7 +87,8 @@ export class HomeComponent implements OnInit {
     } else {
       this.apiService.getChannelsData().subscribe((data) => {
         this.channelsData = data.Data;
-        this.selectedCh = this.channelsData[0].tabName;
+        this.selectedCh = this.channelsData[0].tabName
+        this.selectedTabData = this.channelsData[0];
       });
     }
     //     } else {
@@ -94,6 +103,7 @@ export class HomeComponent implements OnInit {
     if (chData != null) {
       this.channelsData = JSON.parse(chData);
       this.selectedCh = this.channelsData[0].tabName;
+      this.selectedTabData = this.channelsData[0];
       // } else if (this.accountService.isUserAuthenticated) {
       //   this.accountService.login();
       // } else {
