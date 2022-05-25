@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   //apiUrl: 'https://wv1485:44392/api',
   apiUrl: 'http://localhost:3000/',
-  devEnv: 'local'   //local or remoteMachine
+  devEnv: 'remote', //local or remoteMachine
 };
 
 /*
