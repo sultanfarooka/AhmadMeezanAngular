@@ -72,7 +72,7 @@
             "port": 4200,
             "poll": 2000,
             "ssl": false,
-            "host": "localhost"
+            "host": "xyz_server"
           },
           "configurations": {
             "production": {
