@@ -543,6 +543,8 @@ export class HomeComponent implements OnInit {
                 .contentCollectionName == contentCollection
             ) {
               debugger;
+              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements == undefined)
+                this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements = []
               this.previousMeasurementsSelection =
                 this.channelsData[i].mainSections[j].__metaInfo[
                   k

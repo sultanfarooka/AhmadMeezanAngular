@@ -1,4 +1,4 @@
-export interface Page {
+export class Page {
   name: string;
   connectedPageName: string;
   selected: boolean;
@@ -10,38 +10,38 @@ export interface Page {
   selectedChannels: string[];
 }
 
-export interface DataSections {
+export class DataSections {
   name: string; //GROUP NAME
   pages: Page[];
 }
 
-export interface DataTypes {
+export class DataTypes {
   name: string; //e.g Overall Anly:
   dataSections: DataSections[];
   selected: boolean;
   __metaInfo: MetaInfo[];
 }
 
-export interface MainSection {
+export class MainSection {
   name: string; // e.g Single measurement / multiple....
   dataTypes: DataTypes[];
   __metaInfo: MetaInfo[];
 }
 
-export interface MetaInfo {
+export class MetaInfo {
   browseButtonName: string;
   contentCollectionName: string;
   aliasTable: string;
   processAllAtOnce: boolean;
-  selectedMeasurements: string[]; //depotContentId:
+  selectedMeasurements: string[] = []; //depotContentId:
 }
 
-export interface ChannelData {
+export class ChannelData {
   tabName: string;
   mainSections: MainSection[];
 }
 
-export interface ConfigRes {
+export class ConfigRes {
   sucess: boolean;
   Data: ChannelData[];
 }
@@ -49,13 +49,13 @@ export interface ConfigRes {
 
 
 
-export interface channelsRes {
+export class channelsRes {
   success: boolean;
   data: channelsData;
   errorMessage: string
 }
 
-export interface channelsData {
+export class channelsData {
   name: string;
   direction: string;
   mptype: string;
