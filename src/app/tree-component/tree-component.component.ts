@@ -91,7 +91,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     event.node.data.children.forEach((node: any) => {
       if (
         this.previousSelections.findIndex(
-          (x) => x == node.data.depotContentId
+          (x) => x == node.data.DepotContentId
         ) != -1
       ) {
         this.tree.treeModel
@@ -110,7 +110,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   onDeselect(event: any): void {
     this.selectionCount = event.treeModel.selectedLeafNodes.length;
-    this.removeMeasuremets.emit(event.node.data.data.depotContentId);
+    this.removeMeasuremets.emit(event.node.data.data.DepotContentId);
   }
 
   //GET ROOT NODES FOR THE TREE
