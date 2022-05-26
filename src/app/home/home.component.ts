@@ -9,7 +9,7 @@ import {
   faSliders,
   faRuler
 } from '@fortawesome/free-solid-svg-icons';
-import { ChannelData, MetaInfo } from '../Models/channelModel';
+import { ChannelData, MetaInfo, Page } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
 import { AccountService } from '../oauth/account.service';
 import { Subscription } from 'rxjs-compat/Subscription';
@@ -657,13 +657,11 @@ export class HomeComponent implements OnInit {
     return [];
   }
 
-  async openChannelModal(SelectedPage: string) {
+  async openChannelModal(SelectedPage: Page, metaInfo: MetaInfo) {
     console.log('Responding');
-    this.SelectedChannelForDatatype = await this.getPreviouslySelectedChannels(
-      SelectedPage
-    );
-    this.previousMeasurementsSelection = await this.getPrevSaveMeasurement('');
-    this.SelectedPageName = SelectedPage;
+    this.SelectedChannelForDatatype = SelectedPage.selectedChannels
+    this.previousMeasurementsSelection = metaInfo.selectedMeasurements;
+    this.SelectedPageName = SelectedPage.name;
 
     this.ModalComp.ngOnInit();
   }

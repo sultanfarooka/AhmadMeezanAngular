@@ -1,5 +1,6 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LoadingComponent } from '@circlon/angular-tree-component';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -58,34 +59,9 @@ export class ChannelModalComponent implements OnInit {
   }
 
 
-  ngOnChanges() {
+  // ngOnChanges() {
 
-    if (this.previousMeasurementsSelection.length == 0) {
-      this.no_measurements = true;
-      this.loading = false;
-      return;
-    }
-    else {
-
-      setTimeout(() => {
-        this.apiService.getChannels(this.previousMeasurementsSelection).subscribe((data) => {
-          this.channel_Data = data.data;
-        });
-        this.loading = false
-      }, 3000);
-    }
-
-  }
-
-
-
-
-
-  ngOnInit() { }
-
-
-
-  //   if (this.previousMeasurementsSelection.length < 0) {
+  //   if (this.previousMeasurementsSelection.length == 0) {
   //     this.no_measurements = true;
   //     this.loading = false;
   //     return;
@@ -93,13 +69,39 @@ export class ChannelModalComponent implements OnInit {
   //   else {
 
   //     setTimeout(() => {
-  //       this.apiService.getChannels([]).subscribe((data) => {
+  //       this.apiService.getChannels(this.previousMeasurementsSelection).subscribe((data) => {
   //         this.channel_Data = data.data;
   //       });
   //       this.loading = false
   //     }, 3000);
   //   }
+
   // }
+
+
+
+
+
+  ngOnInit() {
+    if (this.previousMeasurementsSelection.length == 0) {
+      this.no_measurements = true;
+      this.loading = false;
+      return;
+    }
+    else {
+      this.loading = true
+      setTimeout(() => {
+        this.apiService.getChannels(this.previousMeasurementsSelection).subscribe((data) => {
+          this.channel_Data = data.data;
+        });
+        this.loading = false
+      }, 3000);
+    }
+  }
+
+
+
+
 
 
   saveSelection() {
