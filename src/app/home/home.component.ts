@@ -349,8 +349,7 @@ export class HomeComponent implements OnInit {
       for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
         //checking the main sections for metaInfo
         if (
-          this.channelsData[i].mainSections[j].name ==
-          'Single Measuremens / Compare Positions'
+          this.channelsData[i].mainSections[j].__metaInfo != undefined
         ) {
           //looping on the _metaInfo array
           for (
@@ -382,10 +381,7 @@ export class HomeComponent implements OnInit {
         }
 
         //Incase of the multiple measurements
-        else if (
-          this.channelsData[i].mainSections[j].name ==
-          'Multiple Measuremens / Compare Measuremens'
-        ) {
+        else {
           //looping over the datatypes
           for (
             let l = 0;
@@ -436,8 +432,7 @@ export class HomeComponent implements OnInit {
       for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
         //checking the main sections for metaInfo
         if (
-          this.channelsData[i].mainSections[j].name ==
-          'Single Measuremens / Compare Positions'
+          this.channelsData[i].mainSections[j].__metaInfo != undefined
         ) {
           //looping on the _metaInfo array
           for (
@@ -473,10 +468,7 @@ export class HomeComponent implements OnInit {
         }
 
         //Incase of the multiple measurements
-        else if (
-          this.channelsData[i].mainSections[j].name ==
-          'Multiple Measuremens / Compare Measuremens'
-        ) {
+        else {
           //looping over the datatypes
           for (
             let l = 0;
