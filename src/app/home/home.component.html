@@ -232,7 +232,7 @@
                         [ngClass]="
                           !page.selected ? 'btn-disabled' : 'btn-primary'
                         "
-                        (click)="openChannelModal(page.name)"
+                        (click)="openChannelModal(page, mSection.__metaInfo[0])"
                         ><fa-icon
                           [icon]="SelectedChannelIcon"
                           size="lg"
@@ -393,7 +393,7 @@
                       [attr.data-tip]="
                         dataSection.pages[idx].channelSelectionText
                       "
-                      (click)="openChannelModal(page.name)"
+                      (click)="openChannelModal(page, dataTypes.__metaInfo[0])"
                       [ngClass]="
                         !page.selected ? 'btn-disabled' : 'btn-primary'
                       "
