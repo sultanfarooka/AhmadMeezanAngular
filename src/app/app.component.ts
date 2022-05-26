@@ -16,7 +16,7 @@ import {
   faArrowsRotate,
   faFileArrowUp,
   faFileArrowDown,
-  faClipboardList
+  faClipboardList,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     private apiService: ApiService,
     private accountService: AccountService,
     private router: Router
-  ) { }
+  ) {}
 
   HomeCompChild: HomeComponent;
 
@@ -114,7 +114,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     // this.apiService.getUserName().subscribe((data: userNameRes) => {
     //   this.userName = data.Data;
     // });
