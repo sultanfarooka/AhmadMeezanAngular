@@ -5,75 +5,75 @@
     },
     "rootNodes": {
         "success": true,
-        "data": [
+        "Data": [
             {
-                "isMeasurements": false,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198",
-                "depotContentType": "Depot",
-                "depotContentName": "Examples",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/"
+                "IsMeasurements": false,
+                "DepotContentType": "Depot",
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198",
+                "DepotContentName": "Examples",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/"
             },
             {
-                "isMeasurements": false,
-                "depotContentId": "d1c65828-329d-46f5-91aa-5b6df0dd5a91",
-                "depotContentType": "Depot",
-                "depotContentName": "PAKcloud_Import",
-                "depotContentBrowseURL": "d1c65828-329d-46f5-91aa-5b6df0dd5a91/browse/"
+                "IsMeasurements": false,
+                "DepotContentId": "d1c65828-329d-46f5-91aa-5b6df0dd5a91",
+                "DepotContentType": "Depot",
+                "DepotContentName": "PAKcloud_Import",
+                "DepotContentBrowseURL": "d1c65828-329d-46f5-91aa-5b6df0dd5a91/browse/"
             }
         ],
         "errorMessage": null
     },
     "childNodes": {
         "success": true,
-        "data": [
+        "Data": [
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Beetle_TP_G2",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Beetle_TP_G2",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2.Down1",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Beetle_TP_G2.Down1",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2.Down1/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2.Down1",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Beetle_TP_G2.Down1",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2.Down1/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2.Up1",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Beetle_TP_G2.Up1",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2.Up1/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Beetle_TP_G2.Up1",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Beetle_TP_G2.Up1",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Beetle_TP_G2.Up1/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Compens_TP_G2",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Compens_TP_G2",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Compens_TP_G2/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Compens_TP_G2",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Compens_TP_G2",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Compens_TP_G2/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/L_Original_G2_TP",
-                "depotContentType": "Subtitle",
-                "depotContentName": "L_Original_G2_TP",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/L_Original_G2_TP/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/L_Original_G2_TP",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "L_Original_G2_TP",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/L_Original_G2_TP/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Original_TP_G2",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Original_TP_G2",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Original_TP_G2/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Original_TP_G2",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Original_TP_G2",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Original_TP_G2/"
             },
             {
-                "isMeasurements": true,
-                "depotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Roadster6_TP_G2",
-                "depotContentType": "Subtitle",
-                "depotContentName": "Roadster6_TP_G2",
-                "depotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Roadster6_TP_G2/"
+                "IsMeasurements": true,
+                "DepotContentId": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/Examples/ExampleASD/Roadster6_TP_G2",
+                "DepotContentType": "Subtitle",
+                "DepotContentName": "Roadster6_TP_G2",
+                "DepotContentBrowseURL": "1f0371e9-2060-4e6e-99fd-e9c1776c0198/browse/Examples/ExampleASD/Roadster6_TP_G2/"
             }
         ],
         "errorMessage": null

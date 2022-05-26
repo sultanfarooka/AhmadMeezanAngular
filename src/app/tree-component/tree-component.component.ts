@@ -29,7 +29,7 @@ import { depotApiRes, depot } from '../models/depotModels';
   encapsulation: ViewEncapsulation.None,
 })
 export class TreeComponentComponent implements OnInit, OnChanges {
-  constructor(public apiService: ApiService) {}
+  constructor(public apiService: ApiService) { }
 
   //OPEN OR CLOSED STATE OF TREE PANEL PASSED FROM THE PARENT COMPONENT
   @Input() MeasurementPanel = false;
@@ -105,7 +105,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
 
   onSelect(event: any): void {
     this.selectionCount = event.treeModel.selectedLeafNodes.length;
-    this.addMeasuremets.emit(event.node.data.data.depotContentId);
+    this.addMeasuremets.emit(event.node.data.data.DepotContentId);
   }
 
   onDeselect(event: any): void {
@@ -131,7 +131,7 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     this.loading = false;
   }
 
-  loadChildNodes() {}
+  loadChildNodes() { }
 
   //TO GET NEW TREE OBJECT EVERY TIME TREE OPENS
   ngOnChanges() {
@@ -145,5 +145,5 @@ export class TreeComponentComponent implements OnInit, OnChanges {
     this.closeMeasurementPanelEvent.emit();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

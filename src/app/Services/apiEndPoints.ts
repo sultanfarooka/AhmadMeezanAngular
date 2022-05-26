@@ -13,7 +13,7 @@ export const apiEndPointsDev = {
   baseURL: 'https://xyz_server:44382', // while using proxy use . as base url
 
   measurementTreeNodesApi: '/api/PAKcloud/browseCloud',
-  measurementTreeChildNodesApi2: 'http://localhost:3000/childNodes',
+  measurementTreeChildNodesApi: '/api/PAKcloud/browseCloud',
   // channelsDataApi: '/api/PAKcloud/getMeasurements/',
   channelsDataApi: '/api/Config/getUIMapping',
   userName: '/api/PAKcloud/getAuthUser',
@@ -28,7 +28,7 @@ export const apiEndPointsDev = {
 export const apiEndPointsLocalDev = {
   baseURL: 'http://localhost:3000/', //
   measurementTreeNodesApi: 'rootNodes',
-  measurementTreeChildNodesApi2: 'childNodes',
+  measurementTreeChildNodesApi: 'childNodes',
   getChannels: 'getChannels',
   channelsDataApi: 'channelsData',
   userName: 'username',

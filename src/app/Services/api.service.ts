@@ -87,7 +87,7 @@ export class ApiService {
   getChilNodes(depotContentBrowseURL: string): Observable<depotApiRes> {
     return this.http
       .get<depotApiRes>(
-        this.apiEndPoint.baseURL + this.apiEndPoint.measurementTreeNodesApi,
+        this.apiEndPoint.baseURL + this.apiEndPoint.measurementTreeChildNodesApi,
         {
           params: {
             browseUrl: depotContentBrowseURL,
