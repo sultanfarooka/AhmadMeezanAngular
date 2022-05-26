@@ -64,10 +64,10 @@ export class TreeComponentComponent implements OnInit, OnChanges {
         this.apiService
           .getChilNodes(selectedNode.data.data.DepotContentBrowseURL)
           .subscribe((res) => {
-            res.data.forEach((data) => {
+            res.Data.forEach((data) => {
               let node = {
-                name: data.depotContentName,
-                hasChildren: !data.isMeasurements,
+                name: data.DepotContentName,
+                hasChildren: !data.IsMeasurements,
                 data: data,
                 selected: true,
               };
@@ -117,11 +117,11 @@ export class TreeComponentComponent implements OnInit, OnChanges {
   loadRootNodes() {
     //Call service where api is called for tree root nodes
     this.apiService.getRootNodes().subscribe((res: depotApiRes) => {
-      console.log(res.data);
-      res.data.forEach((rootNode: depot) => {
+      console.log(res.Data);
+      res.Data.forEach((rootNode: depot) => {
         let node = {
-          name: rootNode.depotContentName,
-          hasChildren: !rootNode.isMeasurements,
+          name: rootNode.DepotContentName,
+          hasChildren: !rootNode.IsMeasurements,
           data: rootNode,
         };
 
