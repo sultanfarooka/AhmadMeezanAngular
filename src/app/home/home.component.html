@@ -256,7 +256,9 @@
             >
               <div class="indicator" *ngFor="let mInfo of mSection.__metaInfo">
                 <span class="indicator-item badge badge-sm badge-ghost">{{
-                  mInfo.selectedMeasurements.length
+                  mInfo.selectedMeasurements
+                    ? mInfo.selectedMeasurements.length
+                    : 0
                 }}</span>
                 <button
                   (click)="openMeasurementTree(mInfo.contentCollectionName)"
@@ -391,6 +393,7 @@
                       [attr.data-tip]="
                         dataSection.pages[idx].channelSelectionText
                       "
+                      (click)="openChannelModal(page.name)"
                       [ngClass]="
                         !page.selected ? 'btn-disabled' : 'btn-primary'
                       "
@@ -433,7 +436,7 @@
             class="w-auto pt-4 h-full border-l border-base-300 transition-all duration-700 hover:border hover:absolute hover:right-0"
             (mouseenter)="metaInfoHovered = dataTypes.name"
             (mouseleave)="metaInfoHovered = ''"
-            [ngClass]="dataTypes.selected ? '' : 'hidden'"
+            *ngIf="dataTypes.selected"
             [ngClass]="
               metaInfoHovered === dataTypes.name ? '' : 'inheritHeight'
             "
@@ -443,7 +446,9 @@
             >
               <div class="indicator" *ngFor="let mInfo of dataTypes.__metaInfo">
                 <span class="indicator-item badge badge-sm badge-ghost">{{
-                  mInfo.selectedMeasurements.length
+                  mInfo.selectedMeasurements
+                    ? mInfo.selectedMeasurements.length
+                    : 0
                 }}</span>
                 <button
                   (click)="openMeasurementTree(mInfo.contentCollectionName)"
