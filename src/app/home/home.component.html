@@ -261,7 +261,7 @@
                     : 0
                 }}</span>
                 <button
-                  (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                  (click)="openMeasurementTree(mInfo)"
                   class="btn w-max-16 h-auto btn-xs transition-all duration-400"
                   [ngClass]="
                     metaInfoHovered !== mSection.name
@@ -448,7 +448,7 @@
                   mInfo.selectedMeasurements.length
                 }}</span>
                 <button
-                  (click)="openMeasurementTree(mInfo.contentCollectionName)"
+                  (click)="openMeasurementTree(mInfo)"
                   class="btn w-max-16 h-auto btn-xs transition-all duration-400"
                   [ngClass]="
                     metaInfoHovered !== dataTypes.name

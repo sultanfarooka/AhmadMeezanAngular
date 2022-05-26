@@ -9,7 +9,7 @@ import {
   faSliders,
   faRuler
 } from '@fortawesome/free-solid-svg-icons';
-import { ChannelData } from '../Models/channelModel';
+import { ChannelData, MetaInfo } from '../Models/channelModel';
 import { ApiService } from '../services/api.service';
 import { AccountService } from '../oauth/account.service';
 import { Subscription } from 'rxjs-compat/Subscription';
@@ -118,11 +118,17 @@ export class HomeComponent implements OnInit {
     this.accountService.login();
   }
 
-  openMeasurementTree(contentCollection: string) {
+  openMeasurementTree(metaInfo: MetaInfo) {
     this.TreePanel = true;
-    this.selectedContentCollection = contentCollection;
+    this.selectedContentCollection = metaInfo.contentCollectionName;
 
-    this.GetPreviousdMeasurementsSelection(contentCollection);
+
+    if (metaInfo.selectedMeasurements == undefined)
+      metaInfo.selectedMeasurements = [];
+
+    this.previousMeasurementsSelection = metaInfo.selectedMeasurements
+
+    //this.GetPreviousdMeasurementsSelection(contentCollection);
   }
 
   // Downloading the selected channel into a text file
@@ -520,80 +526,45 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  GetPreviousdMeasurementsSelection(contentCollection: string) {
-    let found = false;
-    //looping on the configurations
-    for (let i = 0; i < this.channelsData.length; i++) {
-      //looping on mainsections
-      for (let j = 0; j < this.channelsData[i].mainSections.length; j++) {
-        //checking the main sections for metaInfo
-        if (
-          this.channelsData[i].mainSections[j].name ==
-          'Single Measuremens / Compare Positions'
-        ) {
-          //looping on the _metaInfo array
-          for (
-            let k = 0;
-            k < this.channelsData[i].mainSections[j].__metaInfo.length;
-            k++
-          ) {
-            //checking for the Content collection name
-            if (
-              this.channelsData[i].mainSections[j].__metaInfo[k]
-                .contentCollectionName == contentCollection
-            ) {
-              debugger;
-              if (this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements == undefined)
-                this.channelsData[i].mainSections[j].__metaInfo[k].selectedMeasurements = []
-              this.previousMeasurementsSelection =
-                this.channelsData[i].mainSections[j].__metaInfo[
-                  k
-                ].selectedMeasurements;
-              found = true;
-            }
-            if (found) break;
-          }
-        }
+  GetPreviousdMeasurementsSelection(metaInfo: MetaInfo) {
 
-        //Incase of the multiple measurements
-        else if (
-          this.channelsData[i].mainSections[j].name ==
-          'Multiple Measuremens / Compare Measuremens'
-        ) {
-          //looping over the datatypes
-          for (
-            let l = 0;
-            l < this.channelsData[i].mainSections[j].dataTypes.length;
-            l++
-          ) {
-            //looping on the metainfo
-            for (
-              let m = 0;
-              m <
-              this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo
-                .length;
-              m++
-            ) {
-              //checking for the same _meta Object
-              if (
-                this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[m]
-                  .contentCollectionName == contentCollection
-              ) {
-                this.previousMeasurementsSelection =
-                  this.channelsData[i].mainSections[j].dataTypes[l].__metaInfo[
-                    m
-                  ].selectedMeasurements;
-              }
-            }
-          }
-        }
+    if (metaInfo.selectedMeasurements == undefined)
+      metaInfo.selectedMeasurements = [];
 
-        if (found) break;
-      }
-      if (found) break;
-    }
+    this.previousMeasurementsSelection = metaInfo.selectedMeasurements
 
-    found = false;
+
+
+    // let found = false;
+    // let selectedChs: string[] = [];
+    // this.channelsData.forEach((chData) => {
+    //   chData.mainSections.forEach((mainSec) => {
+    //     if(mainSec.__metaInfo != undefined){
+    //       mainSec.__metaInfo.forEach(metaInfo => {
+    //         if(metaInfo.contentCollectionName == contentCollection){
+
+    //         }
+    //       });
+    //     }
+    //     mainSec.dataTypes.forEach((dTypes) => {
+    //       dTypes.dataSections.forEach((dataSec) => {
+    //         dataSec.pages.forEach((page) => {
+    //           if (page.name == pageName) {
+    //             found = true;
+    //             selectedChs = page.selectedChannels;
+    //             return;
+    //           }
+    //         });
+    //         if (found) return;
+    //       });
+    //       if (found) return;
+    //     });
+    //     if (found) return;
+    //   });
+    //   if (found) return;
+    // });
+
+    // return selectedChs;
   }
 
   resetConfig() {
