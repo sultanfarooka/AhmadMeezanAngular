@@ -20,9 +20,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { HomeComponent } from './home/home.component';
+import { JobStatus } from './models/jobStatusModel';
 import { userNameRes } from './models/userNameModel';
 import { AccountService } from './oauth/account.service';
 import { ApiService } from './services/api.service';
+import { JobStatusService } from './services/job-status.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +35,8 @@ export class AppComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    public jobStatusService: JobStatusService
   ) {}
 
   HomeCompChild: HomeComponent;
@@ -65,6 +68,7 @@ export class AppComponent implements OnInit {
   saveConfigIcon = faFileArrowDown;
   loadConfigIcon = faFileArrowUp;
   resetSelection = faArrowsRotate;
+  JobStatus1: JobStatus[]
 
   themes = [
     'light',
@@ -124,6 +128,17 @@ export class AppComponent implements OnInit {
         if (this.isUserAuthenticated == true) {
           this.apiService.getUserName().subscribe((data: userNameRes) => {
             this.userName = data.Data;
+
+            this.jobStatusService.startConnection();
+
+    this.jobStatusService.hubConnection.on(
+      'JobsList',
+      (status: JobStatus[]) => {
+        console.log(status);
+        this.JobStatus1 = status;
+        console.log(this.JobStatus1);
+      }
+    );
           });
         }
       }

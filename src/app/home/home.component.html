@@ -147,11 +147,11 @@
                 </div>
                 <div
                   *ngIf="dataTypes.selected == true"
-                  class="flex items-center bg-base-300"
+                  class="flex items-center bg-base-100"
                 >
                   <input
                     type="checkbox"
-                    class="toggle toggle-xs"
+                    class="checkbox checkbox-xs checkbox-primary"
                     (change)="selectAllToggle($event, dataTypes.name)"
                   />
                   <p class="text-sm px-1">Select All</p>
@@ -170,6 +170,7 @@
                   <div
                     *ngFor="let dataSection of dataTypes.dataSections"
                     class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2 m-1"
+                    
                   >
                     <p
                       *ngIf="dataSection.name"
@@ -181,7 +182,8 @@
                     <!-- Pages  -->
                     <div
                       *ngFor="let page of dataSection.pages; let idx = index"
-                      class="flex flex-wrap items-center p-1 space-x-1 space-y-1 bg-base-100"
+                      class="flex flex-wrap items-center p-1 space-x-1 space-y-1 border border-base-300 "
+                      [ngClass]="dataSection.pages[idx].selected ? 'bg-green-300':'bg-base-100' "
                       [ngClass]="
                         dataSection.pages.length > 1 ? 'border-b' : 'border'
                       "
@@ -312,11 +314,11 @@
               </div>
               <div
                 *ngIf="dataTypes.selected"
-                class="flex items-center bg-base-300"
+                class="flex items-center bg-base-100"
               >
                 <input
                   type="checkbox"
-                  class="toggle toggle-xs"
+                  class="checkbox checkbox-xs checkbox-primary"
                   (change)="selectAllToggle($event, dataTypes.name)"
                 />
                 <p class="text-sm px-1">Select All</p>
@@ -348,6 +350,7 @@
                   <div
                     *ngFor="let page of dataSection.pages; let idx = index"
                     class="flex flex-wrap items-center p-1 space-x-1 space-y-1"
+                    [ngClass]="dataSection.pages[idx].selected ? 'bg-green-300':'bg-base-100' "
                     [ngClass]="dataSection.pages.length > 1 ? 'border-b' : ''"
                   >
                     <!-- <div class="w-full flex items-center p-1 space-x-2"> -->

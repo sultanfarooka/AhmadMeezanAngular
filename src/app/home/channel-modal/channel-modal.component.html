@@ -2,10 +2,10 @@
   <div class="w-full h-full">
     <h3 class="font-bold text-lg">Channel Selection</h3>
     <div class="w-full p-6 drop-shadow-sm">
-      <div *ngIf="loading" class="h-full flex justify-center pt-4">
+      <div *ngIf="loading && !no_measurements" class="h-full flex justify-center pt-4">
         <span class="animate-pulse">loading...</span>
       </div>
-      <div *ngIf="no_measurements" class="alert alert-error shadow-lg">
+      <div *ngIf="no_measurements && !loading" class="alert alert-error shadow-lg">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -5,3 +5,7 @@
 .inheritHeight{
     height: inherit;
 }
+.toggle:checked{
+    background-color: #5aa220;
+    border: 1px solid #5aa220
+}

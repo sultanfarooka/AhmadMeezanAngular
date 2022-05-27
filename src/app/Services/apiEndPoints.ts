@@ -17,7 +17,7 @@ export const apiEndPointsDev = {
   // channelsDataApi: '/api/PAKcloud/getMeasurements/',
   channelsDataApi: '/api/Config/getUIMapping',
   userName: '/api/PAKcloud/getAuthUser',
-  getChannels: '',
+  getChannels: '/api/PAKcloud/getMeasurementChannels',
 
   //authentication endPoints
   isAuthenticated: '/api/pakcloud/IsAuthenticated',
