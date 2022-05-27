@@ -16,6 +16,8 @@ import { Subscription } from 'rxjs-compat/Subscription';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ChannelModalComponent } from './channel-modal/channel-modal.component';
+import { JobStatus } from '../models/jobStatusModel';
+import { JobStatusService } from '../services/job-status.service';
 
 @Component({
   selector: 'app-home',
@@ -69,7 +71,7 @@ export class HomeComponent implements OnInit {
     this.selectedTabData = this.channelsData.filter(x => x.tabName == tabName)[0];
   }
 
-
+  
 
   ngOnInit(): void {
     // this.subscription = this.accountService.isUserAuthenticated.subscribe(
@@ -91,6 +93,7 @@ export class HomeComponent implements OnInit {
         this.selectedTabData = this.channelsData[0];
       });
     }
+    
     //     } else {
     //       alert('user not logged in yet');
     //     }
@@ -660,6 +663,8 @@ export class HomeComponent implements OnInit {
   async openChannelModal(SelectedPage: Page, metaInfo: MetaInfo) {
     console.log('Responding');
     this.SelectedChannelForDatatype = SelectedPage.selectedChannels
+    if(metaInfo.selectedMeasurements == undefined)
+      metaInfo.selectedMeasurements = [];
     this.previousMeasurementsSelection = metaInfo.selectedMeasurements;
     this.SelectedPageName = SelectedPage.name;
 
